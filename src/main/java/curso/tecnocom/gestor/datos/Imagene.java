@@ -1,23 +1,30 @@
 package curso.tecnocom.gestor.datos;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the imagenes database table.
  * 
  */
 @Entity
-@Table(name="imagenes")
-@NamedQuery(name="Imagene.findAll", query="SELECT i FROM Imagene i")
+@Table(name = "imagenes")
+@NamedQuery(name = "Imagene.findAll", query = "SELECT i FROM Imagene i")
 public class Imagene implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	private int banner;
 
@@ -26,26 +33,26 @@ public class Imagene implements Serializable {
 
 	private String nombre;
 
-	//bi-directional many-to-one association to Menu
-	@OneToMany(mappedBy="imagene")
+	// bi-directional many-to-one association to Menu
+	@OneToMany(mappedBy = "imagene")
 	private Set<Menu> menus;
 
-	//bi-directional many-to-one association to Destacado
-	@OneToMany(mappedBy="imagene")
+	// bi-directional many-to-one association to Destacado
+	@OneToMany(mappedBy = "imagene")
 	private Set<Destacado> destacados;
 
-	//bi-directional many-to-one association to Noticia
-	@OneToMany(mappedBy="imagene")
+	// bi-directional many-to-one association to Noticia
+	@OneToMany(mappedBy = "imagene")
 	private Set<Noticia> noticias;
 
-	//bi-directional many-to-one association to Principale
-	@OneToMany(mappedBy="imagene")
+	// bi-directional many-to-one association to Principale
+	@OneToMany(mappedBy = "imagene")
 	private Set<Principale> principales;
 
 	public Imagene() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -163,6 +170,16 @@ public class Imagene implements Serializable {
 		principale.setImagene(null);
 
 		return principale;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Imagene i = (Imagene) obj;
+			return this.getId().equals(i.getId());
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }
