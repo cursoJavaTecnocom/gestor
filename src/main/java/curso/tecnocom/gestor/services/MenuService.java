@@ -39,7 +39,7 @@ public class MenuService {
 
 	public Object dameObjeto(int id) throws Exception {
 		Method metodo = getMenuDao().getClass().getMethod("dameObjeto",
-				int.class, Menu.class);
+				int.class);
 		return metodo.invoke(getMenuDao(), id);
 	}
 
