@@ -5,9 +5,11 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import curso.tecnocom.gestor.daos.DestacadosDao;
 
+@Service
 public class DestacadosService {
 
 	/***** Propiedades de la clase *****/

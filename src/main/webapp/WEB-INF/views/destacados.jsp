@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Página Destacados</title>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/empresa.js"></script>
+<script type="text/javascript" src="js/destacados.js"></script>
+
 </head>
 <body>
 	<jsp:include page="seguridad.jsp"></jsp:include>

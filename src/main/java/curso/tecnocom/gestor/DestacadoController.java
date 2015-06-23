@@ -18,11 +18,12 @@ public class DestacadoController {
 	
 	@Autowired
 	private DestacadosDelegate destacadosDelegate;
-	
+
 	@RequestMapping( value = "/", method = RequestMethod.GET )
 	public String home() {
 		return "destacados";
 	}
+
 	
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
@@ -36,6 +37,43 @@ public class DestacadoController {
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
+	}
+	
+	@RequestMapping("borraDestacado.gin")
+	public ModelAndView borraDestacado(int id)
+	{
+		try {
+			getDestacadosDelegate().borraObjeto(id, Destacado.class);
+			return destacados();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+	}
+	
+	@RequestMapping("modificaDestacado.gin")
+	public ModelAndView modificaDestacado(int id)
+	{
+		Destacado destacado = null;
+		if(id==0)
+		{
+			destacado = new Destacado();
+		}
+		try {
+			if (id > 0)
+			{
+				destacado = (Destacado) getDestacadosDelegate().recuperaObjeto(id, Destacado.class);
+			}
+			ModelAndView salida = new ModelAndView("modificaDestacado");
+			salida.addObject("destacado",destacado);
+			return salida;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+		
 	}
 
 	public DestacadosDelegate getDestacadosDelegate() {
