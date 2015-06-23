@@ -37,6 +37,19 @@ public class DestacadoController {
 			return new ModelAndView("error");
 		}
 	}
+	
+	@RequestMapping("borraDestacado.gin")
+	public ModelAndView borraDestacado(int id)
+	{
+		try {
+			getDestacadosDelegate().borraObjeto(id, Destacado.class);
+			return destacados();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+	}
 
 	public DestacadosDelegate getDestacadosDelegate() {
 		return destacadosDelegate;
