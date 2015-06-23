@@ -13,9 +13,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ContenidoDao {
 
-	@Autowired
+	
 	private Session sesion;
 	
+	@Autowired
 	private SessionFactory factoria;
 	
 	public List<?> dameDatos(Class<?> clase) throws Exception{
