@@ -1,49 +1,56 @@
 package curso.tecnocom.gestor.datos;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the contenidos database table.
  * 
  */
 @Entity
-@Table(name="contenidos")
-@NamedQuery(name="Contenido.findAll", query="SELECT c FROM Contenido c")
+@Table(name = "contenidos")
+@NamedQuery(name = "Contenido.findAll", query = "SELECT c FROM Contenido c")
 public class Contenido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Lob
 	private String contenido;
 
 	private String descripcion;
 
-	//bi-directional many-to-one association to Menu
-	@OneToMany(mappedBy="contenido")
+	// bi-directional many-to-one association to Menu
+	@OneToMany(mappedBy = "contenido")
 	private Set<Menu> menus;
 
-	//bi-directional many-to-one association to Destacado
-	@OneToMany(mappedBy="contenido")
+	// bi-directional many-to-one association to Destacado
+	@OneToMany(mappedBy = "contenido")
 	private Set<Destacado> destacados;
 
-	//bi-directional many-to-one association to Noticia
-	@OneToMany(mappedBy="contenido")
+	// bi-directional many-to-one association to Noticia
+	@OneToMany(mappedBy = "contenido")
 	private Set<Noticia> noticias;
 
-	//bi-directional many-to-one association to Principale
-	@OneToMany(mappedBy="contenido")
+	// bi-directional many-to-one association to Principale
+	@OneToMany(mappedBy = "contenido")
 	private Set<Principale> principales;
 
 	public Contenido() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -153,6 +160,16 @@ public class Contenido implements Serializable {
 		principale.setContenido(null);
 
 		return principale;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Contenido i = (Contenido) obj;
+			return this.getId().equals(i.getId());
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

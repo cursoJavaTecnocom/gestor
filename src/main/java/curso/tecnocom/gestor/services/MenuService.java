@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import curso.tecnocom.gestor.daos.MenuDao;
-import curso.tecnocom.gestor.datos.Menu;
 
 @Service
 public class MenuService {

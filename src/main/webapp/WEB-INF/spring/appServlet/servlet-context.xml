@@ -28,7 +28,7 @@
 	<beans:bean name="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
-		<beans:property name="packagesToScan" value="datos"></beans:property>
+		<beans:property name="packagesToScan" value="curso.tecnocom.gestor.datos"></beans:property>
 		<beans:property name="hibernateProperties">
 			<beans:props> 
 				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
