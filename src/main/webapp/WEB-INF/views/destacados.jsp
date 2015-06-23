@@ -5,17 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Página Destacados</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/empresa.js"></script>
 </head>
 <body>
 	
 	<h1>Destacados</h1>
+	<br><a href="modificaDestacado.gin?id=0">Alta de Destacados</a>
 	<table border="1">
 		
 		<tr>
-			<th>T&iacute;tulo</th>
-			<th>Modificar</th>
-			<th>Acci&oacute;n</th>
+			<th>Título</th>
+			<th>Texto</th>
+			<th>Acción</th>
 		</tr>
 		
 		<c:forEach items="${destacados}" var="destacado">
