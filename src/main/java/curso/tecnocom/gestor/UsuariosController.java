@@ -28,7 +28,12 @@ public class UsuariosController {
 		List<Usuario> usuarios = getUsuarioDelegate().dameDatos(Usuario.class);
 		Set<Usuario> usuariosordenados= TreeSet<Usuario>();
 		
-		for(Usuario usuario : usuarios)
+		for(Usuario usuario : usuarios){
+			usuariosordenados.add(usuario);
+		}
+			ModelAndView salida= ModelAndView("usuarios");
+			salida.addObject("usuario", usuariosordenados);
+			
 		
 		
 		
