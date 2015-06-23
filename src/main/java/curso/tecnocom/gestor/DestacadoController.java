@@ -67,7 +67,7 @@ public class DestacadoController {
 			salida.addObject("destacado",destacado);
 			return salida;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			//   TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
