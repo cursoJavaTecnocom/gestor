@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.delegates.ContenidoDelegate;
 
-@Controller
+@Controller 
 public class ContenidoController {
 
 	private static final Logger logger = LoggerFactory
