@@ -8,15 +8,17 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import curso.tecnocom.gestor.datos.Menu;
+
 @Repository
 public class MenuDao {
 	@Autowired
 	private SessionFactory factoria;
 	private Session sesion;
 
-	public List<?> dameDatos(Class<?> clase) throws Exception {
+	public List<?> dameDatos() throws Exception {
 		setSesion(getFactoria().openSession());
-		Criteria cri = getSesion().createCriteria(clase);
+		Criteria cri = getSesion().createCriteria(Menu.class);
 		return cri.list();
 	}
 
@@ -36,9 +38,9 @@ public class MenuDao {
 		this.sesion = sesion;
 	}
 
-	public void borrar(int id, Class<?> clase) throws Exception {
+	public void borrar(int id) throws Exception {
 		setSesion(getFactoria().openSession());
-		Object gestor = getSesion().load(clase, id);
+		Object gestor = getSesion().load(Menu.class, id);
 		getSesion().delete(gestor);
 		getSesion().getTransaction().begin();
 		getSesion().getTransaction().commit();
@@ -51,8 +53,8 @@ public class MenuDao {
 		getSesion().getTransaction().commit();
 	}
 
-	public Object dameObjeto(int id, Class<?> clase) throws Exception {
+	public Object dameObjeto(int id) throws Exception {
 		setSesion(getFactoria().openSession());
-		return getSesion().load(clase, id);
+		return getSesion().load(Menu.class, id);
 	}
 }

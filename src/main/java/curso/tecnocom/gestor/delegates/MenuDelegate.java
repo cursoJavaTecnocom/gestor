@@ -19,16 +19,16 @@ public class MenuDelegate {
 		this.menuService = menuService;
 	}
 
-	public List<?> dameDatos(Class<?> clase) throws Exception {
-		return getMenuService().dameDatos(clase);
+	public List<?> dameDatos() throws Exception {
+		return getMenuService().dameDatos();
 	}
 
-	public void borrar(int id, Class<?> clase) throws Exception {
-		getMenuService().borrar(id, clase);
+	public void borrar(int id) throws Exception {
+		getMenuService().borrar(id);
 	}
 
-	public Object dameObjeto(int id, Class<?> class1) throws Exception {
-		return getMenuService().dameObjeto(id, class1);
+	public Object dameObjeto(int id) throws Exception {
+		return getMenuService().dameObjeto(id);
 	}
 
 	public void modificaObjeto(Object mod) throws Exception {
