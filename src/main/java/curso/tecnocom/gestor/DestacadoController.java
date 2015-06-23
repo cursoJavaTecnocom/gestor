@@ -60,10 +60,10 @@ public class DestacadoController {
 			destacado = new Destacado();
 		}
 		try {
-			if (id > 0)
-			{
+			//if (id > 0)
+			//{
 				destacado = (Destacado) getDestacadosDelegate().recuperaObjeto(id, Destacado.class);
-			}
+			//}
 			ModelAndView salida = new ModelAndView("modificaDestacado");
 			salida.addObject("destacado",destacado);
 			return salida;
