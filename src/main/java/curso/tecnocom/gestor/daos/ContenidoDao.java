@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ContenidoDao {
 
-	
 	private Session sesion;
 	
 	@Autowired
