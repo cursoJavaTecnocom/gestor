@@ -1,4 +1,4 @@
-package curso.tecnocoom.gestor.daos;
+package curso.tecnocom.gestor.daos;
 
 import java.util.List;
 
