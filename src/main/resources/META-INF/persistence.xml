@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="gestor">
+		<class>curso.tecnocom.gestor.datos.Menu</class>
+		<class>curso.tecnocom.gestor.datos.Contenido</class>
+		<class>curso.tecnocom.gestor.datos.DatosGlobale</class>
+		<class>curso.tecnocom.gestor.datos.Destacado</class>
+		<class>curso.tecnocom.gestor.datos.Imagene</class>
+		<class>curso.tecnocom.gestor.datos.Noticia</class>
+		<class>curso.tecnocom.gestor.datos.Principale</class>
+		<class>curso.tecnocom.gestor.datos.TipoMenu</class>
+		<class>curso.tecnocom.gestor.datos.Usuario</class>
+	</persistence-unit>
+</persistence>
