@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import curso.tecnocom.gestor.daos.MenuDao;
+import curso.tecnocom.gestor.datos.Menu;
 
 @Service
 public class MenuService {
@@ -30,17 +31,16 @@ public class MenuService {
 		return salida;
 	}
 
-	public void borrar(int id, Class<?> clase) throws Exception {
-		Method metodo = getMenuDao().getClass().getMethod("borrar", int.class,
-				Class.class);
-		metodo.invoke(getMenuDao(), id, clase);
+	public void borrar(int id) throws Exception {
+		Method metodo = getMenuDao().getClass().getMethod("borrar", int.class);
+		metodo.invoke(getMenuDao(), id);
 
 	}
 
-	public Object dameObjeto(int id, Class<?> class1) throws Exception {
+	public Object dameObjeto(int id) throws Exception {
 		Method metodo = getMenuDao().getClass().getMethod("dameObjeto",
-				int.class, Class.class);
-		return metodo.invoke(getMenuDao(), id, class1);
+				int.class, Menu.class);
+		return metodo.invoke(getMenuDao(), id);
 	}
 
 	public void modificaObjeto(Object mod) throws Exception {

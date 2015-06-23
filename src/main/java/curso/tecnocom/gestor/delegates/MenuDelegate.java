@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import curso.tecnocom.gestor.datos.Menu;
+import curso.tecnocom.gestor.datos.TipoMenu;
 import curso.tecnocom.gestor.services.MenuService;
 
 public class MenuDelegate {
@@ -19,16 +21,20 @@ public class MenuDelegate {
 		this.menuService = menuService;
 	}
 
-	public List<?> dameDatos(Class<?> clase) throws Exception {
-		return getMenuService().dameDatos(clase);
+	public List<?> dameMenus() throws Exception {
+		return getMenuService().dameDatos(Menu.class);
 	}
 
-	public void borrar(int id, Class<?> clase) throws Exception {
-		getMenuService().borrar(id, clase);
+	public List<?> dameTipoMenus() throws Exception {
+		return getMenuService().dameDatos(TipoMenu.class);
 	}
 
-	public Object dameObjeto(int id, Class<?> class1) throws Exception {
-		return getMenuService().dameObjeto(id, class1);
+	public void borrar(int id) throws Exception {
+		getMenuService().borrar(id);
+	}
+
+	public Object dameObjeto(int id) throws Exception {
+		return getMenuService().dameObjeto(id);
 	}
 
 	public void modificaObjeto(Object mod) throws Exception {
