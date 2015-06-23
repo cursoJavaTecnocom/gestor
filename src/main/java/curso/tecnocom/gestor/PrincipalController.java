@@ -20,6 +20,7 @@ import curso.tecnocom.gestor.delegates.PrincipalDelegate;
 
 
 
+
 @Controller
 public class PrincipalController {
 
@@ -43,7 +44,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	
-	@RequestMapping("principal.gin")	
+	@RequestMapping("principal.html")	
 	public ModelAndView principales()
 	{
 		List<Principale> principales;
@@ -70,10 +71,46 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-
+	@RequestMapping("modificaPrincipal.html")
+	public ModelAndView modificaPrincipal(int id)
+	{
+		Principale principal=null;
+		if(id==0)
+		{
+			principal=new Principale();
+		}
+		
+		
+		try {
+			if(id>0)
+			 principal=(Principale) getPrincipalDelegate().dameObjeto(id, Principale.class);			
+			ModelAndView salida=new ModelAndView("modificaPrincipal");
+			salida.addObject("principal",principal);
+			return salida;
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+	}
 
 	
-	
+	@RequestMapping("grabaPrincipal.html")
+	public ModelAndView grabaPrincipal(Principale principal)
+	{
+		
+		
+		try {
+			getPrincipalDelegate().grabaObjeto(principal);
+			return principales();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		return new ModelAndView("error");
+		}
+	}
 	
 	
 	
