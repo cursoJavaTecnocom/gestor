@@ -1,33 +1,38 @@
 package curso.tecnocom.gestor.datos;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  * The persistent class for the tipoMenu database table.
  * 
  */
 @Entity
-@NamedQuery(name="TipoMenu.findAll", query="SELECT t FROM TipoMenu t")
+@NamedQuery(name = "TipoMenu.findAll", query = "SELECT t FROM TipoMenu t")
 public class TipoMenu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	private String descripcion;
 
-	//bi-directional many-to-one association to Menu
-	@OneToMany(mappedBy="tipoMenu")
+	// bi-directional many-to-one association to Menu
+	@OneToMany(mappedBy = "tipoMenu")
 	private Set<Menu> menus;
 
 	public TipoMenu() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -63,6 +68,16 @@ public class TipoMenu implements Serializable {
 		menus.setTipoMenu(null);
 
 		return menus;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			TipoMenu i = (TipoMenu) obj;
+			return this.getId().equals(i.getId());
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }
