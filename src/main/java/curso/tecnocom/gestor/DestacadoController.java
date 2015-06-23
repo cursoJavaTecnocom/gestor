@@ -24,8 +24,7 @@ public class DestacadoController {
 		return "destacados";
 	}
 	 
-	@SuppressWarnings("unchecked")
-	}
+
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.gin")
