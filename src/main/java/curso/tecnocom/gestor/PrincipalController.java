@@ -33,13 +33,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		
-		
-		return "index";
-	}
-	
+
 	
 	
 	
