@@ -1,0 +1,9 @@
+ul.ul-der-top li #lista-idiomas li {
+	float: left;
+	clear: both;
+}
+ul.lista-item li {
+	float: left;
+	clear: both;
+	width: 155px;
+}

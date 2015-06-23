@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Usuario;
+import curso.tecnocom.gestor.delegates.UsuarioDelegate;
 
 @Controller
 public class UsuariosController {
@@ -19,13 +20,13 @@ public class UsuariosController {
 			.getLogger(UsuariosController.class);
 
 	private UsuarioDelegate usuarioDelegate;
-
+ 
 	@RequestMapping("usuarios.gin") 
 	public ModelAndView usuarios()
 	{
 		try{
-		List<Usuario> usuarios = getUsuarioDelegate().dameDatos(Usuario.class);
-		Set<Usuario> usuariosordenados= TreeSet<Usuario>();
+		List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
+		Set<Usuario> usuariosordenados= new TreeSet<Usuario>();
 		
 		for(Usuario usuario : usuarios){
 			usuariosordenados.add(usuario);
@@ -43,16 +44,33 @@ public class UsuariosController {
 	@RequestMapping("modificaUsuarios.gin")
 	public ModelAndView modificaUsuarios(int id)
 	{
-		if(id==0){
-			Usuario usuario=new Usuario()
-		}
-		else{
-			Usuario usuario= getUsuarioDelegate().dameDatos(Usuario.class);
+		try {
+			if(id==0){
+				Usuario usuario=new Usuario();
+			}
+			else{
+				Usuario usuario= (Usuario) getUsuarioDelegate().dameDatos(Usuario.class);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 			
-		ModelAndView salida= new ModelAndView("modificaUsuario")
+		ModelAndView salida= new ModelAndView("modificaUsuario");
+		return salida;
 		
 	}
+//	@RequestMapping("borraUsuarios.gin")
+//	public ModelAndView borraUsuarios(int id)
+//	{
+//		try{
+//		getUsuarioDelegate().borrar(id, Usuario.class);
+//		return usuarios;}
+//		catch (Exception e){
+//			
+//		}
+//		
+//	}
 
 	public UsuarioDelegate getUsuarioDelegate() {
 		return usuarioDelegate;

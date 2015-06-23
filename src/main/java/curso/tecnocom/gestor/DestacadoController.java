@@ -19,10 +19,10 @@ public class DestacadoController {
 	@Autowired
 	private DestacadosDelegate destacadosDelegate;
 	
-	/*@RequestMapping( value = "/", method = RequestMethod.GET )
+	@RequestMapping( value = "/", method = RequestMethod.GET )
 	public String home() {
 		return "destacados";
-	}*/
+	}
 	
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
