@@ -25,7 +25,7 @@ public class DestacadoController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "destacados";
+		return "home";
 
 	}
 	@SuppressWarnings("unchecked")
