@@ -5,9 +5,12 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import curso.tecnocom.gestor.daos.PrincipalDao;
 
+
+@Service
 public class PrincipalService {
 
 	
