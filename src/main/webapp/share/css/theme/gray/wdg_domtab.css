@@ -1,0 +1,157 @@
+/* CSS Document */
+
+		
+	/**	Contenedo de las DomTABS **/
+	#cntPage div.domtab{
+		margin: 15px 15px 15px 15px;
+		border: 1px solid #FFFFFF;
+	}
+
+	/** Menú **/
+	#cntPage div.domtab ul.domtabs{
+		float: left;
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		height: 20px;
+	}
+		#cntPage div.domtab ul.domtabs li{
+			margin: 0px;
+			padding: 0px;
+			float: left;
+			height: 20px;
+		}
+			#cntPage div.domtab ul.domtabs li a{
+				width: auto;
+				padding: 1px 14px 1px 14px;
+				background-color: #FFFFFF;
+				color: #5F5C57;
+				font-weight: bold;
+				text-decoration: none;
+				height: 20px;
+				line-height: 20px;
+				text-align: left;
+			}
+				#cntPage div.domtab ul.domtabs li a:hover{
+					background-color: #EFB851;
+					color: #000000;
+					text-decoration: none;
+				}
+			#cntPage div.domtab ul.domtabs li.active a,
+			#cntPage div.domtab ul.domtabs li.active a:hover{
+				background-color: #5F5C57;
+				color: #EFB851;
+				text-decoration: none;
+			}
+
+
+
+	/**
+	Contenedor de cada TAB
+	**/
+	#cntPage div.domtab div.domtabCnt{
+		clear: both;
+		width: auto;
+		background-color:#F8F8F8;
+		border: 1px solid #EFB851;
+	}
+		#cntPage div.domtab div.domtabCnt .domtabTtl
+		{
+			display: none;
+		}
+
+		#cntPage div.domtab div.domtabCnt div.linkNewItem{
+			margin-left: 3px;
+			margin-bottom: 5px;
+		}
+
+
+		#domtabprintview{
+			float:right;
+			padding-right:1em;
+			text-align:right;
+		}
+
+		#cntPage div.domtab div.domtabCnt h4 {
+			margin-left: 10px;
+			margin-top: 10px;
+			font-size: 12px;
+		}
+
+		#cntPage div.domtab div.domtabCnt ul {
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+			margin: 0px auto;
+		}
+		#cntPage div.domtab div.domtabCnt ul li {
+			margin-left: 10px;
+			margin-top: 10px;
+			padding: 0px;
+			list-style-type: none;
+			border-bottom: 1px solid #EFB851;
+		}
+
+		#cntPage div.domtab div.domtabCnt ul li button.linkEdit{
+			background-image:url(../../../img/btn_editar.gif);
+			background-repeat:no-repeat;
+			margin: 0px;
+			padding: 0px;
+			padding-left: 3px;
+			height: 19px;
+			width: 16px;
+			border-top-style: none;
+			border-right-style: none;
+			border-bottom-style: none;
+			border-left-style: none;
+			background-color: #F8F8F8;
+		}
+			#cntPage div.domtab div.domtabCnt ul li button.linkEdit span{
+				display: none;
+			}
+
+		#cntPage div.domtab div.domtabCnt ul li button.linkDel{
+			background-image:url(../../../img/btn_eliminar.gif);
+			background-repeat:no-repeat;
+			margin: 0px;
+			padding: 0px;
+			padding-left: 3px;
+			height: 19px;
+			width: 16px;
+			border-top-style: none;
+			border-right-style: none;
+			border-bottom-style: none;
+			border-left-style: none;
+			background-color: #F8F8F8;
+		}
+			#cntPage div.domtab div.domtabCnt ul li button.linkDel span{
+				display: none;
+			}
+
+		#cntPage div.domtab div.domtabCnt ul li span {
+			margin-left: 10px;
+		}
+
+/*
+		#cntPage div.domtab div.domtabCnt ul li div {
+			display:inline;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: bold;
+			vertical-align: middle;
+			color: #000000;
+			text-decoration: none;
+			margin-left: 15px;
+		}
+		#cntPage div.domtab div.domtabCnt ul li input {
+			display:inline;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size: 24px;
+			font-weight: bold;
+			text-align: center;
+			vertical-align: middle;
+			color: #000000;
+			text-decoration: none;
+		}
+*/

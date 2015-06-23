@@ -1,0 +1,224 @@
+/** CSS Formularios **/
+
+.frmContenido {
+	background-color: #EFEFEF; /* Style Form */
+	margin: 0px;
+	padding: 5px 10px;
+	border:1px solid #666;
+}
+
+.frmContenido fieldset legend {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	margin: 0px;
+	margin-left: 0px;
+	margin-bottom: 5px;
+	display: block;
+	padding-top: 10px;
+}
+
+.frmContenido .formError {
+	width: 100%;
+	float: right;
+	text-align: right;
+	margin-top: 0px;
+	color: #FF3300;
+/*	padding-bottom: 3px;*/
+	display: block;
+}
+
+#cntMain .formError {
+	width: 100%;
+	margin-top: 0px;
+	color: #FF3300;
+	display: block;
+}
+
+.frmContenido h3 {
+	text-align: center;
+	vertical-align: middle;
+	background-color: #4F4F4F;
+	color:white;
+	height: 24px;
+	width: 100%;
+	margin: 0px;
+	padding-top: 5px;
+}
+
+.frmContenido fieldset.cntGroup{
+	margin-top: 3px;
+	margin-bottom: 0px;
+	border: solid 1px #333333;
+	padding: 0px 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: block;
+	clear: both;
+	width: 100%;
+	float: right;
+}
+.frmContenido fieldset.cntGroup legend{
+	padding-left: 7px;
+	vertical-align: top;
+}
+
+.frmContenido fieldset {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 0px 0px;
+	padding-left: 10px;
+	display: block;
+	clear: both;
+}
+
+.frmContenido fieldset .field{
+	margin-top: 5px;
+	margin-bottom: 0px;
+	display: block;
+	clear: both;
+	width: 100%;
+	text-align: center;
+}
+
+.frmContenido fieldset .field2{
+	width: 80%;
+}
+
+.frmContenido fieldset .field label{
+	width: 95%;
+	float: right;
+	text-align: right;
+	margin-bottom: 3px;
+}
+.frmContenido fieldset .field2 label{
+	width: 85%;
+	float: right;
+	text-align: right;
+	margin-bottom: 3px;
+}
+
+.frmContenido fieldset label span{
+	font-size: 11px;
+	color: #999;
+	font-style: italic;
+}
+.frmContenido fieldset label input{
+	width: 170px;
+}
+.frmContenido fieldset label input.inputCheck{
+	width: 20px;
+	margin-right: 152px;
+}
+.frmContenido fieldset label input.inputRadio{
+	width: auto;
+	display: inline;
+	padding-left: 3px;
+}
+.frmContenido fieldset label select{
+	width: 172px;
+}
+
+.frmContenido fieldset label textarea {
+	height: 50px;
+	width: 200px;
+}
+.frmContenido fieldset label textarea.small {
+	height: 50px;
+	width: 170px;
+}
+
+/* Para el formulario con editor de texto */
+.frmContenido fieldset .fieldEditor{
+	margin-top: 5px;
+	margin-bottom: 0px;
+	display: block;
+	clear: both;
+	width: 40%;
+	text-align: left;
+}
+
+.frmContenido fieldset .fieldEditor label{
+	width: 100%;
+	float: right;
+	text-align: right;
+	margin-bottom: 3px;
+}
+
+.frmContenido fieldset .fieldEditor label input{
+	width: 170px;
+}
+.frmContenido fieldset .fieldEditor label input.inputCheck{
+	width: 20px;
+	margin-right: 152px;
+}
+.frmContenido fieldset .fieldEditor label input.inputRadio{
+	width: auto;
+	display: inline;
+	padding-left: 3px;
+}
+.frmContenido fieldset .fieldEditor label select{
+	width: 172px;
+}
+
+ul.listCheck
+{
+	list-style-type: none;
+	text-align: left;
+	display: inline;
+	width: 225px;
+	float: right;
+}
+ul.listCheck li
+{
+	margin-left: 55px;
+	width: 300px !important;
+	width: 100%;
+}
+ul.listCheck li input
+{
+	margin: 0px;
+}
+
+input.cntCalendarField
+{
+	background-image: url(../../../img/icon_calendar.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	width: 60px !important;
+	text-align: center;
+	height: 15px;
+	padding-right: 20px;
+}
+
+input.cntFileField
+{
+	/*
+	width: 60px !important;
+	*/
+	text-align: center;
+}
+
+.frmContenido .fsSubmit {
+	clear: both;
+	text-align: right;
+	border-top: 1px solid #999;
+	margin-bottom: 0px;
+}
+
+.frmContenido .fsSubmit button {
+	margin: 0px;
+	margin-top:3px;
+	width: 80px;
+}
+
+/* Capa de confirmación de errores */
+.cntCapaConfirm{
+	display: none;
+	margin: 10px 0px 10px 0px;
+	padding: 5px 5px 3px 5px;
+	background-color: #EEA8A8;
+	border:1px dotted #AC2222;
+	color:#AC2222;
+}

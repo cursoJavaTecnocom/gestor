@@ -1,0 +1,81 @@
+/******** LightBox **********/
+#lightBG {
+	display: none;
+	position: absolute;
+	background: #000;
+	opacity: 0.4;
+	-moz-opacity: 0.4;
+	-khtml-opacity: 0.4;
+	filter: alpha(opacity=40);
+	width: 100%;
+	z-index: 100000;
+	height: 100%;
+}
+
+#lightBOX {
+	/* padding:15px; */
+	display: none;
+	position: absolute;
+	/* background: #CCCCCC; */
+	color: #333;
+	text-align: left;
+	/* border: 1px solid #636D61; */
+	top: 70px;
+	z-index: 100001;
+}
+
+.cntCapaForm {
+	padding: 13px 15px;
+}
+
+.cntCapaForm h4 {
+	font-size: 14px;
+	color: #666;
+	line-height: 1em;
+	margin-bottom: 10px;
+}
+
+.cntCapaForm label {
+	display: block;
+	font-size: 12px;
+	color: #666;
+	height: 19px;
+	margin-bottom: 8px;
+}
+.cntCapaForm label .txtForm {
+	width: 239px;
+	height: 15px;
+	border: 1px solid #e0e0e0;
+	background: #f8f8f8;
+	color: #666;
+	font-size: 11px;
+	padding: 1px 4px;
+}
+.cntCapaForm label span.texto {
+	width: 100px;
+	float: left;
+	display: block;
+}
+#botonesLBBanner button.boton,
+#botonesLBGrupos button.boton {
+	margin: 0 0 0 0;
+	display: inline;
+}
+#lightBOX h2 { float:left; width:420px; }
+#lightBOX img { float:right; margin:0 0 5px 5px; }
+#lightBOX p { text-align: right; clear:left; }
+
+.lightX{
+	font-size: 12px;
+	color: #ddd;
+	padding: 4px 0;
+	border-top: 1px solid #636D61;
+	background: #778574;
+}
+.confirmFile {
+	margin-left: 100px;
+	text-align: left;
+}
+#lightBOX .confirmFile p {
+	text-align: left;
+}
