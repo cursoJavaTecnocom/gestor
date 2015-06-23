@@ -40,14 +40,14 @@
 				<td>${menu.imagene.nombre}</td>
 				<td>${menu.idMenuPadre} </td>
 				<td>
-					<input type="button" value="Modificar" onclick="modificar(${menu.id},'modificaMenu.gin')" />
-					<input type="button" value="Borrar" onclick="borrar(${menu.id},'borraMenu.gin')" />
+					<input type="button" value="Modificar" onclick="modificar(${menu.id},'modificaMenu.html')" />
+					<input type="button" value="Borrar" onclick="borrar(${menu.id},'borraMenu.html')" />
 				</td>
 			</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="9">
-				<input type="button" value="Nuevo menú"  onclick="modificar(0,'modificaMenu.gin')">
+				<input type="button" value="Nuevo menú"  onclick="modificar(0,'modificaMenu.html')">
 			</td>
 		</tr>
 	</table>

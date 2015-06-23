@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<sp:form action="grabaMenu.gin" modelAttribute="menu"> 
+	<sp:form action="grabaMenu.html" modelAttribute="menu"> 
 		<sp:hidden path="id"/>
 		<table>
 			<tr>
