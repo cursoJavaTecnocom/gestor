@@ -16,9 +16,9 @@ public class MenuDao {
 	private SessionFactory factoria;
 	private Session sesion;
 
-	public List<?> dameDatos() throws Exception {
+	public List<?> dameDatos(Class<?> clase) throws Exception {
 		setSesion(getFactoria().openSession());
-		Criteria cri = getSesion().createCriteria(Menu.class);
+		Criteria cri = getSesion().createCriteria(clase);
 		return cri.list();
 	}
 
