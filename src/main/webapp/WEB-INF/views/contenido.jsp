@@ -34,7 +34,7 @@
 		</c:forEach>
 	</table>
 		<tr align="justify">
-			<a href="modificaContenido.html?id=0"><input type="button"
+			<a href="modificaContenido.jsp?id=0"><input type="button"
 				value="Añadir nuevo contenido"></a>
 		</tr>
 
