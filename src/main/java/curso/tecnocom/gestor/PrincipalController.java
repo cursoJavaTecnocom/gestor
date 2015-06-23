@@ -26,14 +26,43 @@ public class PrincipalController {
 
 private static final Logger logger = LoggerFactory.getLogger(PrincipalController.class);
 	
-	
+	// cambio del profesor
 
 	@Autowired
 	private PrincipalDelegate principalDelegate;
 	
 	
 
-
+//asjkldghjklfjgkgjghlñhkjsdklfjgklñh
+	
+	
+	
+	@RequestMapping("principal.html")	
+	public ModelAndView principales1()
+	{
+		List<Principale> principales;
+		try {
+			principales=(List<Principale>)getPrincipalDelegate().dameDatos(Principale.class);
+			Set<Principale> principalesOrdenados= new TreeSet<Principale>();
+			for (Principale principal : principales) {
+				principalesOrdenados.add(principal);
+			}
+			ModelAndView salida=new ModelAndView("principale");
+			salida.addObject("principales", principalesOrdenados);
+			return salida;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error") ;
+		}
+		
+		
+		
+		
+	}
+	
+	
 	
 	
 	
