@@ -19,7 +19,7 @@ public class UsuariosController {
 			.getLogger(UsuariosController.class);
 
 	private UsuarioDelegate usuarioDelegate;
-
+ 
 	@RequestMapping("usuarios.gin") 
 	public ModelAndView usuarios()
 	{
@@ -50,7 +50,7 @@ public class UsuariosController {
 			Usuario usuario= getUsuarioDelegate().dameDatos(Usuario.class);
 		}
 			
-		ModelAndView salida= new ModelAndView("modificaUsuario")
+		ModelAndView salida= new ModelAndView("modificaUsuario");
 		
 	}
 
