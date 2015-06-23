@@ -1,16 +1,15 @@
 package curso.tecnocom.gestor.services;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import curso.tecnocom.gestor.daos.NoticiasDaos;
+import curso.tecnocom.gestor.daos.NoticiasDao;
 
 
 public class NoticiasService {
-
+ 
 	/***** Propiedades de la clase *****/
 	@Autowired
 	private NoticiasDao noticiasDao;
