@@ -20,7 +20,7 @@ public class UsuariosController {
 
 	private UsuarioDelegate usuarioDelegate;
 
-	@RequestMapping("usuarios.gin")
+	@RequestMapping("usuarios.gin") 
 	public ModelAndView usuarios()
 	{
 		try{
