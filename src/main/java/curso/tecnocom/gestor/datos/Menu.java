@@ -1,21 +1,28 @@
 package curso.tecnocom.gestor.datos;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the Menu database table.
  * 
  */
 @Entity
-@NamedQuery(name="Menu.findAll", query="SELECT m FROM Menu m")
+@NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")
 public class Menu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	private int idMenuPadre;
 
@@ -25,25 +32,25 @@ public class Menu implements Serializable {
 
 	private String titulo;
 
-	//bi-directional many-to-one association to Contenido
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idContenidos")
+	// bi-directional many-to-one association to Contenido
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idContenidos")
 	private Contenido contenido;
 
-	//bi-directional many-to-one association to Imagene
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idImagen")
+	// bi-directional many-to-one association to Imagene
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idImagen")
 	private Imagene imagene;
 
-	//bi-directional many-to-one association to TipoMenu
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idTipoMenu")
+	// bi-directional many-to-one association to TipoMenu
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idTipoMenu")
 	private TipoMenu tipoMenu;
 
 	public Menu() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -105,6 +112,16 @@ public class Menu implements Serializable {
 
 	public void setTipoMenu(TipoMenu tipoMenu) {
 		this.tipoMenu = tipoMenu;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Menu i = (Menu) obj;
+			return this.getId().equals(i.getId());
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }
