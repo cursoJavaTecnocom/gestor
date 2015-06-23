@@ -18,11 +18,6 @@ public class DestacadoController {
 	@Autowired
 	private DestacadosDelegate destacadosDelegate;
 	
-	/*@RequestMapping( value = "/", method = RequestMethod.GET )
-	public String home() {
-		return "destacados";
-	}*/
-	
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
 		try {
@@ -67,7 +62,7 @@ public class DestacadoController {
 			salida.addObject("destacado",destacado);
 			return salida;
 		} catch (Exception e) {
-			//   TODO Auto-generated catch block
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
