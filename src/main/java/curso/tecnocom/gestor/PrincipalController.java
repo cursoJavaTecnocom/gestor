@@ -26,7 +26,7 @@ public class PrincipalController {
 
 private static final Logger logger = LoggerFactory.getLogger(PrincipalController.class);
 	
-	
+	// cambio del profesor
 
 	@Autowired
 	private PrincipalDelegate principalDelegate;
