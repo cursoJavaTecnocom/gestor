@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import curso.tecnocoom.gestor.daos.DestacadosDao;
+import curso.tecnocom.gestor.daos.DestacadosDao;
 
 public class DestacadosService {
 
