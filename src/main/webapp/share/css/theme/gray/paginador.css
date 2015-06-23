@@ -1,0 +1,65 @@
+/******** Paginador (BAS) ********/
+
+#wdgBas{
+}
+
+	#wdgBas ul{
+		margin: 0;
+		padding: 0;
+		padding-top: 5px;
+		text-align: left; /*Set to "right" to right align pagination interface*/
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+		#wdgBas li{
+			list-style-type: none;
+			display: inline;
+			padding-bottom: 1px;
+			margin: 0px 1px;
+		}
+
+			#wdgBas a,
+			#wdgBas a:visited{
+				padding: 2px 4px;
+				border: 1px solid #333333;
+				text-decoration: none; 
+				color: #333333;
+				background-color: #EDF3FE; /*#F0FFC4*/
+			}
+
+			#wdgBas a:hover,
+			#wdgBas a:active{
+				border: 1px solid #333333;
+				color: #000;
+				background-color: #818FB1; /*#99CC00*/
+			}
+
+			#wdgBas li.currentpage{
+				font-weight: bold;
+				padding: 2px 4px;
+				border: 1px solid #333333;
+				background-color: #818FB1; /*#99CC00*/
+				color: #FFF;
+			}
+
+			#wdgBas li.disablepage{
+				padding: 2px 4px;
+				border: 1px solid #333333;
+				color: #929292;
+			}
+
+			#wdgBas li.nextpage{
+				font-weight: bold;
+			}
+
+			#wdgBas li.nextpage a{
+				padding: 2px 10px;
+			}
+
+			* html #wdgBas li.currentpage, * html #wdgBas li.disablepage{ /*IE 6 and below. Adjust non linked LIs slightly to account for bugs*/
+				margin-right: 5px;
+				padding-right: 0;
+			}
+
+

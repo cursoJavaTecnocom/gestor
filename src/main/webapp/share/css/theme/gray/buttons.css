@@ -1,0 +1,192 @@
+/* -------------------------------------------------------------- 
+  
+   buttons.css
+   * Gives you some great CSS-only buttons.
+   
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+
+a.button, button {
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:Verdana, Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+	height: auto;
+  overflow:visible;
+	border:1px solid #D8D8D8 !important;
+	padding-bottom:3px !important;
+}
+button[type] {
+  padding:4px 4px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 4px 3px 9px;   /* IE7 */
+}
+button img, a.button img{
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover, a.button:hover{
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+a.button:active{
+  background-color:#6299c5;
+  border:1px solid #6299c5;
+  color:#fff;
+}
+
+/* Positive */
+body .positive {
+	background-image: url(../../../img/icons/tick.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	text-align: right;
+  color:#529214;
+	padding-left: 20px;
+}
+a.positive:hover, button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+a.positive:active {
+  background-color:#529214;
+  border:1px solid #529214;
+  color:#fff;
+}
+
+/* Negative */
+body .negative {
+	background-image: url(../../../img/icons/cross.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	text-align: right;
+  color:#d12f19;
+	padding-left: 20px;
+}
+a.negative:hover, button.negative:hover {
+  background-color:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+a.negative:active {
+  background-color:#d12f19;
+  border:1px solid #d12f19;
+  color:#fff;
+}
+
+td.itemsActions button {
+	background-repeat:no-repeat;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 3px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-color: #FFFFFF;
+}
+	td.itemsActions button span, td button span {
+		display: none;
+	}
+
+
+button.imprimir{
+	background-image:url(../../../img/btn_imprimir.gif);
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+button.linkEdit{
+	background-image:url(../../../img/btn_editar.gif);
+	height: 21px;
+	width: 16px;
+}
+button.linkEditDisabled{
+	background-image:url(../../../img/btn_editar_no.gif);
+	height: 21px;
+	width: 16px;
+}
+
+button.linkDel{
+	background-image:url(../../../img/btn_eliminar.gif);
+	height: 21px;
+	width: 19px;
+}
+button.linkDelDisabled{
+	background-image:url(../../../img/btn_eliminar_no.gif);
+	height: 21px;
+	width: 16px;
+}
+
+button.linkImprimir{
+	background-image:url(../../../img/btn_imprimir.gif);
+	height: 16px;
+	width: 16px;
+}
+
+button.linkVer{
+	background-image:url(../../../img/btn_ver.gif);
+	height: 19px;
+	width: 16px;
+}
+
+button.linkPay{
+	background-image:url(../../../img/btn_pay.gif);
+	background-repeat:no-repeat;
+	height: 19px;
+	width: 25px;
+}
+
+button.linkUpload{
+	background-image:url(../../../img/btn_editar.gif);
+	height: 21px;
+	width: 16px;
+}
+
+button.linkGallery{
+	background: transparent url(../../../img/btn_photos.png) !important;
+	height: 16px;
+	width: 16px;
+	border: none !important;
+}
+
+button.linkMessages{ 
+	background: transparent url(../../../img/btn_messages.png) !important;
+	height: 16px;
+	width: 16px;
+	border: none !important;
+}
+
+button.linkVisible{background-image:url(../../../img/enabled.gif); height: 15px; width: 15px;}
+button.linkNoVisible{background-image:url(../../../img/disabled.gif); height: 15px; width: 15px;}

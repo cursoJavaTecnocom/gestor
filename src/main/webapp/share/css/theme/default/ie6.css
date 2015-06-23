@@ -1,0 +1,79 @@
+/* top derecha */
+.btn-gris-1 a.ie6 {
+	float: left;
+	height: 20px;
+}
+ul.ul-der-top li div {
+	float: left;
+}
+/* header */
+.header {
+	width: expression( document.body.clientWidth < 951 ? "950px" : "auto" ); /* min-width IE6 */
+}
+/* menu izq */
+.item-menu ul.top-item {
+	background-image: url(img/btn-menu.gif);
+}
+.item-menu-activo ul.top-item {{
+	background-image: url(img/btn-menu-activo.gif);
+}
+.item-menu li.link a {
+	display: block;
+	width: 130px;
+	height: 18px;
+}
+.item-triplete li.link a {
+	width: 105px;
+}
+/* h1 */
+.contenido h1 {
+	height: 22px;
+	overflow: visible;
+}
+/* selects */
+.span-estilo {
+	visibility: hidden;
+}
+/* filtros */
+.filtros ul {
+	height: 19px;
+	overflow: visible;
+}
+/* check */
+.span-check-super-special {
+	margin-left: 5px;
+}
+/* item bloque principal */
+.bloque-principal ul.ul-item {
+	clear: none;
+	float: none;
+	overflow: auto;
+}
+/* tooltip */
+ul.axion li .tooltip {
+	overflow: visible;
+}
+ul.axion li .tooltip .fondiu {
+	background-image: url(img/fon-globo.gif);
+	position: relative;
+}
+ul.axion li .tooltip .izq img,
+ul.axion li .tooltip .der img {
+	visibility: hidden;
+}
+ul.axion li .tooltip .izq {
+	background: url(img/img-borde-globo-izq.gif) 0 0 no-repeat;
+	position: relative;
+	top: 0;
+}
+ul.axion li .tooltip .der {
+	background: url(img/img-borde-globo-der.gif) 0 0 no-repeat;
+	position: relative;
+	top: 0;
+}
+ul.axion li .picopicopico img {
+	display: none;
+}
+ul.axion li .picopicopico {
+	background: url(img/img-pico-globo.gif) 0 0 no-repeat;
+}
