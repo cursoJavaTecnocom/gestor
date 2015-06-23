@@ -1,6 +1,7 @@
 package curso.tecnocom.gestor;
 
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class ContenidoController {
 	private ContenidoDelegate contenidoDelegate;
 	
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("contenido.html") 
 	public ModelAndView contenido()
 	{

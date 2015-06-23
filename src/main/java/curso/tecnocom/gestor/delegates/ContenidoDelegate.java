@@ -23,10 +23,8 @@ public class ContenidoDelegate {
 	
 	public void grabaObjeto(Object objeto) throws Exception{
 		getGestorService().grabaObjeto(objeto);
-		
 	}
 	
-
 	public ContenidoService getGestorService() {
 		return gestorService;
 	}

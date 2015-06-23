@@ -15,6 +15,7 @@ public class ContenidoService {
 	private ContenidoDao gestorDao;
 	
 
+	@SuppressWarnings("rawtypes")
 	public List<?> dameDatos(Class<?> clase) throws Exception {
 		List salida=null;
 		Method metodo=getGestorDao().getClass().getMethod("dameDatos", Class.class);

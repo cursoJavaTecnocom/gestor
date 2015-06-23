@@ -44,8 +44,6 @@ public class ContenidoDao {
 		getSesion().getTransaction().commit();
 	}
 	
-	
-	
 
 	public SessionFactory getFactoria() {
 		return factoria;
