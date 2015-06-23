@@ -15,6 +15,8 @@ import curso.tecnocom.gestor.delegates.DestacadosDelegate;
 @Controller
 public class DestacadoController {
 
+	
+
 	private static final Logger logger = LoggerFactory
 			.getLogger(DestacadoController.class);
 
@@ -24,8 +26,8 @@ public class DestacadoController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "destacados";
-	}
 
+	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
