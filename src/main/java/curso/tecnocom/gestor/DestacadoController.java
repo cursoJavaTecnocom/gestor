@@ -23,8 +23,11 @@ public class DestacadoController {
 	public String home() {
 		return "destacados";
 	}
-
+	 
+	@SuppressWarnings("unchecked")
+	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
 		try {
