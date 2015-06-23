@@ -25,79 +25,81 @@ public class MenuController {
 
 	@Autowired
 	private MenuDelegate menuDelegate;
-	
-	
+
 	@InitBinder
-	public void init(WebDataBinder binder){
-		binder.registerCustomEditor(TipoMenu.class, new TipoMenuProperty());	
-		binder.registerCustomEditor(Imagene.class, new ImagenesProperty());	
-		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());	
+	public void init(WebDataBinder binder) {
+		binder.registerCustomEditor(TipoMenu.class, new TipoMenuProperty());
+		binder.registerCustomEditor(Imagene.class, new ImagenesProperty());
+		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
 		binder.registerCustomEditor(Menu.class, new MenuProperty());
 	}
-	
-	@RequestMapping("menu.gin")
-	public ModelAndView menu(){
-		try{
-			List<Menu> menus=(List<Menu>) getMenuDelegate().dameDatos(Menu.class);
-			ModelAndView modelAndView=new ModelAndView("menus");
-			modelAndView.addObject("menus",menus);
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping("menu.html")
+	public ModelAndView menu() {
+		try {
+			List<Menu> menus = (List<Menu>) getMenuDelegate().dameDatos(
+					Menu.class);
+			ModelAndView modelAndView = new ModelAndView("menus");
+			modelAndView.addObject("menus", menus);
 			return modelAndView;
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	
-	@RequestMapping("modificaMenu.gin")
-	public ModelAndView modificaMenu(int id){
-		Menu menu=null;
-		if(id==0)
-			menu=new Menu();
-		try{
-			if(id>0)
-				menu=(Menu) getMenuDelegate().dameObjeto(id);
-			List<TipoMenu> tiposMenus=(List<TipoMenu>) getMenuDelegate().dameDatos(TipoMenu.class);
-			List<Imagene> imagenes=(List<Imagene>) getMenuDelegate().dameDatos(Imagene.class);
-			List<Contenido> contenidos=(List<Contenido>) getMenuDelegate().dameDatos(Contenido.class);
-			List<Menu> menus=(List<Menu>) getMenuDelegate().dameDatos(Menu.class);
-			ModelAndView modelAndView=new ModelAndView("modificaMenu");
-			modelAndView.addObject("menu",menu);
-			modelAndView.addObject("tiposMenus",tiposMenus);
-			modelAndView.addObject("menus",menus);
-			modelAndView.addObject("imagenes",imagenes);
-			modelAndView.addObject("contenidos",contenidos);
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping("modificaMenu.html")
+	public ModelAndView modificaMenu(int id) {
+		Menu menu = null;
+		if (id == 0)
+			menu = new Menu();
+		try {
+			if (id > 0)
+				menu = (Menu) getMenuDelegate().dameObjeto(id);
+			List<TipoMenu> tiposMenus = (List<TipoMenu>) getMenuDelegate()
+					.dameDatos(TipoMenu.class);
+			List<Imagene> imagenes = (List<Imagene>) getMenuDelegate()
+					.dameDatos(Imagene.class);
+			List<Contenido> contenidos = (List<Contenido>) getMenuDelegate()
+					.dameDatos(Contenido.class);
+			List<Menu> menus = (List<Menu>) getMenuDelegate().dameDatos(
+					Menu.class);
+			ModelAndView modelAndView = new ModelAndView("modificaMenu");
+			modelAndView.addObject("menu", menu);
+			modelAndView.addObject("tiposMenus", tiposMenus);
+			modelAndView.addObject("menus", menus);
+			modelAndView.addObject("imagenes", imagenes);
+			modelAndView.addObject("contenidos", contenidos);
 			return modelAndView;
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	
-	@RequestMapping("grabaMenu.gin")
-	public ModelAndView grabaMenu(Menu menu,BindingResult result){
-		try{
+
+	@RequestMapping("grabaMenu.html")
+	public ModelAndView grabaMenu(Menu menu, BindingResult result) {
+		try {
 			getMenuDelegate().modificaObjeto(menu);
 			return menu();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	
-	@RequestMapping("borraMenu.gin")
-	public ModelAndView borraMenu(int id){
-		try{
+
+	@RequestMapping("borraMenu.html")
+	public ModelAndView borraMenu(int id) {
+		try {
 			getMenuDelegate().borrar(id);
 			return menu();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
 
 	public MenuDelegate getMenuDelegate() {
 		return menuDelegate;
@@ -106,6 +108,5 @@ public class MenuController {
 	public void setMenuDelegate(MenuDelegate menuDelegate) {
 		this.menuDelegate = menuDelegate;
 	}
-	
-	
+
 }
