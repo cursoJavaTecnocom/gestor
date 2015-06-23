@@ -22,12 +22,12 @@ public class MenuService {
 		this.menuDao = menuDao;
 	}
 
-	public List<?> dameDatos() throws Exception {
+	public List<?> dameDatos(Class<?> clase) throws Exception {
 		List<?> salida = null;
 
 		Method metodo = getMenuDao().getClass().getMethod("dameDatos",
 				Class.class);
-		salida = (List<?>) metodo.invoke(getMenuDao(), Menu.class);
+		salida = (List<?>) metodo.invoke(getMenuDao(), clase);
 		return salida;
 	}
 
