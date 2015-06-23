@@ -21,7 +21,8 @@ public class UsuariosController {
 
 	private UsuarioDelegate usuarioDelegate;
  
-	@RequestMapping("usuarios.gin") 
+	//lista usuarios
+	@RequestMapping("usuarios.html") 
 	public ModelAndView usuarios()
 	{
 		try{
@@ -41,37 +42,65 @@ public class UsuariosController {
 		}
 		
 	}
-	@RequestMapping("modificaUsuarios.gin")
+	
+	//modificar
+	@RequestMapping("modificaUsuarios.html")
 	public ModelAndView modificaUsuarios(int id)
 	{
+		Usuario usuario = null;
 		try {
-			if(id==0){
-				Usuario usuario=new Usuario();
+			if(id==0)
+			{
+				 usuario=new Usuario();
 			}
-			else{
-				Usuario usuario= (Usuario) getUsuarioDelegate().dameDatos(Usuario.class);
+			else
+			{
+				 usuario= (Usuario) getUsuarioDelegate().dameDatos(Usuario.class);
 			}
+			
+			ModelAndView salida = new ModelAndView("modificarUsuarios");
+			salida.addObject("usuario",usuario);
+			return salida;
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new ModelAndView("home");
 		}
 			
-		ModelAndView salida= new ModelAndView("modificaUsuario");
-		return salida;
+	}
+	
+	//borrar
+	@RequestMapping("borraUsuarios.html")
+	public ModelAndView borraUsuarios(int id)
+	{
+		try
+		{
+			getUsuarioDelegate().borrar(id, Usuario.class);
+			return usuarios();
+		}
+		catch (Exception e){
+			return new ModelAndView("home");
+		}
 		
 	}
-//	@RequestMapping("borraUsuarios.gin")
-//	public ModelAndView borraUsuarios(int id)
-//	{
-//		try{
-//		getUsuarioDelegate().borrar(id, Usuario.class);
-//		return usuarios;}
-//		catch (Exception e){
-//			
-//		}
-//		
-//	}
-
+	
+	//grabar usuario
+	@RequestMapping("grabaUsuario.html")
+	public ModelAndView grabaUsuario(Usuario usuario){
+		
+		try {
+			getUsuarioDelegate().grabaObjeto(usuario);
+			return usuarios();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return new ModelAndView("error");
+		}
+	
+	}
+	
+	
+	//GETTERS AND SETTERS
 	public UsuarioDelegate getUsuarioDelegate() {
 		return usuarioDelegate;
 	}

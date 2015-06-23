@@ -26,15 +26,11 @@ public class PrincipalController {
 
 private static final Logger logger = LoggerFactory.getLogger(PrincipalController.class);
 	
-	
+	// cambio del profesor
 
 	@Autowired
 	private PrincipalDelegate principalDelegate;
-	
-	
 
-
-	
 	
 	
 	
@@ -89,22 +85,9 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		}
 	}
 
+
 	
-	@RequestMapping("grabaPrincipal.html")
-	public ModelAndView grabaPrincipal(Principale principal)
-	{
-		
-		
-		try {
-			getPrincipalDelegate().grabaObjeto(principal);
-			return principales();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		
-		return new ModelAndView("error");
-		}
-	}
+	
 	
 	
 	

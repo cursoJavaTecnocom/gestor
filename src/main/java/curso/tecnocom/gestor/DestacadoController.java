@@ -23,7 +23,11 @@ public class DestacadoController {
 	public String home() {
 		return "destacados";
 	}
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 	
 	@RequestMapping("destacados.gin")
 	public ModelAndView destacados() {
