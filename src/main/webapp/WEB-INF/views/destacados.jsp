@@ -5,12 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Página Destacados</title>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/empresa.js"></script>
+<script type="text/javascript" src="js/destacados.js"></script>
+
 </head>
 <body>
-	
+	<jsp:include page="seguridad.jsp"></jsp:include>
 	<h1>Destacados</h1>
 	<br><a href="modificaDestacado.gin?id=0">Alta de Destacados</a>
 	<table border="1">
