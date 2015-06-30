@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Principale;
-import curso.tecnocom.gestor.delegates.PrincipalDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 
 
@@ -30,7 +30,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	// cambio del profesor
 
 	@Autowired
-	private PrincipalDelegate principalDelegate;
+	private GestorDelegate principalDelegate;
 
 	
 	
@@ -126,7 +126,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	
-	public PrincipalDelegate getPrincipalDelegate() {
+	public GestorDelegate getPrincipalDelegate() {
 		return principalDelegate;
 	}
 
@@ -134,7 +134,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-	public void setPrincipalDelegate(PrincipalDelegate principalDelegate) {
+	public void setPrincipalDelegate(GestorDelegate principalDelegate) {
 		this.principalDelegate = principalDelegate;
 	}
 
