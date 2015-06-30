@@ -25,12 +25,12 @@ public class NoticiasController {
 	public ModelAndView noticias() {
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
-			Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
-			for (Noticia noticia : noticias) {
+			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
+			for (Noticia noticia : noticias) { 
 				noticiasOrdenados.add(noticia);
-			}
+			}*/
 			ModelAndView salida = new ModelAndView("noticias");
-			salida.addObject("noticias", noticiasOrdenados);
+			salida.addObject("noticias", noticias);
 			return salida;
 
 		} catch (Exception e) {
