@@ -21,6 +21,7 @@
 		</div>
 	</header>
 
+<div class="container">
 	<form action="grabaContenido.html" modelAttribute="contenido">
 		<hidden path="id" />
 
@@ -33,6 +34,7 @@
 
 		<button value="grabar" type="submit" name="grabar">Guardar</button>
 	</form>
+</div>
 
 </body>
 </html>
