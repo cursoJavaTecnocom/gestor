@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import org.hibernate.id.IdentityGenerator.GetGeneratedKeysDelegate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,30 +21,28 @@ public class UsuariosController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsuariosController.class);
 
-	private GestorDelegate usuarioDelegate;
+	@Autowired
+	private GestorDelegate gestorDelegate;
  
 	//lista usuarios
 	@RequestMapping("usuarios.html")  
 	public ModelAndView usuarios()
 	{
 		try{
-		List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
-		Set<Usuario> usuariosordenados= new TreeSet<Usuario>();
+		@SuppressWarnings("unchecked")
+		List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
 		
-		for(Usuario usuario : usuarios){
-			usuariosordenados.add(usuario);
-		}
 			ModelAndView salida= new ModelAndView("usuarios");
-			salida.addObject("usuario", usuariosordenados);
+			salida.addObject("usuarios", usuarios);
 			return salida;
 		}
 		catch (Exception e){
-			
-			return new ModelAndView("home");
+			e.printStackTrace();
+			return new ModelAndView("error");
 		}
 		
 	}
-	
+	  
 	//modificar
 	@RequestMapping("modificaUsuarios.html")
 	public ModelAndView modificaUsuarios(int id)
@@ -56,7 +55,7 @@ public class UsuariosController {
 			}
 			else
 			{
-				 usuario= (Usuario) getUsuarioDelegate().dameDatos(Usuario.class);
+				 usuario= (Usuario) getGestorDelegate().dameDatos(Usuario.class);
 			}
 			
 			ModelAndView salida = new ModelAndView("modificarUsuarios");
@@ -66,9 +65,9 @@ public class UsuariosController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ModelAndView("home");
+			return new ModelAndView("error");
 		}
-			
+
 	}
 	
 	//borrar
@@ -77,7 +76,7 @@ public class UsuariosController {
 	{
 		try
 		{
-			getUsuarioDelegate().borraDato(id, Usuario.class);
+			getGestorDelegate().borraDato(id, Usuario.class);
 			return usuarios();
 		}
 		catch (Exception e){
@@ -91,23 +90,45 @@ public class UsuariosController {
 	public ModelAndView grabaUsuario(Usuario usuario){
 		
 		try {
-			getUsuarioDelegate().grabaObjeto(usuario);
+			getGestorDelegate().grabaObjeto(usuario);
 			return usuarios();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return new ModelAndView("error");
 		}
 	
-	}
+	} 
 	
+	@RequestMapping("validacion.html")
+	public ModelAndView validacion(Usuario usuario){
+		try {
+			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
+			
+			if (usuarios.contains(usuario)) {
+				
+				
+				return new ModelAndView("principal");
+			}
+			else
+			{
+				return new ModelAndView("validacion");
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+		
+	}
 	
 	//GETTERS AND SETTERS
-	public GestorDelegate getUsuarioDelegate() {
-		return usuarioDelegate;
+	public GestorDelegate getGestorDelegate() {
+		return gestorDelegate;
 	}
 
-	public void setUsuarioDelegate(GestorDelegate usuarioDelegate) {
-		this.usuarioDelegate = usuarioDelegate;
+	public void setGestorDelegate(GestorDelegate gestorDelegate) {
+		this.gestorDelegate = gestorDelegate;
 	}
 
 }

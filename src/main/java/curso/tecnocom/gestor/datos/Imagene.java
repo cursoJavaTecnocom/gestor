@@ -35,13 +35,7 @@ public class Imagene implements Serializable {
 
 	// bi-directional many-to-one association to Menu
 	@OneToMany(mappedBy = "imagene")
-	private Set<Menu> menus;
-
-	// bi-directional many-to-one association to Destacado
-	@OneToMany(mappedBy = "imagene")
-	private Set<Destacado> destacados;
-
-	
+	private Set<Menu> menus;	
 
 	// bi-directional many-to-one association to Principale
 	@OneToMany(mappedBy = "imagene")
@@ -103,29 +97,6 @@ public class Imagene implements Serializable {
 
 		return menus;
 	}
-
-	public Set<Destacado> getDestacados() {
-		return this.destacados;
-	}
-
-	public void setDestacados(Set<Destacado> destacados) {
-		this.destacados = destacados;
-	}
-
-	public Destacado addDestacado(Destacado destacado) {
-		getDestacados().add(destacado);
-		destacado.setImagene(this);
-
-		return destacado;
-	}
-
-	public Destacado removeDestacado(Destacado destacado) {
-		getDestacados().remove(destacado);
-		destacado.setImagene(null);
-
-		return destacado;
-	}
-
 
 	public Set<Principale> getPrincipales() {
 		return this.principales;

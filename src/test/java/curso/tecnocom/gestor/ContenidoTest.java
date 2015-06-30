@@ -45,12 +45,13 @@ public class ContenidoTest {
 	
 	
 	
-/*	@Test
+	@Test
 	public void alta(){
 		setContenido(new Contenido());
 		try{
-			Contenido cont=(Contenido) getContenidoController().getContenidoDelegate().dameObjeto(19, Contenido.class);
+			// Contenido cont=(Contenido) getContenidoController().getContenidoDelegate().dameObjeto(19, Contenido.class);
 			
+			// grabar en base de datos
 			getContenido().setContenido("jkashdklajsdhlkajhsdklajdhskaj");
 			getContenido().setDescripcion("rebajas");
 			getContenidoController().getContenidoDelegate().grabaObjeto(getContenido());
@@ -66,7 +67,7 @@ public class ContenidoTest {
 		
 	}
 	
-	@Test
+/*	@Test
 	public void listado(){
 		try {
 			assertNotNull(getContenidoController().getContenidoDelegate().dameDatos(Contenido.class));

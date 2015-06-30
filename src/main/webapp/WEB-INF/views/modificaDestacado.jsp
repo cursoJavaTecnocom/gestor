@@ -16,7 +16,7 @@
 	<h1>MODIFICACIÓN DE DESTACADOS</h1>
 </c:if>
 
-<form action="grabaDestacado.gin">
+<form action="grabaDestacado.html">
 <input type="hidden" name="id" value="${destacado.id}">
  <table border="1">
 
