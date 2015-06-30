@@ -41,9 +41,7 @@ public class Imagene implements Serializable {
 	@OneToMany(mappedBy = "imagene")
 	private Set<Destacado> destacados;
 
-	// bi-directional many-to-one association to Noticia
-	@OneToMany(mappedBy = "imagene")
-	private Set<Noticia> noticias;
+	
 
 	// bi-directional many-to-one association to Principale
 	@OneToMany(mappedBy = "imagene")
@@ -128,27 +126,6 @@ public class Imagene implements Serializable {
 		return destacado;
 	}
 
-	public Set<Noticia> getNoticias() {
-		return this.noticias;
-	}
-
-	public void setNoticias(Set<Noticia> noticias) {
-		this.noticias = noticias;
-	}
-
-	public Noticia addNoticia(Noticia noticia) {
-		getNoticias().add(noticia);
-		noticia.setImagene(this);
-
-		return noticia;
-	}
-
-	public Noticia removeNoticia(Noticia noticia) {
-		getNoticias().remove(noticia);
-		noticia.setImagene(null);
-
-		return noticia;
-	}
 
 	public Set<Principale> getPrincipales() {
 		return this.principales;

@@ -30,10 +30,7 @@ public class Noticia implements Serializable {
 	@JoinColumn(name="idContenido")
 	private Contenido contenido;
 
-	//bi-directional many-to-one association to Imagene
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idImagen")
-	private Imagene imagene;
+	
 
 	public Noticia() {
 	}
@@ -78,12 +75,5 @@ public class Noticia implements Serializable {
 		this.contenido = contenido;
 	}
 
-	public Imagene getImagene() {
-		return this.imagene;
-	}
-
-	public void setImagene(Imagene imagene) {
-		this.imagene = imagene;
-	}
 
 }
