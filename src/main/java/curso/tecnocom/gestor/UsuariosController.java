@@ -65,7 +65,7 @@ public class UsuariosController {
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
-			
+	   
 	}
 	
 	//borrar
