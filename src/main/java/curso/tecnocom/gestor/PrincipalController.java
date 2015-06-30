@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Principale;
-import curso.tecnocom.gestor.delegates.PrincipalDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 
 
@@ -30,7 +30,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	// cambio del profesor
 
 	@Autowired
-	private PrincipalDelegate principalDelegate;
+	private GestorDelegate principalDelegate;
 
 	
 	
@@ -40,7 +40,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	{
 		List<Principale> principales;
 		try {
-			principales=(List<Principale>)getPrincipalDelegate().dameDatos(Principale.class);
+			principales=(List<Principale>)getGestorDelegate().dameDatos(Principale.class);
 			Set<Principale> principalesOrdenados= new TreeSet<Principale>();
 			for (Principale principal : principales) {
 				principalesOrdenados.add(principal);
@@ -74,7 +74,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		try {
 			if(id>0)
-			 principal=(Principale) getPrincipalDelegate().dameObjeto(id, Principale.class);			
+			 principal=(Principale) getGestorDelegate().dameObjeto(id, Principale.class);			
 			ModelAndView salida=new ModelAndView("modificaPrincipal");
 			salida.addObject("principal",principal);
 			return salida;
@@ -94,7 +94,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		
 		try {
-			getPrincipalDelegate().grabaObjeto(principal);
+			getGestorDelegate().grabaObjeto(principal);
 			return principales();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -110,7 +110,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	{
 		;
 		try {
-			getPrincipalDelegate().borrar(id, Principale.class);
+			getGestorDelegate().borrar(id, Principale.class);
 			return principales();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -126,7 +126,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	
-	public PrincipalDelegate getPrincipalDelegate() {
+	public GestorDelegate getGestorDelegate() {
 		return principalDelegate;
 	}
 
@@ -134,8 +134,8 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-	public void setPrincipalDelegate(PrincipalDelegate principalDelegate) {
-		this.principalDelegate = principalDelegate;
+	public void setGestorDelegate(GestorDelegate gestorDelegate) {
+		this.gestorDelegate = gestorDelegate;
 	}
 
 
