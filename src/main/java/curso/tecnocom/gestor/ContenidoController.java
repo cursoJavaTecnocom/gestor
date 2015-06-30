@@ -39,7 +39,7 @@ public class ContenidoController {
 		}
 		
 	}
-	@RequestMapping("modificaContenido.gin")
+	@RequestMapping("modificaContenido.html")
 	public ModelAndView modificaContenido(int id)
 	{
 		try {
