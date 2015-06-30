@@ -19,7 +19,7 @@ public class NoticiasTest {
 	
 	private  curso.tecnocom.gestor.datos.Noticia noticia;
 	
-	
+	 
 	
 	
 	@Test
