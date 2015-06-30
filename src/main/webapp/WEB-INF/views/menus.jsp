@@ -21,18 +21,6 @@
 </script>
 </head>
 <body>
-<header class="navbar navbar-header">
-<div class="container">
-  <div class="navbar-nav">
-      <a class="brand" href="#">Gestor</a>
-      <ul class="nav">
-        <li class="active"><a href="#">Menus</a></li>
-        <li><a href="#about">Usuarios</a></li>
-        <li><a href="#contact">Contenido</a></li>
-      </ul>
-  </div>
-  </div>
-</header>
 <div class="container">
 	<table id="menu" class="table table-striped" >
 	<tr>
