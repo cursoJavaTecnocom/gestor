@@ -5,7 +5,7 @@
 <html>
 <head>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/usuarios.js"></script>
+<script type="text/javascript" src="js/usuariosjs.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
