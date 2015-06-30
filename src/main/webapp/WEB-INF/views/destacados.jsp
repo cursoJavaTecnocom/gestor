@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<jsp:include page="seguridad.jsp"></jsp:include>
+	<%-- <jsp:include page="seguridad.jsp"></jsp:include> --%>
 	<h1>Destacados</h1>
 	<br><a href="modificaDestacado.html?id=0">Alta de Destacados</a>
 	<table border="1">

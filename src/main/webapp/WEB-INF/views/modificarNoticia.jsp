@@ -65,7 +65,7 @@
 						
 						<div class="form-group">
 							<label for="idcontenido">Contenido</label>
-							<sp:select path="idContenido" cssClass="form-control" id="idContenido">
+							<sp:select path="contenido" cssClass="form-control" id="idContenido">
 								<sp:option value="0">Selecciona contenido ...</sp:option>
 								<sp:options items="${contenidos }" itemLabel="contenido" itemValue="id" />
 							</sp:select>
