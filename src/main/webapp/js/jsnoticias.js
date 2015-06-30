@@ -7,9 +7,9 @@ function noticias() {
 }
 
 function modificaNoticia(id) {
-	document.location = "modificaNoticia.html" + "?=" + id;
+	document.location = "modificaNoticia.html" + "?id=" + id;
 }
 
 function borraNoticia(id){
-	document.location = "noticias.html" + "?=" + id;
+	document.location = "noticias.html" + "?id=" + id;
 }
