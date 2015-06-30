@@ -10,26 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Noticia;
-import curso.tecnocom.gestor.delegates.NoticiasDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
+
 
 @Controller
 public class NoticiasController {
 
 	@Autowired
-	private NoticiasDelegate noticiasDelegate;
+	private GestorDelegate gestorDelegate;
 
 	// /----noticias
 	@RequestMapping("noticias.html")
 	public ModelAndView noticias() {
 
 		try {
-			List<Noticia> noticias = (List<Noticia>) getNoticiasDelegate().dameDatos(Noticia.class);
-			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
+			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
+			Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
 			for (Noticia noticia : noticias) {
 				noticiasOrdenados.add(noticia);
-			}*/
+			}
 			ModelAndView salida = new ModelAndView("noticias");
-			salida.addObject("noticias", noticias);
+			salida.addObject("noticias", noticiasOrdenados);
 			return salida;
 
 		} catch (Exception e) {
@@ -49,7 +50,7 @@ public class NoticiasController {
 
 		try {
 			if (id > 0)
-				noticia = (Noticia) getNoticiasDelegate().dameObjeto(id, Noticia.class);
+				noticia = (Noticia) getGestorDelegate().dameObjeto(id, Noticia.class);
 			ModelAndView salida = new ModelAndView("modificarNoticia");
 			salida.addObject("noticia", noticia);
 			return salida;
@@ -67,7 +68,7 @@ public class NoticiasController {
 	@RequestMapping("borraNoticia.gin")
 	public ModelAndView borraMenu(int id) {
 		try {
-			getNoticiasDelegate().borrar(id, Noticia.class);
+			getGestorDelegate().borraDato(id, Noticia.class);
 			return noticias();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +80,7 @@ public class NoticiasController {
 	@RequestMapping("grabaNoticia.html")
 	public ModelAndView grabaPrincipal(Noticia noticia) {
 		try {
-			getNoticiasDelegate().grabaObjeto(noticia);
+			getGestorDelegate().grabaObjeto(noticia);
 			return noticias();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -89,12 +90,12 @@ public class NoticiasController {
 		}
 	}
 
-	
-	public NoticiasDelegate getNoticiasDelegate() {
-		return noticiasDelegate;
-	}
-	public void setNoticiasDelegate(NoticiasDelegate noticiasDelegate) {
-		this.noticiasDelegate = noticiasDelegate;
-	}
 
+
+	public GestorDelegate getGestorDelegate() {
+		return gestorDelegate;
+	}
+	public void setGestorDelegate(GestorDelegate gestorDelegate) {
+		this.gestorDelegate = gestorDelegate;
+	}
 }
