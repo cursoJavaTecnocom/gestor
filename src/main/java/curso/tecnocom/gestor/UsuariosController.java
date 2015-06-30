@@ -44,7 +44,7 @@ public class UsuariosController {
 	}
 	  
 	//modificar
-	@RequestMapping("modificaUsuarios.html")
+	@RequestMapping("modificaUsuario.html")
 	public ModelAndView modificaUsuarios(int id)
 	{
 		Usuario usuario = null;
