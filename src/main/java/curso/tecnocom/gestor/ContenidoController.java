@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
-import curso.tecnocom.gestor.delegates.ContenidoDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller 
 public class ContenidoController {
@@ -19,7 +19,7 @@ public class ContenidoController {
 			.getLogger(DestacadoController.class);
 	
 	@Autowired
-	private ContenidoDelegate contenidoDelegate;
+	private GestorDelegate contenidoDelegate;
 	
 
 	@SuppressWarnings("unchecked")
@@ -76,10 +76,10 @@ public class ContenidoController {
 	}
 	
 	
-	public ContenidoDelegate getContenidoDelegate() {
+	public GestorDelegate getContenidoDelegate() {
 		return contenidoDelegate;
 	}
-	public void setContenidoDelegate(ContenidoDelegate contenidoDelegate) {
+	public void setContenidoDelegate(GestorDelegate contenidoDelegate) {
 		this.contenidoDelegate = contenidoDelegate;
 	}
 }
