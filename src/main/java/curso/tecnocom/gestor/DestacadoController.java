@@ -28,7 +28,7 @@ public class DestacadoController {
 
 	}
 	@SuppressWarnings("unchecked")
-	@RequestMapping("destacados.gin")
+	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
 		try {
 			List<Destacado> destacados = (List<Destacado>) getGestorDelegate().dameDatos(Destacado.class);
@@ -42,7 +42,7 @@ public class DestacadoController {
 		}
 	}
 
-	@RequestMapping("borraDestacado.gin")
+	@RequestMapping("borraDestacado.html")
 	public ModelAndView borraDestacado(int id) {
 		try {
 			getGestorDelegate().borraDato(id, Destacado.class);
@@ -54,7 +54,7 @@ public class DestacadoController {
 		}
 	}
 
-	@RequestMapping("modificaDestacado.gin")
+	@RequestMapping("modificaDestacado.html")
 	public ModelAndView modificaDestacado(int id) {
 		Destacado destacado = null;
 		if (id == 0) {
