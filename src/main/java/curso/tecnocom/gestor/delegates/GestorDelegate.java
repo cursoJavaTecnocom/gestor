@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import curso.tecnocom.gestor.services.ContenidoService;
+import curso.tecnocom.gestor.services.GestorService;
 
 @Component
-public class ContenidoDelegate {
+public class GestorDelegate {
 
 	@Autowired
-	private ContenidoService gestorService;
+	private GestorService gestorService;
 	
 	public List<?> dameDatos(Class<?> clase) throws Exception{
 		return getGestorService().dameDatos(clase);
@@ -25,11 +25,11 @@ public class ContenidoDelegate {
 		getGestorService().grabaObjeto(objeto);
 	}
 	
-	public ContenidoService getGestorService() {
+	public GestorService getGestorService() {
 		return gestorService;
 	}
 
-	public void setGestorService(ContenidoService gestorService) {
+	public void setGestorService(GestorService gestorService) {
 		this.gestorService = gestorService;
 	}
 	
