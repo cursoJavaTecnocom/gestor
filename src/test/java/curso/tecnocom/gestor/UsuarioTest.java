@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.servlet.ModelAndView;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("servlet-context.xml")
@@ -24,13 +25,9 @@ public class UsuarioTest {
 	@Test
 	public void listaUsuario() {
 		
-		try {
-			assertNotNull(controler.getUsuarioDelegate().dameDatos(UsuarioTest.class));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		ModelAndView model = controler.usuarios();
+		if (model.getViewName().equals("error"))
 			fail();
-		}
 		
 		
 		
