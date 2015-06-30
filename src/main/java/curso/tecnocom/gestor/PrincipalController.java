@@ -110,7 +110,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	{
 		;
 		try {
-			getPrincipalDelegate().borrar(id, Principale.class);
+			getPrincipalDelegate().borraDato(id, Principale.class);
 			return principales();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
