@@ -33,4 +33,12 @@ public class GestorDelegate {
 		this.gestorService = gestorService;
 	}
 	
+	public void borraDato(Object objeto) throws Exception
+	{
+		getGestorService().borraDato( objeto);
+	}
+	public void borraDato(int id, Class<?> clase) throws Exception
+	{
+		getGestorService().borraDato( id,clase);
+	}
 }
