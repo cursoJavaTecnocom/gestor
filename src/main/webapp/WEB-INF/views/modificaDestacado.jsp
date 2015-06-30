@@ -29,7 +29,7 @@
 	<td><input type="text" name="texto" value="${destacado.texto}"></td>
   </tr>
   <tr>
-	<td colspan="2" align="center"><input type="submit" value="Grabar"></td>
+	<td colspan="2"><input type="submit" value="Grabar"></td>
   </tr>
 
  </table>

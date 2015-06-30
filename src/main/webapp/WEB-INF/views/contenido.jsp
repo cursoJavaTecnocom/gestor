@@ -32,11 +32,10 @@
 				</td>
 			</tr>
 		</c:forEach>
-	</table>
-		<tr align="justify">
-			<a href="modificaContenido.html?id=0"><input type="button"
-				value="Añadir nuevo contenido"></a>
+	
+		<tr>
+			<a href="modificaContenido.html?id=0"><input type="button" value="Añadir nuevo contenido"></a>
 		</tr>
-
+</table>
 </body>
 </html>
