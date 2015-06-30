@@ -7,8 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CONTENIDOS</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<script src="js/jsnoticias.js" type="text/javascript"></script>
 </head>
 <body>
+<header>
+		<div class="jumbotron">
+			<div class="container"><h1><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
+		</div>
+	</header>
 
 	<form action="grabaContenido.html" modelAttribute="contenido">
 		<hidden path="id" />
