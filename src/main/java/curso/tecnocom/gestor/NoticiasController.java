@@ -25,12 +25,12 @@ public class NoticiasController {
 
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
-			Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
+			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
 			for (Noticia noticia : noticias) {
 				noticiasOrdenados.add(noticia);
-			}
+			}*/
 			ModelAndView salida = new ModelAndView("noticias");
-			salida.addObject("noticias", noticiasOrdenados);
+			salida.addObject("noticias", noticias);
 			return salida;
 
 		} catch (Exception e) {
@@ -42,7 +42,7 @@ public class NoticiasController {
 
 	// /----modificar
 	@RequestMapping("modificaNoticia.html")
-	public ModelAndView modificaPrincipal(int id) {
+	public ModelAndView modificaNoticia(int id) {
 		Noticia noticia = null;
 		if (id == 0) {
 			noticia = new Noticia();
@@ -65,8 +65,8 @@ public class NoticiasController {
 
 	
 	// /----borrar
-	@RequestMapping("borraNoticia.gin")
-	public ModelAndView borraMenu(int id) {
+	@RequestMapping("borraNoticia.html")
+	public ModelAndView borraNoticia(int id) {
 		try {
 			getGestorDelegate().borraDato(id, Noticia.class);
 			return noticias();
@@ -78,7 +78,7 @@ public class NoticiasController {
 
 	// /----grabar
 	@RequestMapping("grabaNoticia.html")
-	public ModelAndView grabaPrincipal(Noticia noticia) {
+	public ModelAndView grabaNoticia(Noticia noticia) {
 		try {
 			getGestorDelegate().grabaObjeto(noticia);
 			return noticias();
