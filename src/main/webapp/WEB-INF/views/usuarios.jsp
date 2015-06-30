@@ -12,7 +12,7 @@
 
 <body>
 	<header>Usuarios</header>
-	<a href="modificaUsuario.gin?id=0">Alta Nuevo Usuario</a>
+	<a href="modificaUsuario.html?id=0">Alta Nuevo Usuario</a>
 	<table border="1">
 
 		<tr>

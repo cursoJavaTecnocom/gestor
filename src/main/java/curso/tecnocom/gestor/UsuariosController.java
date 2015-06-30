@@ -28,7 +28,7 @@ public class UsuariosController {
 	{
 		try{
 		List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
-	
+		
 			ModelAndView salida= new ModelAndView("usuarios");
 			salida.addObject("usuario", usuarios);
 			return salida;
@@ -96,6 +96,28 @@ public class UsuariosController {
 	
 	}
 	
+	@RequestMapping("validacion.html")
+	public ModelAndView validacion(Usuario usuario){
+		try {
+			List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
+			
+			if (usuarios.contains(usuario)) {
+				
+				
+				return new ModelAndView("principal");
+			}
+			else
+			{
+				return new ModelAndView("validacion");
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		}
+		
+	}
 	
 	//GETTERS AND SETTERS
 	public GestorDelegate getUsuarioDelegate() {
