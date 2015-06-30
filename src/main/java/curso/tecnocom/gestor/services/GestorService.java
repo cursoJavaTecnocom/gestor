@@ -12,15 +12,16 @@ import curso.tecnocom.gestor.daos.DaoInterface;
 public class GestorService {
 	
 	@Autowired
-	private DaoInterface contenidoDao;
+	private GestorDao contenidoDao;
 	
 
-	@SuppressWarnings("rawtypes")
+	
 	public List<?> dameDatos(Class<?> clase) throws Exception {
-		List salida=null;
-		Method metodo=getContenidoDao().getClass().getMethod("dameDatos", Class.class);
-		salida=(List<?>) metodo.invoke(getContenidoDao(), clase);
-		return salida;
+		//List<?> salida=null;
+		/*Method metodo=getContenidoDao().getClass().getMethod("dameDatos", Class.class);
+		salida=(List<?>) metodo.invoke(getContenidoDao(), clase);*/
+		 return getContenidoDao().dameDatos(clase);
+		//return salida;
 	}
 	
 	public Object dameObjeto(int id, Class<?> clase) throws Exception {
@@ -31,11 +32,11 @@ public class GestorService {
 	
 
 
-	public DaoInterface getContenidoDao() {
+	public GestorDao getContenidoDao() {
 		return contenidoDao;
 	}
 
-	public void setContenidoDao(DaoInterface contenidoDao) {
+	public void setContenidoDao(GestorDao contenidoDao) {
 		this.contenidoDao = contenidoDao;
 	}
 
