@@ -23,7 +23,7 @@ public class UsuariosController {
 	private GestorDelegate usuarioDelegate;
  
 	//lista usuarios
-	@RequestMapping("usuarios.html") 
+	@RequestMapping("usuarios.html")  
 	public ModelAndView usuarios()
 	{
 		try{
