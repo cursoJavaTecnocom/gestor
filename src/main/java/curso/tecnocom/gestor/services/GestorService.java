@@ -46,5 +46,17 @@ public class GestorService {
 		
 	}
 
+	public void borraDato(Object objeto) throws Exception{
+		Method metodo=getContenidoDao().getClass().getMethod("grabaObjeto", Object.class);
+		metodo.invoke(getContenidoDao(), objeto);
+		
+	}
+
+	public void borraDato(int id, Class<?> clase) throws Exception{
+		Method metodo=getContenidoDao().getClass().getMethod("borraDato", int.class,Class.class);
+		metodo.invoke(getContenidoDao(), id,clase);
+		
+	}
+
 
 }
