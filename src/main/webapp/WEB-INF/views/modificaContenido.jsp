@@ -17,7 +17,7 @@
 			 <sp:textarea path="descripcion"/>
 		
 		
-			<sp:textarea path="contenido" /></td>
+			<td><sp:textarea path="contenido" /></td>
 		
 		<td colspan="2"></td>
 		<sp:button value="grabar" type="submit" name="grabar">Guardar</sp:button>
