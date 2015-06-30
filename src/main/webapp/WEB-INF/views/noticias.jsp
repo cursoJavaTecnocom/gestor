@@ -40,7 +40,7 @@
 								<td>${noticia.fecha}</td>
 								<td>${noticia.titulo}</td>
 								<td>${noticia.texto}</td>
-								<td>${noticia.contenido}</td>
+								<td>${noticia.contenido.contenido}</td>
 								<td><input type="button" value="Modificar" class="btn btn-primary" onclick="modificaNoticia(${noticia.id})">
 									<input type="button" value="Borrar" class="btn btn-warning" onclick="borraNoticia(${noticia.id})">
 								</td>
