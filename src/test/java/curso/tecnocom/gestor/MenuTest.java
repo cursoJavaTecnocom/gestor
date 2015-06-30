@@ -32,18 +32,18 @@ public class MenuTest {
 //	@Test
 //	public void alta(){
 //		try {
-//			Contenido contenido=(Contenido) getMenuController().getDelegate().dameObjeto(19,Contenido.class);
-//			TipoMenu tipoMenu=(TipoMenu) getMenuController().getDelegate().dameObjeto(3,TipoMenu.class);
-//			Imagene imagen=(Imagene) getMenuController().getDelegate().dameObjeto(1,Imagene.class);
+//			Contenido contenido=(Contenido) getDelegate().dameObjeto(19,Contenido.class);
+//			TipoMenu tipoMenu=(TipoMenu) getDelegate().dameObjeto(3,TipoMenu.class);
+//			Imagene imagen=(Imagene) getDelegate().dameObjeto(1,Imagene.class);
 //			menu.setContenido(contenido);
 //			menu.setIdMenuPadre(0);
 //			menu.setImagene(imagen);
 //			menu.setTipoMenu(tipoMenu);
 //			menu.setTitulo("Menu nuevo");
-//			getMenuController().getDelegate().grabaObjeto(menu);
+//			getDelegate().grabaObjeto(getMenu());
 //			
-//			getMenu().setTitulo("Titulo modificado");
-//			getMenuController().getDelegate().grabaObjeto(getMenu());
+////			getMenu().setTitulo("Titulo modificado");
+////			getDelegate().grabaObjeto(getMenu());
 //		} catch (Exception e) {
 //			//Assert.fail();
 //			e.printStackTrace();
@@ -64,16 +64,16 @@ public class MenuTest {
 
 	
 		
-	/*@Test
+	@Test
 	public void borrado(){
 		try {
-			getMenuController().getDelegate().borraDato(23);
+			getDelegate().borraDato(23,Menu.class);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.fail();
 		}
-	}*/
+	}
 
 	
 
