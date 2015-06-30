@@ -28,11 +28,7 @@ public class Destacado implements Serializable {
 	@JoinColumn(name="idContenidos")
 	private Contenido contenido;
 
-	//bi-directional many-to-one association to Imagene
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idImagen")
-	private Imagene imagene;
-
+	
 	public Destacado() {
 	}
 
@@ -67,13 +63,5 @@ public class Destacado implements Serializable {
 	public void setContenido(Contenido contenido) {
 		this.contenido = contenido;
 	}
-
-	public Imagene getImagene() {
-		return this.imagene;
-	}
-
-	public void setImagene(Imagene imagene) {
-		this.imagene = imagene;
-	}
-
+	
 }
