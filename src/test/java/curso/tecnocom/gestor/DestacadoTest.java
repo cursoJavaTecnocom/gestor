@@ -1,22 +1,20 @@
 package curso.tecnocom.gestor;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.Destacado;
-import curso.tecnocom.gestor.datos.Imagene;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("servlet-context.xml")
-@FixMethodOrder(MethodSorters.JVM)
+
 public class DestacadoTest {
 	
 	@Autowired
@@ -37,14 +35,14 @@ public class DestacadoTest {
 			
 			// Alta Destacado
 			getDestacado().setTexto("Texto Destacado");
-			getDestacado().setTitulo("Título Destacado");
+			getDestacado().setTitulo("Tï¿½tulo Destacado");
 			//getDestacado().setImagene(imagen);
 			getDestacado().setContenido(contenido);
 			
 			getDestacadoControler().getGestorDelegate().grabaObjeto(getDestacado());
 			//System.out.println(getDestacado());
 			
-			// Modificación Destacado
+			// Modificaciï¿½n Destacado
 			getDestacado().setTexto("Texto modificado");
 			getDestacadoControler().getGestorDelegate().grabaObjeto(getDestacado());
 
