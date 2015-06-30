@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.Noticia;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -24,12 +25,12 @@ public class NoticiasController {
 	public ModelAndView noticias() {
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
-			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
+			Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
 			for (Noticia noticia : noticias) {
 				noticiasOrdenados.add(noticia);
-			}*/
+			}
 			ModelAndView salida = new ModelAndView("noticias");
-			salida.addObject("noticias", noticias);
+			salida.addObject("noticias", noticiasOrdenados);
 			return salida;
 
 		} catch (Exception e) {
@@ -50,6 +51,10 @@ public class NoticiasController {
 				noticia = (Noticia) getGestorDelegate().dameObjeto(id, Noticia.class);
 			
 			ModelAndView salida = new ModelAndView("modificarNoticia");
+			
+			List<Contenido> contenidos = (List<Contenido>) getGestorDelegate().dameDatos(Contenido.class);
+			
+			salida.addObject("contenidos", contenidos);
 			salida.addObject("noticia", noticia);
 			return salida;
 		} catch (Exception e) {
