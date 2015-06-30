@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.hibernate.id.IdentityGenerator.GetGeneratedKeysDelegate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Usuario;
-import curso.tecnocom.gestor.delegates.UsuarioDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
 public class UsuariosController {
@@ -19,10 +20,10 @@ public class UsuariosController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsuariosController.class);
 
-	private UsuarioDelegate usuarioDelegate;
+	private GestorDelegate usuarioDelegate;
  
 	//lista usuarios
-	@RequestMapping("usuarios.html") 
+	@RequestMapping("usuarios.html")  
 	public ModelAndView usuarios()
 	{
 		try{
@@ -76,7 +77,7 @@ public class UsuariosController {
 	{
 		try
 		{
-			getUsuarioDelegate().borrar(id, Usuario.class);
+			getUsuarioDelegate().borraDato(id, Usuario.class);
 			return usuarios();
 		}
 		catch (Exception e){
@@ -101,11 +102,11 @@ public class UsuariosController {
 	
 	
 	//GETTERS AND SETTERS
-	public UsuarioDelegate getUsuarioDelegate() {
+	public GestorDelegate getUsuarioDelegate() {
 		return usuarioDelegate;
 	}
 
-	public void setUsuarioDelegate(UsuarioDelegate usuarioDelegate) {
+	public void setUsuarioDelegate(GestorDelegate usuarioDelegate) {
 		this.usuarioDelegate = usuarioDelegate;
 	}
 
