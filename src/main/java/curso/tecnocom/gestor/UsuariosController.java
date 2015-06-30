@@ -35,7 +35,7 @@ public class UsuariosController {
 			return salida;
 		}
 		catch (Exception e){
-			
+			e.printStackTrace();
 			return new ModelAndView("error");
 		}
 		
