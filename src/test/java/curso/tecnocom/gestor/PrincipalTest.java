@@ -1,16 +1,15 @@
 package curso.tecnocom.gestor;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-import junit.framework.Assert;
+import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.servlet.ModelAndView;
 
+import curso.tecnocom.gestor.daos.GestorDao;
 import curso.tecnocom.gestor.datos.Principale;
 
 
@@ -22,9 +21,27 @@ public class PrincipalTest {
 	@Autowired
 	private PrincipalController principalController;
 	private Principale principale;
+	@Autowired
+	private GestorDao gestorService;
 	
 	
-/*
+public GestorDao getGestorService() {
+		return gestorService;
+	}
+
+
+
+
+
+	public void setGestorService(GestorDao gestorService) {
+		this.gestorService = gestorService;
+	}
+
+
+
+
+
+	/*
 	@Test
 	public void listado()
 	{
@@ -41,9 +58,17 @@ public class PrincipalTest {
 	*/
 	@Test
 	public void listado1() {
-		ModelAndView model = getPrincipalController().principales();
-		if (model.getViewName().equals("error"))
-			fail();
+		
+		try {
+			List<?> salida=getGestorService().dameDatos(Principale.class);
+		System.out.println(getGestorService().getSesion());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			Assert.fail();
+		}
+
 	}
 	
 	

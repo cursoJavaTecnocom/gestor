@@ -42,7 +42,7 @@
 	<div class="container">
 
 		<c:if test="${noticia.id gt 0}"><h1>Modifica esta noticia</h1></c:if>
-		<c:if test="${empty noticia.id}"><h1>Añade nueva noticia</h1></c:if>
+		<c:if test="${empty noticia.id}"><h1>Añade una nueva noticia</h1></c:if>
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
