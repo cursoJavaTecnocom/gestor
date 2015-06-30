@@ -20,17 +20,18 @@ public class UsuariosController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsuariosController.class);
 
-	private GestorDelegate usuarioDelegate;
+	private GestorDelegate gestorDelegate;
  
 	//lista usuarios
 	@RequestMapping("usuarios.html")  
 	public ModelAndView usuarios()
 	{
 		try{
-		List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
+		@SuppressWarnings("unchecked")
+		List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
 		
 			ModelAndView salida= new ModelAndView("usuarios");
-			salida.addObject("usuario", usuarios);
+			salida.addObject("usuarios", usuarios);
 			return salida;
 		}
 		catch (Exception e){
@@ -52,7 +53,7 @@ public class UsuariosController {
 			}
 			else
 			{
-				 usuario= (Usuario) getUsuarioDelegate().dameDatos(Usuario.class);
+				 usuario= (Usuario) getGestorDelegate().dameDatos(Usuario.class);
 			}
 			
 			ModelAndView salida = new ModelAndView("modificarUsuarios");
@@ -73,7 +74,7 @@ public class UsuariosController {
 	{
 		try
 		{
-			getUsuarioDelegate().borraDato(id, Usuario.class);
+			getGestorDelegate().borraDato(id, Usuario.class);
 			return usuarios();
 		}
 		catch (Exception e){
@@ -87,7 +88,7 @@ public class UsuariosController {
 	public ModelAndView grabaUsuario(Usuario usuario){
 		
 		try {
-			getUsuarioDelegate().grabaObjeto(usuario);
+			getGestorDelegate().grabaObjeto(usuario);
 			return usuarios();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -99,7 +100,7 @@ public class UsuariosController {
 	@RequestMapping("validacion.html")
 	public ModelAndView validacion(Usuario usuario){
 		try {
-			List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
+			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
 			
 			if (usuarios.contains(usuario)) {
 				
@@ -120,12 +121,12 @@ public class UsuariosController {
 	}
 	
 	//GETTERS AND SETTERS
-	public GestorDelegate getUsuarioDelegate() {
-		return usuarioDelegate;
+	public GestorDelegate getGestorDelegate() {
+		return gestorDelegate;
 	}
 
-	public void setUsuarioDelegate(GestorDelegate usuarioDelegate) {
-		this.usuarioDelegate = usuarioDelegate;
+	public void setGestorDelegate(GestorDelegate gestorDelegate) {
+		this.gestorDelegate = gestorDelegate;
 	}
 
 }
