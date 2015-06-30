@@ -35,7 +35,7 @@ public class UsuariosController {
 		}
 		catch (Exception e){
 			
-			return new ModelAndView("home");
+			return new ModelAndView("error");
 		}
 		
 	}
@@ -62,7 +62,7 @@ public class UsuariosController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ModelAndView("home");
+			return new ModelAndView("error");
 		}
 			
 	}
