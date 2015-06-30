@@ -29,8 +29,8 @@ public class MenuDelegate {
 		getMenuService().borrar(id);
 	}
 
-	public Object dameObjeto(int id) throws Exception {
-		return getMenuService().dameObjeto(id);
+	public Object dameObjeto(Class<?> clase, int id) throws Exception {
+		return getMenuService().dameObjeto(clase, id);
 	}
 
 	public void modificaObjeto(Object mod) throws Exception {

@@ -53,8 +53,8 @@ public class MenuDao {
 		getSesion().getTransaction().commit();
 	}
 
-	public Object dameObjeto(int id) throws Exception {
+	public Object dameObjeto(Class<?> clase, int id) throws Exception {
 		setSesion(getFactoria().openSession());
-		return getSesion().load(Menu.class, id);
+		return getSesion().load(clase, id);
 	}
 }

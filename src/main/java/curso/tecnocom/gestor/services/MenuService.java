@@ -36,10 +36,10 @@ public class MenuService {
 
 	}
 
-	public Object dameObjeto(int id) throws Exception {
+	public Object dameObjeto(Class<?> clase, int id) throws Exception {
 		Method metodo = getMenuDao().getClass().getMethod("dameObjeto",
 				int.class);
-		return metodo.invoke(getMenuDao(), id);
+		return metodo.invoke(getMenuDao(), clase, id);
 	}
 
 	public void modificaObjeto(Object mod) throws Exception {

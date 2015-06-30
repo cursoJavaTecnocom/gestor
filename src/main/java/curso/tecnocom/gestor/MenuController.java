@@ -57,7 +57,7 @@ public class MenuController {
 			menu = new Menu();
 		try {
 			if (id > 0)
-				menu = (Menu) getMenuDelegate().dameObjeto(id);
+				menu = (Menu) getMenuDelegate().dameObjeto(Menu.class, id);
 			List<TipoMenu> tiposMenus = (List<TipoMenu>) getMenuDelegate()
 					.dameDatos(TipoMenu.class);
 			List<Imagene> imagenes = (List<Imagene>) getMenuDelegate()
