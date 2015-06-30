@@ -28,13 +28,9 @@ public class UsuariosController {
 	{
 		try{
 		List<Usuario> usuarios = (List<Usuario>) getUsuarioDelegate().dameDatos(Usuario.class);
-		Set<Usuario> usuariosordenados= new TreeSet<Usuario>();
-		
-		for(Usuario usuario : usuarios){
-			usuariosordenados.add(usuario);
-		}
+	
 			ModelAndView salida= new ModelAndView("usuarios");
-			salida.addObject("usuario", usuariosordenados);
+			salida.addObject("usuario", usuarios);
 			return salida;
 		}
 		catch (Exception e){

@@ -27,7 +27,7 @@ public class AspectoHibernate {
 			gestorDao.setSesion(gestorDao.getFactoria().openSession());
 		try {
 			joinPoint.proceed();
-
+			
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

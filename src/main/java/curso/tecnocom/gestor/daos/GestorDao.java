@@ -39,6 +39,7 @@ public class GestorDao implements DaoInterface {
 	@SessionManager
 	public List<?> dameDatos(Class<?> clase) throws Exception {
 		Criteria criteria = getSesion().createCriteria(clase);
+		List<?> lista=criteria.list();
 		return criteria.list();
 	}
 

@@ -22,7 +22,6 @@ public class NoticiasController {
 	// /----noticias
 	@RequestMapping("noticias.html")
 	public ModelAndView noticias() {
-
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
 			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
@@ -43,14 +42,13 @@ public class NoticiasController {
 	// /----modificar
 	@RequestMapping("modificaNoticia.html")
 	public ModelAndView modificaNoticia(int id) {
-		Noticia noticia = null;
-		if (id == 0) {
-			noticia = new Noticia();
-		}
-
+		Noticia noticia;	
 		try {
-			if (id > 0)
+			if (id == 0)
+				noticia = new Noticia();
+			else
 				noticia = (Noticia) getGestorDelegate().dameObjeto(id, Noticia.class);
+			
 			ModelAndView salida = new ModelAndView("modificarNoticia");
 			salida.addObject("noticia", noticia);
 			return salida;
@@ -61,9 +59,6 @@ public class NoticiasController {
 		}
 	}
 
-	// /----añadir
-
-	
 	// /----borrar
 	@RequestMapping("borraNoticia.html")
 	public ModelAndView borraNoticia(int id) {
