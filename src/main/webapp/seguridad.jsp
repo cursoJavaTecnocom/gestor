@@ -5,4 +5,4 @@
 
 <c:if test="${ not logado }">
 <jsp:forward page="noLogado.gin"></jsp:forward>
-</c:if>
+</c:if> 

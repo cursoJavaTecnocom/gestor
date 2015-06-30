@@ -2,6 +2,9 @@ package curso.tecnocom.gestor.daos;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface DaoInterface {
 	
 	public List<?> dameDatos(Class<?> clase) throws Exception;
