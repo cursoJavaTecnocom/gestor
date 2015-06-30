@@ -1,12 +1,15 @@
 package curso.tecnocom.gestor;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 import junit.framework.Assert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Principale;
 
@@ -16,12 +19,12 @@ import curso.tecnocom.gestor.datos.Principale;
 public class PrincipalTest {
 
 	
-	
+	@Autowired
 	private PrincipalController principalController;
 	private Principale principale;
 	
 	
-	
+/*
 	@Test
 	public void listado()
 	{
@@ -35,6 +38,13 @@ public class PrincipalTest {
 	}
 	
 	
+	*/
+	@Test
+	public void listado1() {
+		ModelAndView model = getPrincipalController().principales();
+		if (model.getViewName().equals("error"))
+			fail();
+	}
 	
 	
 	
