@@ -23,6 +23,7 @@ import curso.tecnocom.gestor.delegates.GestorDelegate;
 @Controller
 public class MenuController {
 
+	
 	@Autowired
 	private  GestorDelegate delegate;
 
