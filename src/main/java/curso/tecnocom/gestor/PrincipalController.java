@@ -40,7 +40,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	{
 		List<Principale> principales;
 		try {
-			principales=(List<Principale>)getGestorDelegate().dameDatos(Principale.class);
+			principales=(List<Principale>)getPrincipalDelegate().dameDatos(Principale.class);
 			Set<Principale> principalesOrdenados= new TreeSet<Principale>();
 			for (Principale principal : principales) {
 				principalesOrdenados.add(principal);
@@ -74,7 +74,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		try {
 			if(id>0)
-			 principal=(Principale) getGestorDelegate().dameObjeto(id, Principale.class);			
+			 principal=(Principale) getPrincipalDelegate().dameObjeto(id, Principale.class);			
 			ModelAndView salida=new ModelAndView("modificaPrincipal");
 			salida.addObject("principal",principal);
 			return salida;
@@ -94,7 +94,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		
 		try {
-			getGestorDelegate().grabaObjeto(principal);
+			getPrincipalDelegate().grabaObjeto(principal);
 			return principales();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -110,7 +110,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	{
 		;
 		try {
-			getGestorDelegate().borrar(id, Principale.class);
+			getPrincipalDelegate().borrar(id, Principale.class);
 			return principales();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -126,7 +126,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	
-	public GestorDelegate getGestorDelegate() {
+	public GestorDelegate getPrincipalDelegate() {
 		return principalDelegate;
 	}
 
@@ -134,8 +134,8 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-	public void setGestorDelegate(GestorDelegate gestorDelegate) {
-		this.gestorDelegate = gestorDelegate;
+	public void setPrincipalDelegate(GestorDelegate principalDelegate) {
+		this.principalDelegate = principalDelegate;
 	}
 
 
