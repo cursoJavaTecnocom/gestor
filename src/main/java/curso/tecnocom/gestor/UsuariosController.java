@@ -44,7 +44,7 @@ public class UsuariosController {
 	}
 	  
 	//modificar
-	@RequestMapping("modificaUsuarios.html")
+	@RequestMapping("modificaUsuario.html")
 	public ModelAndView modificaUsuarios(int id)
 	{
 		Usuario usuario = null;
@@ -58,7 +58,7 @@ public class UsuariosController {
 				 usuario= (Usuario) getGestorDelegate().dameDatos(Usuario.class);
 			}
 			
-			ModelAndView salida = new ModelAndView("modificarUsuarios");
+			ModelAndView salida = new ModelAndView("modificaUsuarios");
 			salida.addObject("usuario",usuario);
 			return salida;
 			

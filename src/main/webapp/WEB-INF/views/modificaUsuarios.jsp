@@ -18,7 +18,7 @@
 		<h1>Alta de nuevo Usuario</h1>
 	</c:if>
 
-	<sp:form action="grabaUsuario.gin" modelAttribute="usuario">
+	<sp:form action="grabaUsuario.htlm" modelAttribute="usuario">
 		<sp:hidden path="id" />
 		<table>
 			<tr>
