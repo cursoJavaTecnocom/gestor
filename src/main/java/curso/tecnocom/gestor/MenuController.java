@@ -18,13 +18,13 @@ import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.MenuProperty;
 import curso.tecnocom.gestor.datos.TipoMenu;
 import curso.tecnocom.gestor.datos.TipoMenuProperty;
-import curso.tecnocom.gestor.delegates.MenuDelegate;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
 public class MenuController {
 
 	@Autowired
-	private MenuDelegate menuDelegate;
+	private  GestorDelegate delegate;
 
 	@InitBinder
 	public void init(WebDataBinder binder) {
@@ -38,7 +38,7 @@ public class MenuController {
 	@RequestMapping("menu.html")
 	public ModelAndView menu() {
 		try {
-			List<Menu> menus = (List<Menu>) getMenuDelegate().dameDatos(
+			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
 					Menu.class);
 			ModelAndView modelAndView = new ModelAndView("menus");
 			modelAndView.addObject("menus", menus);
@@ -57,14 +57,14 @@ public class MenuController {
 			menu = new Menu();
 		try {
 			if (id > 0)
-				menu = (Menu) getMenuDelegate().dameObjeto(Menu.class, id);
-			List<TipoMenu> tiposMenus = (List<TipoMenu>) getMenuDelegate()
+				menu = (Menu) getDelegate().dameObjeto(id,Menu.class);
+			List<TipoMenu> tiposMenus = (List<TipoMenu>) getDelegate()
 					.dameDatos(TipoMenu.class);
-			List<Imagene> imagenes = (List<Imagene>) getMenuDelegate()
+			List<Imagene> imagenes = (List<Imagene>) getDelegate()
 					.dameDatos(Imagene.class);
-			List<Contenido> contenidos = (List<Contenido>) getMenuDelegate()
+			List<Contenido> contenidos = (List<Contenido>) getDelegate()
 					.dameDatos(Contenido.class);
-			List<Menu> menus = (List<Menu>) getMenuDelegate().dameDatos(
+			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
 					Menu.class);
 			ModelAndView modelAndView = new ModelAndView("modificaMenu");
 			modelAndView.addObject("menu", menu);
@@ -82,7 +82,7 @@ public class MenuController {
 	@RequestMapping("grabaMenu.html")
 	public ModelAndView grabaMenu(Menu menu, BindingResult result) {
 		try {
-			getMenuDelegate().modificaObjeto(menu);
+			getDelegate().grabaObjeto(menu);
 			return menu();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,7 +93,7 @@ public class MenuController {
 	@RequestMapping("borraMenu.html")
 	public ModelAndView borraMenu(int id) {
 		try {
-			getMenuDelegate().borrar(id);
+			getDelegate().borraDato(id, Menu.class);
 			return menu();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,12 +101,14 @@ public class MenuController {
 		}
 	}
 
-	public MenuDelegate getMenuDelegate() {
-		return menuDelegate;
+	public GestorDelegate getDelegate() {
+		return delegate;
 	}
 
-	public void setMenuDelegate(MenuDelegate menuDelegate) {
-		this.menuDelegate = menuDelegate;
+	public void setDelegate(GestorDelegate delegate) {
+		this.delegate = delegate;
 	}
+
+	
 
 }

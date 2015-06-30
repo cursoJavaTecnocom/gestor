@@ -29,18 +29,18 @@ public class MenuTest {
 	@Test
 	public void alta(){
 		try {
-			Contenido contenido=(Contenido) getMenuController().getMenuDelegate().dameObjeto(Contenido.class,19);
-			TipoMenu tipoMenu=(TipoMenu) getMenuController().getMenuDelegate().dameObjeto(TipoMenu.class,3);
-			Imagene imagen=(Imagene) getMenuController().getMenuDelegate().dameObjeto(Imagene.class,1);
+			Contenido contenido=(Contenido) getMenuController().getDelegate().dameObjeto(19,Contenido.class);
+			TipoMenu tipoMenu=(TipoMenu) getMenuController().getDelegate().dameObjeto(3,TipoMenu.class);
+			Imagene imagen=(Imagene) getMenuController().getDelegate().dameObjeto(1,Imagene.class);
 			menu.setContenido(contenido);
 			menu.setIdMenuPadre(0);
 			menu.setImagene(imagen);
 			menu.setTipoMenu(tipoMenu);
 			menu.setTitulo("Menu nuevo");
-			getMenuController().getMenuDelegate().modificaObjeto(menu);
+			getMenuController().getDelegate().grabaObjeto(menu);
 			
-			getMenu().setTitulo("Titulo modificado");
-			getMenuController().getMenuDelegate().modificaObjeto(getMenu());
+//			getMenu().setTitulo("Titulo modificado");
+//			getMenuController().getMenuDelegate().modificaObjeto(getMenu());
 		} catch (Exception e) {
 			//Assert.fail();
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class MenuTest {
 	@Test
 	public void listado(){
 		try {
-			assertNotNull(getMenuController().getMenuDelegate().dameDatos(Menu.class));
+			assertNotNull(getMenuController().getDelegate().dameDatos(Menu.class));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,7 +71,7 @@ public class MenuTest {
 	@Test
 	public void borrado(){
 		try {
-			getMenuController().getMenuDelegate().borrar(22);
+			getMenuController().getDelegate().borraDato(22);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
