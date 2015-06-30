@@ -45,7 +45,7 @@
 		<beans:property name="username" value="tecnocom">
 		</beans:property>
 		<beans:property name="url"
-			value="jdbc:mysql://192.168.120.29:3306/gestor">
+			value="jdbc:mysql://192.168.120.20:3306/gestor">
 		</beans:property>
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver">
 		</beans:property>
