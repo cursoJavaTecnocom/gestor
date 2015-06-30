@@ -10,18 +10,18 @@
 </head>
 <body>
 
-	<sp:form action="grabaContenido.html" modelAttribute="contenido">
-		<sp:hidden path="id" />
-		
-			<label>Descripción:</label>
-			 <sp:textarea path="descripcion"/>
-		
-		
-			<td><sp:textarea path="contenido" /></td>
-		
-		<td colspan="2"></td>
-		<sp:button value="grabar" type="submit" name="grabar">Guardar</sp:button>
-	</sp:form>
+	<form action="grabaContenido.html" modelAttribute="contenido">
+		<hidden path="id" />
+
+		<label>descripcion:</label>
+		<input type="text" path="descripcion"></textarea><br>
+
+
+		<textarea rows="7" cols="120" path="contenido"></textarea><br>
+
+
+		<button value="grabar" type="submit" name="grabar">Guardar</button>
+	</form>
 
 </body>
 </html>

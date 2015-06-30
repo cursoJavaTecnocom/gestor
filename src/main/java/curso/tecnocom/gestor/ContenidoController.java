@@ -23,14 +23,14 @@ public class ContenidoController {
 	
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping("contenido.html") 
+	@RequestMapping("contenidos.html") 
 	public ModelAndView contenido()
 	{
 		try{
 		List<Contenido> contenidos = (List<Contenido>) getContenidoDelegate().dameDatos(Contenido.class);
 		
-			ModelAndView salida= new ModelAndView("contenido");
-			salida.addObject("contenido", contenidos);
+			ModelAndView salida= new ModelAndView("contenidos");
+			salida.addObject("contenidos", contenidos);
 			return salida;
 		}
 		catch (Exception e){
