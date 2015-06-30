@@ -95,7 +95,7 @@ public class UsuariosController {
 			return new ModelAndView("error");
 		}
 	
-	}
+	} 
 	
 	@RequestMapping("validacion.html")
 	public ModelAndView validacion(Usuario usuario){
