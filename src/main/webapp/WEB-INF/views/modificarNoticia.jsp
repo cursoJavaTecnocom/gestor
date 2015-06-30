@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib prefix="sp" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,18 @@
 <script src="js/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/jsnoticias.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			
+			var opciones = document.forms[0].idcontenido;
+			for (i = 0; i < opciones.length; i++) {
+				if(opciones[i].value == ${noticia.contenido.id})
+					opciones[i].selected=true;
+			}
+		});
+</script>
+
 </head>
 <body>
 
@@ -29,43 +41,43 @@
 
 	<div class="container">
 
-		<c:if test="${cargo.id gt 0}"><h1>Modifica esta noticia</h1></c:if>
-		<c:if test="${empty cargo.id}"><h1>Añade nueva noticia</h1></c:if>
+		<c:if test="${noticia.id gt 0}"><h1>Modifica esta noticia</h1></c:if>
+		<c:if test="${empty noticia.id}"><h1>Añade nueva noticia</h1></c:if>
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
-					<form action="grabaNoticia">
+					<sp:form action="grabaNoticia.html" modelAttribute="noticia">
 						<input type="hidden" name="id" value="${noticia.id }">
 						<div class="form-group">
 							<label for="idfecha">Fecha</label> 
-							<input type="text" name="fecha" class="form-control" id="idfecha" placeholder="${noticia.fecha}" value="">
+							<sp:input path="fecha" cssClass="form-control" />
 						</div>
 						
 						<div class="form-group">
 							<label for="idtitulo">Titulo</label> 
-							<input type="text" name="fecha" class="form-control" id="idtitulo" placeholder="${noticia.titulo}" value="">
+							<sp:input path="titulo" cssClass="form-control" />
 						</div>
 						
 						<div class="form-group">
 							<label for="idtexto">Texto</label> 
-							<input type="text" name="fecha" class="form-control" id="idtexto" placeholder="${noticia.texto}" value="">
+							<sp:input path="texto" cssClass="form-control" />
 						</div>
 						
 						<div class="form-group">
-							<label for="idcontenido">Contenido</label> 
-							<input type="text" name="fecha" class="form-control" id="idcontenido" placeholder="${noticia.contenido.contenido}" value="">
+							<label for="idcontenido">Contenido</label>
+							<sp:select path="idContenido" cssClass="form-control" id="idContenido">
+								<sp:option value="0">Selecciona contenido ...</sp:option>
+								<sp:options items="${contenidos }" itemLabel="contenido" itemValue="id" />
+							</sp:select>
 						</div>
-						
+							
 						<input type="submit" value="Grabar" class="btn btn-default">
-					</form>
+					</sp:form>
 				</div>
 			</div>
 		</div>
 
 	</div>
-
-	</div>
-
 	
 </body>
 </html>
