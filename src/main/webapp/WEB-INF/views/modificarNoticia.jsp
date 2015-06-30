@@ -38,22 +38,22 @@
 						<input type="hidden" name="id" value="${noticia.id }">
 						<div class="form-group">
 							<label for="idfecha">Fecha</label> 
-							<input type="text" name="fecha" class="form-control" id="idfecha" placeholder="${cargo.descripcion}" value="">
+							<input type="text" name="fecha" class="form-control" id="idfecha" placeholder="${noticia.fecha}" value="">
 						</div>
 						
 						<div class="form-group">
 							<label for="idtitulo">Titulo</label> 
-							<input type="text" name="fecha" class="form-control" id="idtitulo" placeholder="${cargo.descripcion}" value="">
+							<input type="text" name="fecha" class="form-control" id="idtitulo" placeholder="${noticia.titulo}" value="">
 						</div>
 						
 						<div class="form-group">
-							<label for="idtexto">Titulo</label> 
-							<input type="text" name="fecha" class="form-control" id="idtexto" placeholder="${cargo.descripcion}" value="">
+							<label for="idtexto">Texto</label> 
+							<input type="text" name="fecha" class="form-control" id="idtexto" placeholder="${noticia.texto}" value="">
 						</div>
 						
 						<div class="form-group">
 							<label for="idcontenido">Contenido</label> 
-							<input type="text" name="fecha" class="form-control" id="idcontenido" placeholder="${cargo.descripcion}" value="">
+							<input type="text" name="fecha" class="form-control" id="idcontenido" placeholder="${noticia.contenido.contenido}" value="">
 						</div>
 						
 						<input type="submit" value="Grabar" class="btn btn-default">
