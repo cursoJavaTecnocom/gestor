@@ -40,7 +40,7 @@ public class UsuariosController {
 		}
 		
 	}
-	
+	  
 	//modificar
 	@RequestMapping("modificaUsuarios.html")
 	public ModelAndView modificaUsuarios(int id)
@@ -65,7 +65,7 @@ public class UsuariosController {
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
-	   
+
 	}
 	
 	//borrar
