@@ -36,13 +36,14 @@ public class NoticiasController {
 	@InitBinder
 	public void init(WebDataBinder binder) {
 		binder.registerCustomEditor(Noticia.class, new NoticiaProperty());
+		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
 	}
 
 	// /----noticias
 	@RequestMapping("noticias.html")
 	public ModelAndView noticias(HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-			return new ModelAndView("noLogado");
+	/*	if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");*/
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
 			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
@@ -63,8 +64,8 @@ public class NoticiasController {
 	// /----modificar
 	@RequestMapping("modificaNoticia.html")
 	public ModelAndView modificaNoticia(int id, HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-			return new ModelAndView("noLogado");
+//		if (!getGestorDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		Noticia noticia;	
 		try {
 			if (id == 0)
@@ -89,8 +90,8 @@ public class NoticiasController {
 	// /----borrar
 	@RequestMapping("borraNoticia.html")
 	public ModelAndView borraNoticia(int id, HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-			return new ModelAndView("noLogado");
+//		if (!getGestorDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().borraDato(id, Noticia.class);
 			return noticias(request);
@@ -103,8 +104,8 @@ public class NoticiasController {
 	// /----grabar
 	@RequestMapping("grabaNoticia.html")
 	public ModelAndView grabaNoticia(Noticia noticia, HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-			return new ModelAndView("noLogado");
+//		if (!getGestorDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(noticia);
 			return noticias(request);
