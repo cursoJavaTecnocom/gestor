@@ -81,7 +81,7 @@ public class ContenidoTest {
 	  
 	@Test
 	public void listado1(){
-		ModelAndView model=getContenidoController().contenido();
+		ModelAndView model=getContenidoController().contenido(null);
 		if(model.getViewName().equals("error"))
 			Assert.fail();
 	}
