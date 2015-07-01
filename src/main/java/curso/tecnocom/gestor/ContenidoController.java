@@ -26,8 +26,7 @@ public class ContenidoController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("contenidos.html")
 	public ModelAndView contenido(HttpServletRequest request) {
-		if (!getContenidoDelegate().validar(request))
-			return new ModelAndView("noLogado");
+		 
 
 		try {
 			List<Contenido> contenidos = (List<Contenido>) getContenidoDelegate()
