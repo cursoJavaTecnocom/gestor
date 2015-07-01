@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.Noticia;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,26 +23,33 @@ import curso.tecnocom.gestor.datos.Noticia;
 public class NoticiasTest {
 
 	@Autowired
-	private NoticiasController controler;
-	
+	private NoticiasController controler;	
 	private  Noticia noticia;
+	
+	private GestorDelegate delegate;
 	
 	 
 	
 	
 	@Test
 	public void listaNoticias() {
-		ModelAndView model = controler.noticias();
-		if (model.getViewName().equals("error"))
-			fail();
+		try {
+			assertNotNull(getDelegate().dameDatos(Contenido.class));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
+	
+
 	
 
 	@Test
 	public void borraNoticia(String id){
 		
 		try {			
-			getControler().getGestorDelegate().borraDato(8, Noticia.class);
+			getDelegate().borraDato(8, Noticia.class);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,6 +92,20 @@ public class NoticiasTest {
 
 	public NoticiasController getControler() {
 		return controler;
+	}
+
+
+
+
+	public GestorDelegate getDelegate() {
+		return delegate;
+	}
+
+
+
+
+	public void setDelegate(GestorDelegate delegate) {
+		this.delegate = delegate;
 	}
 
 	
