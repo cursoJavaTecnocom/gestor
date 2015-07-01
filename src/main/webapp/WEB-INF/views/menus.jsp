@@ -70,8 +70,8 @@
 				<td>${menu.imagene.nombre}</td>
 				<td>${menu.idMenuPadre} </td>
 				<td>
-					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificar(${menu.id},'modificaMenu.html')" />
-					<input type="button" class="btn btn-warning" value="Borrar" onclick="borrar(${menu.id},'borraMenu.html')" />
+					<button class="btn btn-primary" onclick="modificar(${menu.id},'modificaMenu.html')" ><span class="glyphicon glyphicon-pencil"> Modificar</span></button>
+					<button class="btn btn-warning" onclick="borrar(${menu.id},'borraMenu.html')"><span class="glyphicon glyphicon-trash"> Borrar</span></button>
 				</td>
 			</tr>
 		</c:forEach>

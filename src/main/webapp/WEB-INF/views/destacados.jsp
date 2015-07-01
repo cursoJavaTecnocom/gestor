@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title>Página Destacados</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<title>DESTACADOS</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/destacados.js"></script>
 
@@ -14,13 +14,15 @@
 <body>
 	<%-- <jsp:include page="seguridad.jsp"></jsp:include> --%>
 	<h1>Destacados</h1>
-	<br><a href="modificaDestacado.html?id=0">Alta de Destacados</a>
-	<table border="1">
+	
+<div class="container">
+	<!-- <br><a href="modificaDestacado.html?id=0">Alta de Destacados</a> -->
+	<table class="table table-striped">
 		
 		<tr>
-			<th>Título</th>
-			<th>Texto</th>
-			<th>Acción</th>
+			<th>TÍTULO</th>
+			<th>TEXTO</th>
+			<th>ACCIÓN</th>
 		</tr>
 		
 		<c:forEach items="${destacados}" var="destacado">
@@ -28,14 +30,19 @@
 				<td>${destacado.titulo}</td>
 				<td>${destacado.texto}</td>
 				<td>
-					<input type="button" value="Borrar" onclick="borraDestacado(${destacado.id})">
-					<input type="button" value="Modificar" onclick="modificaDestacado(${destacado.id})">
-					<input type="button" value="Ver" onclick="">
+					<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
+					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
+					<input type="button" class="btn btn-success" value="Ver" onclick="">
 				</td>
 			</tr>
-		</c:forEach>	
+		</c:forEach>
+		<tr>
+			<td colspan="3">
+				<input type="button" class="btn btn-success" value="Nuevo Destacado"  onclick="modificaDestacado(0)">
+			</td>
+		</tr>	
 				
 	</table>
-	
+</div>
 </body>
 </html>
