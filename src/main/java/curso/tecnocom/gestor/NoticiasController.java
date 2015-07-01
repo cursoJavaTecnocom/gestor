@@ -4,13 +4,26 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
+import curso.tecnocom.gestor.datos.ContenidoProperty;
+import curso.tecnocom.gestor.datos.Imagene;
+import curso.tecnocom.gestor.datos.ImagenesProperty;
+import curso.tecnocom.gestor.datos.Menu;
+import curso.tecnocom.gestor.datos.MenuProperty;
 import curso.tecnocom.gestor.datos.Noticia;
+import curso.tecnocom.gestor.datos.NoticiaProperty;
+import curso.tecnocom.gestor.datos.TipoMenu;
+import curso.tecnocom.gestor.datos.TipoMenuProperty;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 
@@ -20,9 +33,16 @@ public class NoticiasController {
 	@Autowired
 	private GestorDelegate gestorDelegate;
 
+	@InitBinder
+	public void init(WebDataBinder binder) {
+		binder.registerCustomEditor(Noticia.class, new NoticiaProperty());
+	}
+
 	// /----noticias
 	@RequestMapping("noticias.html")
-	public ModelAndView noticias() {
+	public ModelAndView noticias(HttpServletRequest request) {
+		if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");
 		try {
 			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
 			/*Set<Noticia> noticiasOrdenados = new TreeSet<Noticia>();
@@ -42,7 +62,9 @@ public class NoticiasController {
 
 	// /----modificar
 	@RequestMapping("modificaNoticia.html")
-	public ModelAndView modificaNoticia(int id) {
+	public ModelAndView modificaNoticia(int id, HttpServletRequest request) {
+		if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");
 		Noticia noticia;	
 		try {
 			if (id == 0)
@@ -66,10 +88,12 @@ public class NoticiasController {
 
 	// /----borrar
 	@RequestMapping("borraNoticia.html")
-	public ModelAndView borraNoticia(int id) {
+	public ModelAndView borraNoticia(int id, HttpServletRequest request) {
+		if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().borraDato(id, Noticia.class);
-			return noticias();
+			return noticias(request);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -78,10 +102,12 @@ public class NoticiasController {
 
 	// /----grabar
 	@RequestMapping("grabaNoticia.html")
-	public ModelAndView grabaNoticia(Noticia noticia) {
+	public ModelAndView grabaNoticia(Noticia noticia, HttpServletRequest request) {
+		if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(noticia);
-			return noticias();
+			return noticias(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
