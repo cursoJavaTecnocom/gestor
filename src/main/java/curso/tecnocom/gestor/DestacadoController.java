@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
-import curso.tecnocom.gestor.datos.Imagene;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -27,23 +26,16 @@ public class DestacadoController {
 	@Autowired
 	private GestorDelegate gestorDelegate;
 
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "home";
-<<<<<<< HEAD
-
 	}
 
-=======
-	}  
-	
 	@InitBinder
 	public void init(WebDataBinder binder) {
 		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
 	}
-  
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
