@@ -15,19 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${usuarios.id != 0}">
-		<header>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>
-					<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Modificar
-					"${usuario.usuario}"
-				</h1>
-			</div>
-		</div>
-		</header>
-	</c:if>
-	<c:if test="${usuarios.id == 0}">
+<c:if test="${usuario.id == 0}">
 		<header>
 		<div class="jumbotron">
 			<div class="container">
@@ -39,6 +27,19 @@
 		</div>
 		</header>
 	</c:if>
+	<c:if test="${usuario.id != 0}">
+		<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>
+					<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Modificar
+					${usuario.usuario}
+				</h1>
+			</div>
+		</div>
+		</header>
+	</c:if>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
