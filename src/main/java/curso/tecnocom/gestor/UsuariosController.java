@@ -57,7 +57,7 @@ public class UsuariosController {
 			}
 			else
 			{
-				 usuario= (Usuario) getGestorDelegate().dameDatos(Usuario.class);
+				 usuario= (Usuario) getGestorDelegate().dameObjeto(id, Usuario.class);
 			}
 			
 			ModelAndView salida = new ModelAndView("modificaUsuarios");
