@@ -7,6 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function validar(){
+		var nivel=document.forms[0].nivel.value;
+		var idMenuPadre=document.forms[0].idMenuPadre.value;
+		var tipoMenu=document.forms[0].tipoMenu.value;
+		if(nivel>0 && idMenuPadre==0)
+			alert("Debe seleccionar un menú padre");
+		if(tipoMenu==0)
+			alert("Debe seleccionar un tipo de menú");
+		else
+			document.forms[0].submit();
+	}
+</script>
 </head>
 <body>
 	<sp:form action="grabaMenu.html" modelAttribute="menu"> 
@@ -36,7 +49,7 @@
 			<tr>
 				<td>Nivel</td>
 				<td>
-					<sp:input  path="nivel"/>
+					<sp:input  path="nivel" disabled="true"/>
 				</td>
 			</tr>
 			<tr>
@@ -67,7 +80,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="9"><input type="submit" value="Grabar"/></td>
+				<td colspan="9"><input type="button" value="Grabar" onclick="validar()"/></td>
 			</tr>
 		</table>
 	</sp:form>
