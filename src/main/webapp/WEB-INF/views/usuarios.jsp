@@ -11,24 +11,37 @@
 </head>
 
 <body>
-	<header>Usuarios</header>
-	<a href="modificaUsuario.html?id=0">Alta Nuevo Usuario</a>
-	<table border="1">
+	<header>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>
+				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Usuarios
+			</h1>
+		</div>
+	</div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<a href="modificaUsuario.html?id=0">Alta Nuevo Usuario</a>
+			<table border="1" id="miTabla" class="table table-striped">
 
-		<tr>
-			<td>id</td>
-			<td>clave</td>
-			<td>usuario</td>
-		</tr>
-		<c:forEach items="${usuarios}" var="usuario">
-			<tr>
-				<td>${usuario.id }</td>
-				<td>${usuario.clave }</td>
-				<td>${usuario.usuario}</td>
-				<td><input type="button" value="Borrar" onclick="borraUsuario(${usuario.id})"></td>
-				<td><input type="button" value="Modificar" onclick="modificaUsuario(${usuario.id})"></td>
-			</tr>
-		</c:forEach>
-	</table>
+				<tr>
+					<td>id</td>
+					<td>clave</td>
+					<td>usuario</td>
+				</tr>
+				<c:forEach items="${usuarios}" var="usuario">
+					<tr>
+						<td>${usuario.id }</td>
+						<td>${usuario.clave }</td>
+						<td>${usuario.usuario}</td>
+						<td><input type="button" value="Borrar"
+							class="btn btn-warning" onclick="borraUsuario(${usuario.id})"></td>
+						<td><input type="button" value="Modificar"
+							class="btn btn-primary" onclick="modificaUsuario(${usuario.id})"></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 </body>
 </html>
