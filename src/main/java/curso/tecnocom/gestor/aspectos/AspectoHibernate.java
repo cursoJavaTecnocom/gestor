@@ -25,6 +25,8 @@ public class AspectoHibernate {
 		GestorDao gestorDao = (GestorDao) joinPoint.getTarget();
 		if (gestorDao.getSesion() == null || !gestorDao.getSesion().isOpen())
 			gestorDao.setSesion(gestorDao.getFactoria().openSession());
+		else
+			gestorDao.setSesion(gestorDao.getFactoria().getCurrentSession());
 		try {
 			joinPoint.proceed();
 			

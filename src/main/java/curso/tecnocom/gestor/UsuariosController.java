@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.hibernate.id.IdentityGenerator.GetGeneratedKeysDelegate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,13 +102,13 @@ public class UsuariosController {
 	} 
 	
 	@RequestMapping("validacion.html")
-	public ModelAndView validacion(Usuario usuario){
+	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {
 			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
 			
 			if (usuarios.contains(usuario)) {
 				
-				
+				request.getSession(true).setAttribute("logado", true);
 				return new ModelAndView("principal");
 			}
 			else
