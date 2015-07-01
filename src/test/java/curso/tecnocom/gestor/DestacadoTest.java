@@ -35,7 +35,7 @@ public class DestacadoTest {
 			
 			// Alta Destacado
 			getDestacado().setTexto("Texto Destacado");
-			getDestacado().setTitulo("Tï¿½tulo Destacado");
+			getDestacado().setTitulo("Título Destacado");
 			//getDestacado().setImagene(imagen);
 			getDestacado().setContenido(contenido);
 			
