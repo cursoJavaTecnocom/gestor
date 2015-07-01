@@ -76,7 +76,7 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="9"><input type="button" class="btn btn-success" value="Nuevo menú"  onclick="modificar(0,'modificaMenu.html')">
+			<td colspan="9"><button class="btn btn-success"  onclick="modificar(0,'modificaMenu.html')"><span class="glyphicon glyphicon-plus-sign" style="font-size:1.3em;vertical-align:middle">Nuevo</span></button>
 			</td>
 		</tr>
 	</table>
