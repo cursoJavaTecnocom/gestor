@@ -18,9 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Imagene;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
-//@Controller
+@Controller
 public class ImagenesController {
 
 	@Autowired
@@ -68,10 +69,22 @@ public class ImagenesController {
 
 	@RequestMapping(value = "/imagenes.html")
 	public ModelAndView imagenes(HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-			return new ModelAndView("noLogado");
+		if (!gestorDelegate.validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "imagenes.html");
+			return modelAndView;
+		}
+		try {
+			List<?> imagenes= getGestorDelegate().dameDatos(Imagene.class);
+			ModelAndView modelAndView= new ModelAndView("imagenes");
+			modelAndView.addObject("imagenes",imagenes);
+			return modelAndView;
+		} catch (Exception e) {
+			return new ModelAndView("home");
+		}
 		
-		return null;
 	}
 
 	public ServletFileUpload getServletFileUpload() {

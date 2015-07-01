@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:sec="http://www.springframework.org/schema/security"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -16,7 +14,7 @@
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-	
+
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="**" location="/" />
@@ -29,39 +27,57 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan base-package="curso.tecnocom.gestor" />
-	<context:component-scan base-package="curso.tecnocom.gestor.delegates" />
-	<context:component-scan base-package="curso.tecnocom.gestor.services" />
-	<context:component-scan base-package="curso.tecnocom.gestor.daos" />
-	<beans:bean name="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<beans:property name="dataSource" ref="dataSource"></beans:property>
-		<beans:property name="packagesToScan" value="curso.tecnocom.gestor.datos"></beans:property>
-		<beans:property name="hibernateProperties">
-			<beans:props>
-				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
-				</beans:prop>
-				<beans:prop key="show_sql">true</beans:prop>
-				<beans:prop key="format_sql">true</beans:prop>
-			</beans:props>
-		</beans:property>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<beans:property name="maxUploadSize" value="104857600" />
+
 	</beans:bean>
-	<beans:bean name="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="password" value="cursocurso">
-		</beans:property>
-		<beans:property name="username" value="tecnocom">
-		</beans:property>
-		<beans:property name="url"
-			value="jdbc:mysql://192.168.120.20:3306/gestor">
-		</beans:property>
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver">
-		</beans:property>
+	<beans:bean id="miDiskFileItemFactory"
+		class="org.apache.commons.fileupload.disk.DiskFileItemFactory" />
+	<beans:bean name="miServletFileUpload"
+		class="org.apache.commons.fileupload.servlet.ServletFileUpload">
+		<beans:constructor-arg index="0">
+			<beans:ref bean="miDiskFileItemFactory" />
+		</beans:constructor-arg>
+		<beans:property name="sizeMax" value="104857600" />
 	</beans:bean>
 
 
-	<beans:bean id="aspecto"
-		class="curso.tecnocom.gestor.aspectos.AspectoHibernate"></beans:bean>
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<context:component-scan base-package="curso.tecnocom.gestor" />
+<context:component-scan base-package="curso.tecnocom.gestor.delegates" />
+<context:component-scan base-package="curso.tecnocom.gestor.services" />
+<context:component-scan base-package="curso.tecnocom.gestor.daos" />
+<beans:bean name="sessionFactory"
+	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<beans:property name="dataSource" ref="dataSource"></beans:property>
+	<beans:property name="packagesToScan" value="curso.tecnocom.gestor.datos"></beans:property>
+	<beans:property name="hibernateProperties">
+		<beans:props>
+			<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+			</beans:prop>
+			<beans:prop key="show_sql">true</beans:prop>
+			<beans:prop key="format_sql">true</beans:prop>
+		</beans:props>
+	</beans:property>
+</beans:bean>
+<beans:bean name="dataSource"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<beans:property name="password" value="cursocurso">
+	</beans:property>
+	<beans:property name="username" value="tecnocom">
+	</beans:property>
+	<beans:property name="url"
+		value="jdbc:mysql://192.168.120.20:3306/gestor">
+	</beans:property>
+	<beans:property name="driverClassName" value="com.mysql.jdbc.Driver">
+	</beans:property>
+</beans:bean>
+
+
+<beans:bean id="aspecto"
+	class="curso.tecnocom.gestor.aspectos.AspectoHibernate"></beans:bean>
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 </beans:beans>

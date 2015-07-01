@@ -23,6 +23,7 @@ import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.MenuProperty;
 import curso.tecnocom.gestor.datos.TipoMenu;
 import curso.tecnocom.gestor.datos.TipoMenuProperty;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -34,17 +35,19 @@ public class ContenidoController {
 	@Autowired
 	private GestorDelegate contenidoDelegate;
 	
-	@InitBinder
-	public void init(WebDataBinder binder){
-
-		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
-	}
-
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("contenidos.html")
 	public ModelAndView contenido(HttpServletRequest request) {
-		//if (!getContenidoDelegate().validar(request))
-			//return new ModelAndView("noLogado");
+		if (!getContenidoDelegate().validar(request))
+		{
+			
+			ModelAndView modelAndView= new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino","contenidos.html");
+			return modelAndView;
+		}
+	
 
 		try {
 			List<Contenido> contenidos = (List<Contenido>) getContenidoDelegate()
