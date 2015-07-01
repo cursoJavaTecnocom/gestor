@@ -16,6 +16,7 @@ import curso.tecnocom.gestor.delegates.GestorDelegate;
 @Controller
 public class DestacadoController {
 
+	
 	private static final Logger logger = LoggerFactory
 			.getLogger(DestacadoController.class);
 
