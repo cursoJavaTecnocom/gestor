@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>No loggin</title>
+<title>Error Page</title>
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -15,11 +15,13 @@
 </head>
 
 <body>
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>
-					<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>No Loggin<small>error</small>
+					<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>D'oh!<small>
+						page error</small>
 				</h1>
 			</div>
 		</div>
@@ -29,8 +31,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
-				<div class="well well-lg">
-					<a href="validacion.html" class="btn btn-primary" role="button">Pulsa Aqui</a>
+				<div class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign"
+						aria-hidden="true"></span><span> An error has occurred in
+						Zamora</span>
 				</div>
 			</div>
 		</div>

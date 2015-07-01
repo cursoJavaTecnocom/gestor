@@ -45,9 +45,7 @@ public class ImagenesController {
 
 				String nombre = fichero.getOriginalFilename();
 
-				try (FileOutputStream fo = new FileOutputStream(
-						getServletContext().getRealPath("/") + "/images/"
-								+ nombre);) {
+				try (FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + "/images/"+ nombre);) {
 					byte[] b = fichero.getBytes();
 					fo.write(b);
 					fo.flush();

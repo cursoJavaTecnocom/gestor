@@ -9,10 +9,8 @@
 <title>CONTENIDO</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
-<script src="js/jsnoticias.js" type="text/javascript"></script>
+<script src="js/contenido.js" type="text/javascript"></script>
 </head>
 <body>
 	<header>
@@ -30,27 +28,26 @@
 
 		<tr>
 			<td>ID</td>
+			<td>DESCRIPCION</td>
 			<td>CONTENIDO</td>
-			<td>DESCRIPCIÓN</td>
+			
 			<td>ACCIONES</td>
 		</tr>
 		<c:forEach items="${contenidos}" var="contenido">
 			<tr>
 				<td>${contenido.id }</td>
-				<td>${contenido.contenido }</td>
 				<td>${contenido.descripcion }</td>
-				<td><input type="button" value="Modificar"
-					onclick="modificaContenido(${contenido.id})"> <input
-					type="button" value="Borrar"
-					onclick="borraContenido(${contenido.id}, ${contenido.contenido }, ${contenido.descripcion })">
-					<input type="button" value="Previsualización"
-					onclick="verContenido"></td>
+				<td>${contenido.contenido }</td>
+
+				<td><input type="button" value="Modificar" class="btn btn-primary" onclick="modificaContenido(${contenido.id})"> 
+					<input type="button" value="Borrar" class="btn btn-warning" onclick="borraContenido(${contenido.id})"> <!-- <input type="button" value="Previsualización" onclick="verContenido"> -->
+				</td>
 			</tr>
 		</c:forEach>
 
 		<tr>
 			<a href="modificaContenido.html?id=0"><input type="button"
-				value="Añadir nuevo contenido"></a>
+				value=" + Añadir" class="btn btn-success"></a>
 		</tr>
 	</table>
 </body>

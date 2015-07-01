@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -21,24 +22,17 @@
 </script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">GESTOR</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="#">USUARIOS</a></li>
-        <li><a href="#">MENUS</a></li> 
-        <li><a href="#">CONTENIDOS</a></li> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<jsp:include page="navegador.jsp"></jsp:include>
+<header>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>
+				<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Menús
+			</h1>
+		</div>
+	</div>
+	</header>
+
 <div class="container">
 	<table id="menu" class="table table-striped" >
 	<tr>
@@ -63,14 +57,13 @@
 				<td>${menu.imagene.nombre}</td>
 				<td>${menu.idMenuPadre} </td>
 				<td>
-					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificar(${menu.id},'modificaMenu.html')" />
-					<input type="button" class="btn btn-warning" value="Borrar" onclick="borrar(${menu.id},'borraMenu.html')" />
+					<button class="btn btn-primary" onclick="modificar(${menu.id},'modificaMenu.html')" ><span class="glyphicon glyphicon-pencil"> Modificar</span></button>
+					<button class="btn btn-warning" onclick="borrar(${menu.id},'borraMenu.html')"><span class="glyphicon glyphicon-trash"> Borrar</span></button>
 				</td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="9">
-				<input type="button" class="btn btn-success" value="Nuevo menú"  onclick="modificar(0,'modificaMenu.html')">
+			<td colspan="9"><button class="btn btn-success"  onclick="modificar(0,'modificaMenu.html')"><span class="glyphicon glyphicon-plus-sign" style="font-size:1.3em;vertical-align:middle">Nuevo</span></button>
 			</td>
 		</tr>
 	</table>

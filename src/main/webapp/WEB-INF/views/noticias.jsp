@@ -15,7 +15,7 @@
 	<script src="js/jsnoticias.js" type="text/javascript"></script>
 </head>
 <body>
-
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container"><h1><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Noticias<small>JSP</small></h1></div>

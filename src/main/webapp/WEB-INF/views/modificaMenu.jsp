@@ -7,6 +7,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function validar(){
+		var nivel=document.forms[0].nivel.value;
+		var idMenuPadre=document.forms[0].idMenuPadre.value;
+		var tipoMenu=document.forms[0].tipoMenu.value;
+		var tiposMenus=document.forms[0].tipoMenu;
+		var tipoMenuText=tiposMenus.options[tiposMenus.selectedIndex].text;
+		
+		if(tipoMenu==0 || !(tipoMenuText=='superior'))
+			alert("Tipo de menú no válido");
+		
+		if((nivel>0 && idMenuPadre==0))
+			alert("Debe seleccionar un menú padre");
+		
+		else
+			document.forms[0].submit();
+	}
+</script>
 </head>
 <body>
 	<sp:form action="grabaMenu.html" modelAttribute="menu"> 
@@ -53,7 +71,8 @@
 				<td>
 					<sp:select path="tipoMenu">
 						<sp:option value="0">Selecciona un tipo de menu...</sp:option>
-						<sp:options items="${tiposMenus}" itemLabel="descripcion" itemValue="id"/>
+						<sp:option value="3">superior</sp:option>
+						<!--<sp:options items="${tiposMenus}" itemLabel="descripcion" itemValue="id"/>-->
 					</sp:select>
 				</td>
 			</tr>
@@ -61,13 +80,21 @@
 				<td>Menu padre</td>
 				<td>
 					<sp:select path="idMenuPadre">
-						<sp:option value="0">Selecciona un menu padre...</sp:option>
-						<sp:options items="${menus}" itemLabel="titulo" itemValue="id"/>
+						<sp:option value="0" >Ninguno</sp:option>
+						<c:forEach items="${menus}" var="menu">
+							<c:choose>
+								<c:when test="${menu.nivel==0}">
+									<sp:option value="${menu.id}">${menu.titulo}</sp:option>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<!--<sp:options items="${menus}" itemLabel="titulo" itemValue="id"/>-->
+						
 					</sp:select>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="9"><input type="submit" value="Grabar"/></td>
+				<td colspan="9"><input type="button" value="Grabar" onclick="validar()"/></td>
 			</tr>
 		</table>
 	</sp:form>

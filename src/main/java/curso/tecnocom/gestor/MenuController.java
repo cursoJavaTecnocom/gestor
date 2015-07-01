@@ -2,9 +2,10 @@ package curso.tecnocom.gestor;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +37,9 @@ public class MenuController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("menu.html")
-	public ModelAndView menu() {
+	public ModelAndView menu(HttpServletRequest request) {
+//		if (!getDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
 					Menu.class);
@@ -45,13 +48,16 @@ public class MenuController {
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return  new ModelAndView("error");
 		}
+		
 	}
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("modificaMenu.html")
-	public ModelAndView modificaMenu(int id) {
+	public ModelAndView modificaMenu(int id,HttpServletRequest request) {
+//		if (!getDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		Menu menu = null;
 		if (id == 0)
 			menu = new Menu();
@@ -80,10 +86,12 @@ public class MenuController {
 	}
 
 	@RequestMapping("grabaMenu.html")
-	public ModelAndView grabaMenu(Menu menu, BindingResult result) {
+	public ModelAndView grabaMenu(Menu menu,HttpServletRequest request) {
+//		if (!getDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getDelegate().grabaObjeto(menu);
-			return menu();
+			return menu(request);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -91,10 +99,12 @@ public class MenuController {
 	}
 
 	@RequestMapping("borraMenu.html")
-	public ModelAndView borraMenu(int id) {
+	public ModelAndView borraMenu(int id,HttpServletRequest request) {
+//		if (!getDelegate().validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getDelegate().borraDato(id, Menu.class);
-			return menu();
+			return menu(request);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
