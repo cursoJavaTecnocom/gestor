@@ -32,6 +32,8 @@
 					<td>id</td>
 					<td>clave</td>
 					<td>usuario</td>
+					<td>Acciones</td>
+					
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">
 					<tr>
@@ -39,8 +41,8 @@
 						<td>${usuario.clave }</td>
 						<td>${usuario.usuario}</td>
 						<td><input type="button" value="Borrar"
-							class="btn btn-warning" onclick="borraUsuario(${usuario.id})"></td>
-						<td><input type="button" value="Modificar"
+							class="btn btn-warning" onclick="borraUsuario(${usuario.id})">
+						<input type="button" value="Modificar"
 							class="btn btn-primary" onclick="modificaUsuario(${usuario.id})"></td>
 					</tr>
 				</c:forEach>
