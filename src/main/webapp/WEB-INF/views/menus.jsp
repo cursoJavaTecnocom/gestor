@@ -18,6 +18,7 @@
 	function borrar(id,destino){
 		document.location=destino+"?id="+id;
 	}
+	
 </script>
 </head>
 <body>
