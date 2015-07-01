@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<c:if test="${empty principale.id}">
+<c:if test="${principale.id == 0}">
 	<h1>NUEVO PRINCIPAL</h1>
 </c:if>
-<c:if test="${principale.id gt 0}">
+<c:if test="${principale.id != 0}">
 	<h1>MODIFICAR PRINCIPAL</h1>
 </c:if>
 

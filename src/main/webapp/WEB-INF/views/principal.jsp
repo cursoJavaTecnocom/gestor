@@ -43,9 +43,10 @@ function modificaPrincipal(id)
 		<td>TEXTO</td>
 		<td>IMAGEN</td>
 		<td>CONTENIDO</td>
+		<td>ACCIONES</td>
 	</tr>
 	
- 	<c:forEach items="${principales}" var="principal">
+ 	<c:forEach items="${principales}" var="principale">
 	
 	<tr>
 		<td>${principale.id}</td>
@@ -54,14 +55,12 @@ function modificaPrincipal(id)
 		<td>${principale.imagene.id}</td>
 		<td>${principale.contenido.descripcion}</td>
 		<td>
-			<input type="button" value="Modificar" >			
-			<input type="button" value="Borrar" >
+			<input type="button" value="Modificar" onclick="modificaPrincipal(${principale.id})" >			
+			<input type="button" value="Borrar" onclick="borraPrincipal(${principale.id})">
 		</td>
 	</tr>
 	
-	<tr>
-	<td></td>
-	</tr>
+
 
 
 	</c:forEach>     

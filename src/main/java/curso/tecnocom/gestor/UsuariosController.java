@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
+import curso.tecnocom.gestor.delegates.UsuarioDelegate;
 
 @Controller
 public class UsuariosController {
@@ -25,11 +26,15 @@ public class UsuariosController {
 
 	@Autowired
 	private GestorDelegate gestorDelegate;
- 
+	private UsuarioDelegate usuarioDelegate;
+	
 	//lista usuarios
 	@RequestMapping("usuarios.html")  
-	public ModelAndView usuarios()
-	{
+	public ModelAndView usuarios(HttpServletRequest request){
+	
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
+		
 		try{
 		@SuppressWarnings("unchecked")
 		List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
@@ -47,8 +52,11 @@ public class UsuariosController {
 	  
 	//modificar
 	@RequestMapping("modificaUsuario.html")
-	public ModelAndView modificaUsuarios(int id)
+	public ModelAndView modificaUsuarios(int id,HttpServletRequest request)
 	{
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
+		
 		Usuario usuario = null;
 		try {
 			if(id==0)
@@ -74,12 +82,14 @@ public class UsuariosController {
 	
 	//borrar
 	@RequestMapping("borraUsuarios.html")
-	public ModelAndView borraUsuarios(int id)
+	public ModelAndView borraUsuarios(int id,HttpServletRequest request)
 	{
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
 		try
 		{
 			getGestorDelegate().borraDato(id, Usuario.class);
-			return usuarios();
+			return usuarios(request);
 		}
 		catch (Exception e){
 			return new ModelAndView("home");
@@ -89,11 +99,13 @@ public class UsuariosController {
 	
 	//grabar usuario
 	@RequestMapping("grabaUsuario.html")
-	public ModelAndView grabaUsuario(Usuario usuario){
+	public ModelAndView grabaUsuario(Usuario usuario,HttpServletRequest request){
 		
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(usuario);
-			return usuarios();
+			return usuarios(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return new ModelAndView("error");
@@ -101,14 +113,17 @@ public class UsuariosController {
 	
 	} 
 	
+	//Validar
 	@RequestMapping("validacion.html")
 	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {
-			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
-			System.out.println(usuario.getClave());
-			System.out.println(usuario.getUsuario());
+			String claveIntroducida = usuario.getClave();			
 			
-			if (usuarios.contains(usuario)) {
+			Usuario usuarioRecuperado = usuarioDelegate.getUsuarioByUsuario(usuario);
+			
+			String claveRecuperada = usuarioRecuperado.getClave();
+			
+			if (claveIntroducida.equals(claveRecuperada)) {
 				
 				request.getSession(true).setAttribute("logado", true);
 				return new ModelAndView("principal");
@@ -123,7 +138,7 @@ public class UsuariosController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ModelAndView("error");
+			return new ModelAndView("validacion");
 		}
 		
 	}
@@ -135,6 +150,14 @@ public class UsuariosController {
 
 	public void setGestorDelegate(GestorDelegate gestorDelegate) {
 		this.gestorDelegate = gestorDelegate;
+	}
+
+	public UsuarioDelegate getUsuarioDelegate() {
+		return usuarioDelegate;
+	}
+
+	public void setUsuarioDelegate(UsuarioDelegate usuarioDelegate) {
+		this.usuarioDelegate = usuarioDelegate;
 	}
 
 }

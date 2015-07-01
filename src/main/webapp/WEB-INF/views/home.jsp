@@ -6,27 +6,28 @@
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<title>Home</title>
 	<style>
-		ul{
+		#ulmenu{
 			
 			text-align: center;
 		}
-		li a{
+		#limenu a{
 			font-size: 26px;
 			text-align: center;
 		}
 	</style>
 </head>
 <body>
+<%@include file="navegador.jsp"%>
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-	<ul class="list-group">
-		<li class="list-group-item"><a href="contenidos.html">Contenidos</a></li>
-		<li class="list-group-item"><a href="destacados.html">Destacados</a></li>
-		<li class="list-group-item"><a href="menu.html">Menús</a></li>
-		<li class="list-group-item"><a href="noticias.html">Noticias</a></li>
-		<li class="list-group-item"><a href="principal.html">Principales</a></li>
-		<li class="list-group-item"><a href="usuarios.html">Usuarios</a></li>
+	<ul id="ulmenu" class="list-group">
+		<li id="limenu" class="list-group-item"><a href="contenidos.html">Contenidos</a></li>
+		<li id="limenu" class="list-group-item"><a href="destacados.html">Destacados</a></li>
+		<li id="limenu" class="list-group-item"><a href="menu.html">Menús</a></li>
+		<li id="limenu" class="list-group-item"><a href="noticias.html">Noticias</a></li>
+		<li id="limenu" class="list-group-item"><a href="principal.html">Principales</a></li>
+		<li id="limenu" class="list-group-item"><a href="usuarios.html">Usuarios</a></li>
 	</ul>
   </div>
   <div class="col-md-3"></div>
