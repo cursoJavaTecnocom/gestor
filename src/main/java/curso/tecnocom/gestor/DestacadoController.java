@@ -32,7 +32,8 @@ public class DestacadoController {
 	}
 
 	@InitBinder
-	public void init(WebDataBinder binder) {
+	public void init(WebDataBinder binder) 
+	{
 		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
 	}
 

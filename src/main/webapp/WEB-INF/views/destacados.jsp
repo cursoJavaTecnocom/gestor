@@ -5,38 +5,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <title>DESTACADOS</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-
-function borraDestacado(id){
-	document.location="borraDestacado.html?id="+id;
-}
-
-function modificaDestacado(id){
-	document.location="modificaDestacado.html?id="+id;
-}
-
-
-
+	function borraDestacado(id){
+		if(confirm("Está seguro de borar el destacado?"))
+	    {
+			document.location="borraDestacado.html?id="+id;
+	    }
+	}
+	
+	function modificaDestacado(id){
+		document.location="modificaDestacado.html?id="+id;
+	}
 </script>
 
 </head>
 <body>
-	<%-- <jsp:include page="seguridad.jsp"></jsp:include> --%>
-	<h1>Destacados</h1>
+	<jsp:include page="navegador.jsp"></jsp:include>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Destacados
+				</h1>
+			</div>
+		</div>
+	</header>
 	
 <div class="container">
-	<!-- <br><a href="modificaDestacado.html?id=0">Alta de Destacados</a> -->
 	<table class="table table-striped">
 		
 		<tr>
 			<th>ID</th>
 			<th>TÍTULO</th>
 			<th>TEXTO</th>
-			<th>ID CONTENIDO</th>
+			<th>DESCRIPCIÓN CONTENIDO</th>
 			<th>ACCIÓN</th>
 		</tr>
 		
@@ -45,7 +51,7 @@ function modificaDestacado(id){
 				<td>${destacado.id}</td>
 				<td>${destacado.titulo}</td>
 				<td>${destacado.texto}</td>
-				<td>${destacado.contenido.id}</td>
+				<td>${destacado.contenido.descripcion}</td>
 				<td>
 					<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
 					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
