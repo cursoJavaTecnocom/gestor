@@ -23,9 +23,9 @@ import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
 public class MenuController {
-	
+
 	@Autowired
-	private  GestorDelegate delegate;
+	private GestorDelegate delegate;
 
 	@InitBinder
 	public void init(WebDataBinder binder) {
@@ -38,40 +38,38 @@ public class MenuController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("menu.html")
 	public ModelAndView menu(HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
+		// if (!getDelegate().validar(request))
+		// return new ModelAndView("noLogado");
 		try {
-			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
-					Menu.class);
+			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(Menu.class);
 			ModelAndView modelAndView = new ModelAndView("menus");
 			modelAndView.addObject("menus", menus);
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return  new ModelAndView("error");
+			return new ModelAndView("error");
 		}
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("modificaMenu.html")
-	public ModelAndView modificaMenu(int id,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
+	public ModelAndView modificaMenu(int id, HttpServletRequest request) {
+		// if (!getDelegate().validar(request))
+		// return new ModelAndView("noLogado");
 		Menu menu = null;
 		if (id == 0)
 			menu = new Menu();
 		try {
 			if (id > 0)
-				menu = (Menu) getDelegate().dameObjeto(id,Menu.class);
+				menu = (Menu) getDelegate().dameObjeto(id, Menu.class);
 			List<TipoMenu> tiposMenus = (List<TipoMenu>) getDelegate()
 					.dameDatos(TipoMenu.class);
-			List<Imagene> imagenes = (List<Imagene>) getDelegate()
-					.dameDatos(Imagene.class);
+			List<Imagene> imagenes = (List<Imagene>) getDelegate().dameDatos(
+					Imagene.class);
 			List<Contenido> contenidos = (List<Contenido>) getDelegate()
 					.dameDatos(Contenido.class);
-			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
-					Menu.class);
+			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(Menu.class);
 			ModelAndView modelAndView = new ModelAndView("modificaMenu");
 			modelAndView.addObject("menu", menu);
 			modelAndView.addObject("tiposMenus", tiposMenus);
@@ -86,9 +84,9 @@ public class MenuController {
 	}
 
 	@RequestMapping("grabaMenu.html")
-	public ModelAndView grabaMenu(Menu menu,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
+	public ModelAndView grabaMenu(Menu menu, HttpServletRequest request) {
+		// if (!getDelegate().validar(request))
+		// return new ModelAndView("noLogado");
 		try {
 			getDelegate().grabaObjeto(menu);
 			return menu(request);
@@ -99,9 +97,9 @@ public class MenuController {
 	}
 
 	@RequestMapping("borraMenu.html")
-	public ModelAndView borraMenu(int id,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
+	public ModelAndView borraMenu(int id, HttpServletRequest request) {
+		// if (!getDelegate().validar(request))
+		// return new ModelAndView("noLogado");
 		try {
 			getDelegate().borraDato(id, Menu.class);
 			return menu(request);
@@ -118,7 +116,5 @@ public class MenuController {
 	public void setDelegate(GestorDelegate delegate) {
 		this.delegate = delegate;
 	}
-
-	
 
 }
