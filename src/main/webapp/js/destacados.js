@@ -1,4 +1,4 @@
-function borrraDestacado(id) {
+function borraDestacado(id) {
 
 	document.location="borraDestacado.html?id="+id;
 }

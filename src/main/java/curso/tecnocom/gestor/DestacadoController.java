@@ -22,11 +22,6 @@ public class DestacadoController {
 	@Autowired
 	private GestorDelegate gestorDelegate;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		return "home";
-
-	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
