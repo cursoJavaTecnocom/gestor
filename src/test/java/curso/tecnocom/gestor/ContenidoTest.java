@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
+import curso.tecnocom.gestor.delegates.GestorDelegate;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("servlet-context.xml")
 
@@ -19,18 +20,20 @@ import curso.tecnocom.gestor.datos.Contenido;
 public class ContenidoTest {
 	
 	@Autowired
-	private ContenidoController contenidoController;
+	private GestorDelegate gestorDelegate;
 	
+	public GestorDelegate getGestorDelegate() {
+		return gestorDelegate;
+	}
+
+	public void setGestorDelegate(GestorDelegate gestorDelegate) {
+		this.gestorDelegate = gestorDelegate;
+	}
+
 	private Contenido contenido;
 	
 	
-	public ContenidoController getContenidoController() {
-		return contenidoController;
-	}
-
-	public void setContenidoController(ContenidoController contenidoController) {
-		this.contenidoController = contenidoController;
-	}
+	
 
 	public Contenido getContenido() {
 		return contenido;
@@ -54,7 +57,7 @@ public class ContenidoTest {
 			// grabar en base de datos
 			getContenido().setContenido("jkashdklajsdhlkajhsdklajdhskaj");
 			getContenido().setDescripcion("rebajas");
-			getContenidoController().getContenidoDelegate().grabaObjeto(getContenido());
+			getGestorDelegate().grabaObjeto(getContenido());
 			
 			
 			
@@ -81,9 +84,13 @@ public class ContenidoTest {
 	  
 	@Test
 	public void listado1(){
-		ModelAndView model=getContenidoController().contenido(null);
-		if(model.getViewName().equals("error"))
+		try {
+			getGestorDelegate().dameDatos(Contenido.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			Assert.fail();
+		}
 	}
 	
 

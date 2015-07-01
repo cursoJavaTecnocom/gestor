@@ -26,7 +26,7 @@ public class ContenidoController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("contenidos.html")
 	public ModelAndView contenido(HttpServletRequest request) {
-		if (!validar(request))
+		if (!getContenidoDelegate().validar(request))
 			return new ModelAndView("noLogado");
 
 		try {
@@ -43,15 +43,11 @@ public class ContenidoController {
 
 	}
 
-	private boolean validar(HttpServletRequest request) {
-		if (request.getSession(true).getAttribute("logado")!=null && (Boolean) request.getSession(true).getAttribute("logado"))
-			return true;
-		return false;
-	}
+	
 
 	@RequestMapping("modificaContenido.html")
 	public ModelAndView modificaContenido(int id,HttpServletRequest request) {
-		if (validar(request))
+		if (getContenidoDelegate().validar(request))
 			return new ModelAndView("noLogado");
 		try {
 			if (id == 0) {
@@ -72,7 +68,7 @@ public class ContenidoController {
 
 	@RequestMapping("grabaContenido.html")
 	public ModelAndView grabaContenido(Contenido contenido,HttpServletRequest request) {
-		if (validar(request))
+		if (getContenidoDelegate().validar(request))
 			return new ModelAndView("noLogado");
 		try {
 			getContenidoDelegate().grabaObjeto(contenido);
