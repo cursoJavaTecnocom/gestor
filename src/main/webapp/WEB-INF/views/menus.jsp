@@ -18,7 +18,6 @@
 	function borrar(id,destino){
 		document.location=destino+"?id="+id;
 	}
-	
 </script>
 </head>
 <body>
@@ -47,6 +46,16 @@
     </div>
   </div>
 </nav>
+<header>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>
+				<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Menús
+			</h1>
+		</div>
+	</div>
+	</header>
+
 <div class="container">
 	<table id="menu" class="table table-striped" >
 	<tr>
@@ -77,7 +86,7 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="9"><input type="button" class="btn btn-success" value="Nuevo menú"  onclick="modificar(0,'modificaMenu.html')">
+			<td colspan="9"><button class="btn btn-success"  onclick="modificar(0,'modificaMenu.html')"><span class="glyphicon glyphicon-plus-sign" style="font-size:1.3em;vertical-align:middle">Nuevo</span></button>
 			</td>
 		</tr>
 	</table>
