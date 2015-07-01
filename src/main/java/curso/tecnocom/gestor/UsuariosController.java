@@ -103,6 +103,7 @@ public class UsuariosController {
 	
 	} 
 	
+	//Validar
 	@RequestMapping("validacion.html")
 	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {

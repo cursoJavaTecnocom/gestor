@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import curso.tecnocom.gestor.daos.UsuarioDao;
 import curso.tecnocom.gestor.datos.Usuario;
 
-@Service
+
 public class UsuarioService extends GestorService {
 
-	@Autowired
+	
 	private UsuarioDao usuarioDao;
 
 	public Usuario getUsuarioByUsuario(Usuario usuario) throws Exception
