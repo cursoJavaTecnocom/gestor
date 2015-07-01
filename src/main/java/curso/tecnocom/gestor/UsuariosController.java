@@ -30,8 +30,11 @@ public class UsuariosController {
 	
 	//lista usuarios
 	@RequestMapping("usuarios.html")  
-	public ModelAndView usuarios()
-	{
+	public ModelAndView usuarios(HttpServletRequest request){
+	
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
+		
 		try{
 		@SuppressWarnings("unchecked")
 		List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
@@ -49,8 +52,11 @@ public class UsuariosController {
 	  
 	//modificar
 	@RequestMapping("modificaUsuario.html")
-	public ModelAndView modificaUsuarios(int id)
+	public ModelAndView modificaUsuarios(int id,HttpServletRequest request)
 	{
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
+		
 		Usuario usuario = null;
 		try {
 			if(id==0)
@@ -76,12 +82,14 @@ public class UsuariosController {
 	
 	//borrar
 	@RequestMapping("borraUsuarios.html")
-	public ModelAndView borraUsuarios(int id)
+	public ModelAndView borraUsuarios(int id,HttpServletRequest request)
 	{
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
 		try
 		{
 			getGestorDelegate().borraDato(id, Usuario.class);
-			return usuarios();
+			return usuarios(request);
 		}
 		catch (Exception e){
 			return new ModelAndView("home");
@@ -91,11 +99,13 @@ public class UsuariosController {
 	
 	//grabar usuario
 	@RequestMapping("grabaUsuario.html")
-	public ModelAndView grabaUsuario(Usuario usuario){
+	public ModelAndView grabaUsuario(Usuario usuario,HttpServletRequest request){
 		
+		if(!gestorDelegate.validar(request))
+			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(usuario);
-			return usuarios();
+			return usuarios(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return new ModelAndView("error");
