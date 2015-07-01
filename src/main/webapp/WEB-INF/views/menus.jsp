@@ -24,13 +24,13 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">GESTOR</a>
+      <a class="navbar-brand" href="/">GESTOR</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#">USUARIOS</a></li>
-        <li><a href="#">MENUS</a></li> 
-        <li><a href="#">CONTENIDOS</a></li> 
+        <li><a href="usuarios.html">USUARIOS</a></li>
+        <li><a href="menus.html">MENUS</a></li> 
+        <li><a href="contenidos.html">CONTENIDOS</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
