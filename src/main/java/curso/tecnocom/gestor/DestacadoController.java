@@ -2,6 +2,8 @@ package curso.tecnocom.gestor;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -39,7 +42,16 @@ public class DestacadoController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
-	public ModelAndView destacados() {
+	public ModelAndView destacados(HttpServletRequest request) {
+		
+		if (!gestorDelegate.validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "destacados.html");
+			return modelAndView;
+		}
+		
 		try {
 			List<Destacado> destacados = (List<Destacado>) getGestorDelegate()
 					.dameDatos(Destacado.class);
