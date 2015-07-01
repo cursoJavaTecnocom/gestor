@@ -105,6 +105,8 @@ public class UsuariosController {
 	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {
 			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
+			System.out.println(usuario.getClave());
+			System.out.println(usuario.getUsuario());
 			
 			if (usuarios.contains(usuario)) {
 				
@@ -113,7 +115,9 @@ public class UsuariosController {
 			}
 			else
 			{
+				System.out.println("fallo en logacion");
 				return new ModelAndView("validacion");
+				
 			}
 			
 		} catch (Exception e) {
