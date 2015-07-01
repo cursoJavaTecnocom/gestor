@@ -15,7 +15,7 @@ public class UsuarioDelegate extends GestorDelegate {
 
 	public Usuario getUsuarioByUsuario(Usuario usuario) throws Exception
 	{
-			return usuarioService.getUsuarioByUsuario(usuario);
+			return getUsuarioService().getUsuarioByUsuario(usuario);
 	}
 
 	public UsuarioService getUsuarioService() {

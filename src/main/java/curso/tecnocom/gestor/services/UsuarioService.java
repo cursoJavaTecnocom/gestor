@@ -14,7 +14,7 @@ public class UsuarioService extends GestorService {
 
 	public Usuario getUsuarioByUsuario(Usuario usuario) throws Exception
 	{
-			return usuarioDao.getUsuarioByUsuario(usuario);
+			return getUsuarioDao().getUsuarioByUsuario(usuario);
 	}
 
 	public UsuarioDao getUsuarioDao() {

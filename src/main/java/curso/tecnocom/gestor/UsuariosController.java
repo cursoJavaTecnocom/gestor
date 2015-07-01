@@ -32,8 +32,8 @@ public class UsuariosController {
 	@RequestMapping("usuarios.html")  
 	public ModelAndView usuarios(HttpServletRequest request){
 	
-		if(!gestorDelegate.validar(request))
-			return new ModelAndView("noLogado");
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
 		
 		try{
 		@SuppressWarnings("unchecked")
@@ -54,8 +54,8 @@ public class UsuariosController {
 	@RequestMapping("modificaUsuario.html")
 	public ModelAndView modificaUsuarios(int id,HttpServletRequest request)
 	{
-		if(!gestorDelegate.validar(request))
-			return new ModelAndView("noLogado");
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
 		
 		Usuario usuario = null;
 		try {
@@ -81,11 +81,11 @@ public class UsuariosController {
 	}
 	
 	//borrar
-	@RequestMapping("borraUsuarios.html")
+	@RequestMapping("borraUsuario.html")
 	public ModelAndView borraUsuarios(int id,HttpServletRequest request)
 	{
-		if(!gestorDelegate.validar(request))
-			return new ModelAndView("noLogado");
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
 		try
 		{
 			getGestorDelegate().borraDato(id, Usuario.class);
@@ -101,8 +101,8 @@ public class UsuariosController {
 	@RequestMapping("grabaUsuario.html")
 	public ModelAndView grabaUsuario(Usuario usuario,HttpServletRequest request){
 		
-		if(!gestorDelegate.validar(request))
-			return new ModelAndView("noLogado");
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(usuario);
 			return usuarios(request);
@@ -117,9 +117,10 @@ public class UsuariosController {
 	@RequestMapping("validacion.html")
 	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {
+			usuarioDelegate = new UsuarioDelegate();
 			String claveIntroducida = usuario.getClave();			
 			
-			Usuario usuarioRecuperado = usuarioDelegate.getUsuarioByUsuario(usuario);
+			Usuario usuarioRecuperado = getUsuarioDelegate().getUsuarioByUsuario(usuario);
 			
 			String claveRecuperada = usuarioRecuperado.getClave();
 			
