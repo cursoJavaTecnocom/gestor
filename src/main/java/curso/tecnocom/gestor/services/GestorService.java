@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import curso.tecnocom.gestor.daos.DaoInterface;
+import curso.tecnocom.gestor.daos.GestorDao;
 
 @Service
 public class GestorService {
