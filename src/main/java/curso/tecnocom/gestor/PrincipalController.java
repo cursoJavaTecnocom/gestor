@@ -10,15 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import curso.tecnocom.gestor.datos.Noticia;
-import curso.tecnocom.gestor.datos.NoticiaProperty;
-import curso.tecnocom.gestor.datos.PrincipalProperty;
 import curso.tecnocom.gestor.datos.Principale;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -39,10 +34,6 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	@Autowired
 	private GestorDelegate principalDelegate;
 
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		binder.registerCustomEditor(Principale.class, new PrincipalProperty());
-	}
 	
 	
 	
