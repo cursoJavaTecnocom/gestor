@@ -27,7 +27,7 @@
 		</div>
 		</header>
 	</c:if>
-	<c:if test="${usuarios.id == 0}">
+	<c:otherwise>
 		<header>
 		<div class="jumbotron">
 			<div class="container">
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		</header>
-	</c:if>
+	</c:otherwise>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
