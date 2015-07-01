@@ -4,14 +4,21 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import curso.tecnocom.gestor.datos.Noticia;
+import curso.tecnocom.gestor.datos.NoticiaProperty;
+import curso.tecnocom.gestor.datos.PrincipalProperty;
 import curso.tecnocom.gestor.datos.Principale;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -32,11 +39,17 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	@Autowired
 	private GestorDelegate principalDelegate;
 
+	@InitBinder
+	public void init(WebDataBinder binder) {
+		binder.registerCustomEditor(Principale.class, new PrincipalProperty());
+	}
 	
 	
 	
 	@RequestMapping("principal.html")	
-	public ModelAndView principales()
+	public ModelAndView principales(HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		List<Principale> principales;
 		try {
@@ -54,6 +67,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 			e.printStackTrace();
 			return new ModelAndView("error") ;
 		}
+	}
 		
 		
 		
@@ -63,7 +77,9 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 	@RequestMapping("modificaPrincipal.html")
-	public ModelAndView modificaPrincipal(int id)
+	public ModelAndView modificaPrincipal(int id, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		Principale principal=null;
 		if(id==0)
@@ -85,17 +101,20 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 			return new ModelAndView("error");
 		}
 	}
+	}
 
 
 	
 	@RequestMapping("grabaPrincipal.html")
-	public ModelAndView grabaPrincipal(Principale principal)
+	public ModelAndView grabaPrincipal(Principale principal, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		
 		
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
-			return principales();
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,21 +122,24 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		return new ModelAndView("error");
 		}
 	}
+	}
 	
 	
 	@RequestMapping("borraPrincipal.html")
-	public ModelAndView borraPrincipal(int id)
+	public ModelAndView borraPrincipal(int id, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		;
 		try {
 			getPrincipalDelegate().borraDato(id, Principale.class);
-			return principales();
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
-		
+	}
 	}
 	
 	

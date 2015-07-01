@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import curso.tecnocom.gestor.daos.DaoInterface;
+
 import curso.tecnocom.gestor.daos.GestorDao;
 
 @Service
@@ -31,23 +34,14 @@ public class GestorService {
 	
 	
 
-
-	public GestorDao getContenidoDao() {
-		return contenidoDao;
-	}
-
-	public void setContenidoDao(GestorDao contenidoDao) {
-		this.contenidoDao = contenidoDao;
-	}
-
 	public void grabaObjeto(Object objeto) throws Exception{
-		Method metodo=getContenidoDao().getClass().getMethod("grabaObjeto", Object.class);
+		Method metodo=getContenidoDao().getClass().getMethod("grabaDato", Object.class);
 		metodo.invoke(getContenidoDao(), objeto);
 		
 	}
 
 	public void borraDato(Object objeto) throws Exception{
-		Method metodo=getContenidoDao().getClass().getMethod("grabaObjeto", Object.class);
+		Method metodo=getContenidoDao().getClass().getMethod("borraDato", Object.class);
 		metodo.invoke(getContenidoDao(), objeto);
 		
 	}
@@ -58,5 +52,15 @@ public class GestorService {
 		
 	}
 
+
+
+
+	public GestorDao getContenidoDao() {
+		return contenidoDao;
+	}
+
+	public void setContenidoDao(GestorDao contenidoDao) {
+		this.contenidoDao = contenidoDao;
+	}
 
 }
