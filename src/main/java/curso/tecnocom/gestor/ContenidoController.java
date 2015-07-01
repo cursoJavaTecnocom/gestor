@@ -27,7 +27,7 @@ public class ContenidoController {
 	@RequestMapping("contenidos.html")
 	public ModelAndView contenido(HttpServletRequest request) {
 		if (!validar(request))
-			return new ModelAndView("noLogado");
+			return new ModelAndView("validacion");
 
 		try {
 			List<Contenido> contenidos = (List<Contenido>) getContenidoDelegate()
