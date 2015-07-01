@@ -25,8 +25,16 @@ function modificaDestacado(id){
 
 </head>
 <body>
-	<%-- <jsp:include page="seguridad.jsp"></jsp:include> --%>
-	<h1>Destacados</h1>
+	<jsp:include page="navegador.jsp"></jsp:include>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Destacados
+				</h1>
+			</div>
+		</div>
+	</header>
 	
 <div class="container">
 	<!-- <br><a href="modificaDestacado.html?id=0">Alta de Destacados</a> -->
