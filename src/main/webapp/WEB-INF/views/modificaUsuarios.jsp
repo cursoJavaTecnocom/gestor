@@ -27,7 +27,7 @@
 		</div>
 		</header>
 	</c:if>
-	<c:if test="${empty usuarios.id}">
+	<c:if test="${usuarios.id == 0}">
 		<header>
 		<div class="jumbotron">
 			<div class="container">
