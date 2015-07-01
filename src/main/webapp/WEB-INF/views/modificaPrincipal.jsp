@@ -9,6 +9,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:if test="${empty principale.id}">
+	<h1>NUEVO PRINCIPAL</h1>
+</c:if>
+<c:if test="${principale.id gt 0}">
+	<h1>MODIFICAR PRINCIPAL</h1>
+</c:if>
+
+
 <sp:form action="grabaPrincipal.html" modelAttribute="principal"> 
 		<sp:hidden path="id"/>
 		<table>
