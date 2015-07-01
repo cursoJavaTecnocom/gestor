@@ -11,5 +11,5 @@ function modificaNoticia(id) {
 }
 
 function borraNoticia(id){
-	document.location = "borraNoticia.html" + "?id=" + id;
+	document.location = "noticias.html" + "?id=" + id;
 }
