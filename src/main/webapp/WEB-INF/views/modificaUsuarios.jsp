@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${not empty usuarios.id}">
+	<c:if test="${usuarios.id != 0}">
 		<header>
 		<div class="jumbotron">
 			<div class="container">
