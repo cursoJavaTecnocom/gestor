@@ -1,5 +1,4 @@
 package curso.tecnocom.gestor.datos;
-
 import java.io.Serializable;
 import java.util.Set;
 
@@ -26,7 +25,6 @@ public class Contenido implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Lob
 	private String contenido;
 
 	private String descripcion;
@@ -166,7 +164,7 @@ public class Contenido implements Serializable {
 	public boolean equals(Object obj) {
 		try {
 			Contenido i = (Contenido) obj;
-			return this.getId()==i.getId();
+			return this.getId().equals(i.getId());
 		} catch (Exception e) {
 			return false;
 		}
