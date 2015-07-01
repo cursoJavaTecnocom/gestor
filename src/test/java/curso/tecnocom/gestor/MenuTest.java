@@ -63,16 +63,16 @@ public class MenuTest {
 
 	
 		
-//	@Test
-//	public void borrado(){
-//		try {
-//			getDelegate().borraDato(24,Menu.class);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			Assert.fail();
-//		}
-//	}
+	@Test
+	public void borrado(){
+		try {
+			getDelegate().borraDato(29,Menu.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
 	
 
 	@Test
@@ -85,7 +85,6 @@ public class MenuTest {
 			e.printStackTrace();
 			Assert.fail();
 		}
-		
 	}
 
 	public Menu getMenu() {
