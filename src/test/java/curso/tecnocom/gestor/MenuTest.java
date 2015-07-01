@@ -39,7 +39,7 @@ public class MenuTest {
 			menu.setIdMenuPadre(0);
 			menu.setImagene(imagen);
 			menu.setTipoMenu(tipoMenu);
-			menu.setTitulo("Menu nuevo");
+			menu.setTitulo("Junit");
 			getDelegate().grabaObjeto(getMenu());
 						
 		} catch (Exception e) {
