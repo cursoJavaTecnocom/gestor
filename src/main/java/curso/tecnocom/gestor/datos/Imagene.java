@@ -35,7 +35,7 @@ public class Imagene implements Serializable {
 
 	// bi-directional many-to-one association to Menu
 	@OneToMany(mappedBy = "imagene")
-	private Set<Menu> menus;
+	private Set<Menu> menus;	
 
 	// bi-directional many-to-one association to Principale
 	@OneToMany(mappedBy = "imagene")
@@ -48,7 +48,7 @@ public class Imagene implements Serializable {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

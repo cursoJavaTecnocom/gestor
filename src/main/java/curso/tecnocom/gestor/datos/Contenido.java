@@ -1,4 +1,5 @@
 package curso.tecnocom.gestor.datos;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -25,6 +26,7 @@ public class Contenido implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Lob
 	private String contenido;
 
 	private String descripcion;
@@ -52,7 +54,7 @@ public class Contenido implements Serializable {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

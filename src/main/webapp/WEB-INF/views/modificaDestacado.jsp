@@ -6,31 +6,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Gestiona Destacados</title>
+<title>GESTION DESTACADOS</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
 
-<c:if test="${empty destacado.id}">
-	<h1>ALTA DE DESTACADOS</h1>
-</c:if>
-<c:if test="${destacado.id gt 0}">
-	<h1>MODIFICACIÓN DE DESTACADOS</h1>
-</c:if>
-
+	<jsp:include page="navegador.jsp"></jsp:include>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>
+					<c:if test="${destacado.id eq 0}">
+						<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Nuevo Destacado
+					</c:if>
+					<c:if test="${destacado.id gt 0}">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Modificación de Destacado
+					</c:if>
+				</h1>
+			</div>
+		</div>
+	</header>
+	
+<div class="container">
 <sp:form action="grabaDestacado.html" modelAttribute="destacado">
 	<sp:hidden path="id"/>
- <table border="1">
+	<table class="table table-striped">
 
   <tr>
-	<td>TÍTULO</td>
+	<th>TÍTULO</th>
 	<td><sp:input path="titulo"/></td>
   </tr>
   <tr>
-	<td>TEXTO</td>
+	<th>TEXTO</th>
 	<td><sp:input path="texto"/></td>
   </tr>
 	<tr>
-		<td>CONTENIDO</td>
+		<th>CONTENIDO</th>
 		<td>
 			<sp:select path="contenido" id="selectContenido">
 				<sp:option value="0">Selecciona Contenido...</sp:option>
@@ -39,14 +52,12 @@
 		</td>
 	</tr>
   <tr>
-	<td colspan="2"><input type="submit" value="Grabar"></td>
+	<td colspan="2"><input type="submit" class="btn btn-success" value="Grabar"></td>
   </tr>
 
  </table>
- <!-- <input type="submit" value="Grabar"> -->
-
-
 </sp:form>
+</div>
 
 </body>
 </html>
