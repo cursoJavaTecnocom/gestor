@@ -43,7 +43,7 @@
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
-					<sp:form action="grabaUsuario.htlm" modelAttribute="usuario">
+					<sp:form action="grabaUsuario.html" modelAttribute="usuario">
 						<sp:hidden path="id" />
 						<table id="miTabla" class="table table-striped">
 							<tr>
