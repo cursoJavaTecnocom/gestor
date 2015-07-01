@@ -9,8 +9,7 @@
 <title>CONTENIDOS</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/contenido.js" type="text/javascript"></script>
 </head>
@@ -26,24 +25,24 @@
 	</header>
 
 	<div class="container">
+
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
 					<sp:form action="grabaContenido.html" modelAttribute="contenido">
-						<sp:hidden path="id" />
-
+					<sp:hidden path="id"/>
+<%-- 						<input type="hidden" name="id" value="${contenido.id }"> --%>
 						<div class="form-group">
 							<label>descripcion:</label>
-							<sp:input type="text" path="descripcion"></sp:input>
-							<br>
+							<sp:input type="text" path="descripcion" cssClass="form-control" ></sp:input>
 						</div>
 
 						<div class="form-group">
-							<sp:textarea rows="7" cols="120" path="contenido"></sp:textarea>
-							<br>
+							<label>Contenido:</label>
+							<sp:textarea path="contenido" cssClass="form-control" rows="3"></sp:textarea>
 						</div>
 
-						<button value="grabar" type="submit" value="Grabar" class="btn btn-default"></button>
+						<input type="submit" value="grabar" class="btn btn-default">
 					</sp:form>
 				</div>
 			</div>
