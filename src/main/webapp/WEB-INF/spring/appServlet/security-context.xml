@@ -26,8 +26,6 @@
 <sec:global-method-security secured-annotations="enabled"></sec:global-method-security>
 
 	<sec:http auto-config="true">
-		<sec:intercept-url pattern="/contenidos.html" access="ROLE_USER" />
-		
 		
 		<sec:form-login login-page="/validacion.html"
 			default-target-url="/" authentication-failure-url="/error.html"
