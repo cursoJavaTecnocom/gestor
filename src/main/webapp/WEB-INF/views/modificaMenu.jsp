@@ -7,6 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function validar(){
 		var nivel=document.forms[0].nivel.value;
@@ -27,9 +30,27 @@
 </script>
 </head>
 <body>
+<jsp:include page="navegador.jsp"></jsp:include>
+<header>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>
+				<c:choose>
+        <c:when test="${menu.titulo !=null}">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>"${menu.titulo}"
+        </c:when>
+        <c:otherwise>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nuevo Menú
+        </c:otherwise>
+        </c:choose>
+			</h1>
+		</div>
+	</div>
+</header>
+<div class="container">
 	<sp:form action="grabaMenu.html" modelAttribute="menu"> 
 		<sp:hidden path="id"/>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<td>Título</td>
 				<td>
@@ -72,7 +93,6 @@
 					<sp:select path="tipoMenu">
 						<sp:option value="0">Selecciona un tipo de menu...</sp:option>
 						<sp:option value="3">superior</sp:option>
-						<!--<sp:options items="${tiposMenus}" itemLabel="descripcion" itemValue="id"/>-->
 					</sp:select>
 				</td>
 			</tr>
@@ -87,9 +107,7 @@
 									<sp:option value="${menu.id}">${menu.titulo}</sp:option>
 								</c:when>
 							</c:choose>
-						</c:forEach>
-						<!--<sp:options items="${menus}" itemLabel="titulo" itemValue="id"/>-->
-						
+						</c:forEach>						
 					</sp:select>
 				</td>
 			</tr>
@@ -98,5 +116,6 @@
 			</tr>
 		</table>
 	</sp:form>
+	</div>
 </body>
 </html>
