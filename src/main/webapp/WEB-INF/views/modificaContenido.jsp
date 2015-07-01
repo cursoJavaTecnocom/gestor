@@ -12,7 +12,7 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
-	<script src="js/jsnoticias.js" type="text/javascript"></script>
+	<script src="js/contenido.js" type="text/javascript"></script>
 </head>
 <body>
 <header>
@@ -32,7 +32,7 @@
 		<textarea rows="7" cols="120" path="contenido"></textarea><br>
 
 
-		<button value="grabar" type="submit" name="grabar">Guardar</button>
+		<button value="grabar" type="submit">Grabar</button>
 	</form>
 </div>
 

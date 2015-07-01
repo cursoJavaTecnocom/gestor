@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,9 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	@RequestMapping("principal.html")	
-	public ModelAndView principales()
+	public ModelAndView principales(HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		List<Principale> principales;
 		try {
@@ -54,6 +58,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 			e.printStackTrace();
 			return new ModelAndView("error") ;
 		}
+	}
 		
 		
 		
@@ -63,7 +68,9 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 	@RequestMapping("modificaPrincipal.html")
-	public ModelAndView modificaPrincipal(int id)
+	public ModelAndView modificaPrincipal(int id, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		Principale principal=null;
 		if(id==0)
@@ -85,17 +92,20 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 			return new ModelAndView("error");
 		}
 	}
+	}
 
 
 	
 	@RequestMapping("grabaPrincipal.html")
-	public ModelAndView grabaPrincipal(Principale principal)
+	public ModelAndView grabaPrincipal(Principale principal, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		
 		
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
-			return principales();
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,21 +113,24 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		return new ModelAndView("error");
 		}
 	}
+	}
 	
 	
 	@RequestMapping("borraPrincipal.html")
-	public ModelAndView borraPrincipal(int id)
+	public ModelAndView borraPrincipal(int id, HttpServletRequest request) {
+		if (!getPrincipalDelegate().validar(request))
+			return new ModelAndView("noLogado");
 	{
 		;
 		try {
 			getPrincipalDelegate().borraDato(id, Principale.class);
-			return principales();
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
-		
+	}
 	}
 	
 	

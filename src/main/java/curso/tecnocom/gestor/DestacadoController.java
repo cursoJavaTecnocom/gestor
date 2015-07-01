@@ -1,6 +1,7 @@
 package curso.tecnocom.gestor;
 
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import curso.tecnocom.gestor.datos.Destacado;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
 public class DestacadoController {
-
-	
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(DestacadoController.class);
@@ -27,11 +27,13 @@ public class DestacadoController {
 		return "home";
 
 	}
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
 		try {
-			List<Destacado> destacados = (List<Destacado>) getGestorDelegate().dameDatos(Destacado.class);
+			List<Destacado> destacados = (List<Destacado>) getGestorDelegate()
+					.dameDatos(Destacado.class);
 			ModelAndView salida = new ModelAndView("destacados");
 			salida.addObject("destacados", destacados);
 			return salida;
@@ -62,7 +64,8 @@ public class DestacadoController {
 		}
 		try {
 			if (id > 0) {
-				destacado = (Destacado) getGestorDelegate().dameObjeto(id, Destacado.class);
+				destacado = (Destacado) getGestorDelegate().dameObjeto(id,
+						Destacado.class);
 			}
 			ModelAndView salida = new ModelAndView("modificaDestacado");
 			salida.addObject("destacado", destacado);
@@ -74,11 +77,10 @@ public class DestacadoController {
 		}
 
 	}
-	
-	
+
 	@RequestMapping("grabaDestacado.html")
-	public ModelAndView grabaEmpresa(Destacado destacado, String titulo, String texto)
-	{
+	public ModelAndView grabaEmpresa(Destacado destacado, String titulo,
+			String texto) {
 		try {
 			getGestorDelegate().grabaObjeto(destacado);
 			return destacados();
