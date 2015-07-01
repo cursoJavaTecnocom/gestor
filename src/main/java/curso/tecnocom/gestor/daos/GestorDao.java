@@ -83,8 +83,8 @@ public class GestorDao implements DaoInterface {
 	public void borraDato(int id, Class<?> clase) throws Exception {
 		// TODO Auto-generated method stub
 		setSesion(getFactoria().openSession());
-		getSesion().beginTransaction();
 		Object objeto = dameObjeto(id, clase);
+		getSesion().beginTransaction();
 		getSesion().delete(objeto);
 		getSesion().getTransaction().commit();
 	}

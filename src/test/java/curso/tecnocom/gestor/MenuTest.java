@@ -29,27 +29,25 @@ public class MenuTest {
 	
 	private Menu menu=new Menu();
 	
-//	@Test
-//	public void alta(){
-//		try {
-//			Contenido contenido=(Contenido) getDelegate().dameObjeto(19,Contenido.class);
-//			TipoMenu tipoMenu=(TipoMenu) getDelegate().dameObjeto(3,TipoMenu.class);
-//			Imagene imagen=(Imagene) getDelegate().dameObjeto(1,Imagene.class);
-//			menu.setContenido(contenido);
-//			menu.setIdMenuPadre(0);
-//			menu.setImagene(imagen);
-//			menu.setTipoMenu(tipoMenu);
-//			menu.setTitulo("Menu nuevo");
-//			getDelegate().grabaObjeto(getMenu());
-//			
-////			getMenu().setTitulo("Titulo modificado");
-////			getDelegate().grabaObjeto(getMenu());
-//		} catch (Exception e) {
-//			//Assert.fail();
-//			e.printStackTrace();
-//			Assert.fail();
-//		}
-//	}
+	@Test
+	public void alta(){
+		try {
+			Contenido contenido=(Contenido) getDelegate().dameObjeto(19,Contenido.class);
+			TipoMenu tipoMenu=(TipoMenu) getDelegate().dameObjeto(3,TipoMenu.class);
+			Imagene imagen=(Imagene) getDelegate().dameObjeto(1,Imagene.class);
+			menu.setContenido(contenido);
+			menu.setIdMenuPadre(0);
+			menu.setImagene(imagen);
+			menu.setTipoMenu(tipoMenu);
+			menu.setTitulo("Menu nuevo");
+			getDelegate().grabaObjeto(getMenu());
+						
+		} catch (Exception e) {
+			//Assert.fail();
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
 	
 	
 	
@@ -65,18 +63,30 @@ public class MenuTest {
 
 	
 		
+//	@Test
+//	public void borrado(){
+//		try {
+//			getDelegate().borraDato(24,Menu.class);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			Assert.fail();
+//		}
+//	}
+	
+
 	@Test
-	public void borrado(){
+	public void modificar(){
+		Menu menu;
 		try {
-			getDelegate().borraDato(23,Menu.class);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			menu = (Menu) getDelegate().dameObjeto(29, Menu.class);
+			getDelegate().grabaObjeto(menu);
+		} catch (Exception e) {			
 			e.printStackTrace();
 			Assert.fail();
 		}
+		
 	}
-
-	
 
 	public Menu getMenu() {
 		return menu;
