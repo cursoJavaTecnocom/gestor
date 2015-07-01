@@ -34,15 +34,15 @@
 				<td>${contenido.contenido }</td>
 				<td>${contenido.descripcion }</td>
 				<td>
-				<input type="button" value="Modificar" onclick="modificaContenido(${contenido.id},'modificaContenido.html')"> 
-				<input type="button" value="Borrar"	onclick="borraContenido(${contenido.id})">
+				<input type="button" value="Modificar"  class="btn btn-primary" onclick="modificaContenido(${contenido.id},'modificaContenido.html')"> 
+				<input type="button" value="Borrar"	class="btn btn-warning" onclick="borraContenido(${contenido.id})">
 				<!-- <input type="button" value="Previsualización" onclick="verContenido"> -->
 				</td>
 			</tr>
 		</c:forEach>
 	
 		<tr>
-			<a href="modificaContenido.html?id=0"><input type="button" value="Añadir nuevo contenido"></a>
+			<a href="modificaContenido.html?id=0"><input type="button" value=" + Añadir" class="btn btn-success"></a>
 		</tr>
 </table>
 </body>
