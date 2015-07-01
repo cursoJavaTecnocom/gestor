@@ -6,11 +6,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import curso.tecnocom.gestor.datos.Contenido;
+import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
+import curso.tecnocom.gestor.datos.Imagene;
+import curso.tecnocom.gestor.datos.ImagenesProperty;
+import curso.tecnocom.gestor.datos.Menu;
+import curso.tecnocom.gestor.datos.MenuProperty;
+import curso.tecnocom.gestor.datos.TipoMenu;
+import curso.tecnocom.gestor.datos.TipoMenuProperty;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -26,9 +36,19 @@ public class DestacadoController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "home";
+<<<<<<< HEAD
 
 	}
 
+=======
+	}  
+	
+	@InitBinder
+	public void init(WebDataBinder binder) {
+		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
+	}
+  
+>>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
@@ -69,7 +89,10 @@ public class DestacadoController {
 						Destacado.class);
 			}
 			ModelAndView salida = new ModelAndView("modificaDestacado");
+			List<Contenido> contenidos = (List<Contenido>) getGestorDelegate()
+					.dameDatos(Contenido.class);
 			salida.addObject("destacado", destacado);
+			salida.addObject("contenidos", contenidos);
 			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
