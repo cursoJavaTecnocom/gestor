@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -28,13 +28,20 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="usuarios.html">USUARIOS</a></li>
-        <li><a href="menus.html">MENUS</a></li> 
-        <li><a href="contenidos.html">CONTENIDOS</a></li> 
+        <li class="active"><a href="usuarios.html">USUARIOS</a></li>
+        <li><a href="menu.html">MENUS</a></li> 
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contenidos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="destacados.html">Destacados</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="principales.html">Principales</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>${usuario.usuario}</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
       </ul>
     </div>
   </div>
