@@ -66,10 +66,10 @@ public class DestacadoController {
 	}
 
 	@RequestMapping("borraDestacado.html")
-	public ModelAndView borraDestacado(int id) {
+	public ModelAndView borraDestacado(int id, HttpServletRequest request) {
 		try {
 			getGestorDelegate().borraDato(id, Destacado.class);
-			return destacados();
+			return destacados(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,15 +103,12 @@ public class DestacadoController {
 	}
 
 	@RequestMapping("grabaDestacado.html")
-	public ModelAndView grabaEmpresa(Destacado destacado, String titulo,
-			String texto) {
+	public ModelAndView grabaDestacado(Destacado destacado, HttpServletRequest request) {
 		try {
 			getGestorDelegate().grabaObjeto(destacado);
-			return destacados();
+			return destacados(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			destacado.setTitulo(titulo);
-			destacado.setTexto(texto);
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
