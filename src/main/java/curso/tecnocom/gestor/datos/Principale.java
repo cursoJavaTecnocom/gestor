@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="principales")
 @NamedQuery(name="Principale.findAll", query="SELECT p FROM Principale p")
-public class Principale implements Serializable {
+public class Principale implements Serializable, Comparable<Principale> {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -74,6 +74,12 @@ public class Principale implements Serializable {
 
 	public void setImagene(Imagene imagene) {
 		this.imagene = imagene;
+	}
+
+	@Override
+	public int compareTo(Principale o) {
+		// TODO Auto-generated method stub
+		return this.getTitulo().compareTo(o.getTitulo());
 	}
 
 }
