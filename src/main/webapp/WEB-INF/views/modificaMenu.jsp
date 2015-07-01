@@ -49,7 +49,7 @@
 			<tr>
 				<td>Nivel</td>
 				<td>
-					<sp:input  path="nivel"/>
+					<sp:input  path="nivel" disabled="true"/>
 				</td>
 			</tr>
 			<tr>
@@ -80,7 +80,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="9"><input type="submit" value="Grabar"/></td>
+				<td colspan="9"><input type="button" value="Grabar" onclick="validar()"/></td>
 			</tr>
 		</table>
 	</sp:form>

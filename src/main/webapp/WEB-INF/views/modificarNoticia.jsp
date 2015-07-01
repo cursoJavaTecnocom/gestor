@@ -28,7 +28,7 @@
 
 </head>
 <body>
-
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container">
