@@ -18,8 +18,9 @@
 <div class="container">
 	<!-- <br><a href="modificaDestacado.html?id=0">Alta de Destacados</a> -->
 	<table class="table table-striped">
-		
+
 		<tr>
+			<th>ID</th>
 			<th>TÍTULO</th>
 			<th>TEXTO</th>
 			<th>ACCIÓN</th>
@@ -27,6 +28,7 @@
 		
 		<c:forEach items="${destacados}" var="destacado">
 			<tr>
+				<td>${destacado.id}</td>
 				<td>${destacado.titulo}</td>
 				<td>${destacado.texto}</td>
 				<td>
@@ -37,7 +39,7 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="3">
+			<td colspan="4">
 				<input type="button" class="btn btn-success" value="Nuevo Destacado"  onclick="modificaDestacado(0)">
 			</td>
 		</tr>	
