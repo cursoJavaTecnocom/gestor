@@ -2,6 +2,8 @@ package curso.tecnocom.gestor.delegates;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,12 @@ public class GestorDelegate {
 
 	@Autowired
 	private GestorService gestorService;
+	
+	public boolean validar(HttpServletRequest request) {
+		if (request.getSession(true).getAttribute("logado")!=null && (Boolean) request.getSession(true).getAttribute("logado"))
+			return true;
+		return false;
+	}
 	
 	public List<?> dameDatos(Class<?> clase) throws Exception{
 		return getGestorService().dameDatos(clase);
