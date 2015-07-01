@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>No Logado :(</h1>
+<a href="validacion.html">Pulsa Aqui</a>
 
 </body> 
 </html>
