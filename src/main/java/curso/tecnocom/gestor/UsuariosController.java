@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.id.IdentityGenerator.GetGeneratedKeysDelegate;
 import org.slf4j.Logger;
@@ -28,57 +26,52 @@ public class UsuariosController {
 
 	@Autowired
 	private GestorDelegate gestorDelegate;
-	@Autowired
 	private UsuarioDelegate usuarioDelegate;
-	@Autowired
-	private ServletContext servletContext;
-
-	// lista usuarios
-	@RequestMapping("usuarios.html")
-	public ModelAndView usuarios(HttpServletRequest request) {
-
-		if (!gestorDelegate.validar(request)) {
-
-			ModelAndView modelAndView = new ModelAndView("validacion");
-			modelAndView.addObject("usuario", new Usuario());
-			modelAndView.addObject("destino", "usuarios.html");
-			return modelAndView;
-		}
-
-		try {
-			@SuppressWarnings("unchecked")
-			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate()
-					.dameDatos(Usuario.class);
-
-			ModelAndView salida = new ModelAndView("usuarios");
+	
+	//lista usuarios
+	@RequestMapping("usuarios.html")  
+	public ModelAndView usuarios(HttpServletRequest request){
+	
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
+		
+		try{
+		@SuppressWarnings("unchecked")
+		List<Usuario> usuarios = (List<Usuario>) getGestorDelegate().dameDatos(Usuario.class);
+		
+			ModelAndView salida= new ModelAndView("usuarios");
 			salida.addObject("usuarios", usuarios);
 			return salida;
-		} catch (Exception e) {
+		}
+		catch (Exception e){
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
-
+		
 	}
-
-	// modificar
+	  
+	//modificar
 	@RequestMapping("modificaUsuario.html")
-	public ModelAndView modificaUsuarios(int id, HttpServletRequest request) {
-		// if(!gestorDelegate.validar(request))
-		// return new ModelAndView("noLogado");
-
+	public ModelAndView modificaUsuarios(int id,HttpServletRequest request)
+	{
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
+		
 		Usuario usuario = null;
 		try {
-			if (id == 0) {
-				usuario = new Usuario();
-			} else {
-				usuario = (Usuario) getGestorDelegate().dameObjeto(id,
-						Usuario.class);
+			if(id==0)
+			{
+				 usuario=new Usuario();
 			}
-
+			else
+			{
+				 usuario= (Usuario) getGestorDelegate().dameObjeto(id, Usuario.class);
+			}
+			
 			ModelAndView salida = new ModelAndView("modificaUsuarios");
-			salida.addObject("usuario", usuario);
+			salida.addObject("usuario",usuario);
 			return salida;
-
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,27 +79,30 @@ public class UsuariosController {
 		}
 
 	}
-
-	// borrar
+	
+	//borrar
 	@RequestMapping("borraUsuario.html")
-	public ModelAndView borraUsuarios(int id, HttpServletRequest request) {
-		// if(!gestorDelegate.validar(request))
-		// return new ModelAndView("noLogado");
-		try {
+	public ModelAndView borraUsuarios(int id,HttpServletRequest request)
+	{
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
+		try
+		{
 			getGestorDelegate().borraDato(id, Usuario.class);
 			return usuarios(request);
-		} catch (Exception e) {
+		}
+		catch (Exception e){
 			return new ModelAndView("home");
 		}
-
+		
 	}
-
-	// grabar usuario
+	
+	//grabar usuario
 	@RequestMapping("grabaUsuario.html")
-	public ModelAndView grabaUsuario(Usuario usuario, HttpServletRequest request) {
-
-		// if(!gestorDelegate.validar(request))
-		// return new ModelAndView("noLogado");
+	public ModelAndView grabaUsuario(Usuario usuario,HttpServletRequest request){
+		
+//		if(!gestorDelegate.validar(request))
+//			return new ModelAndView("noLogado");
 		try {
 			getGestorDelegate().grabaObjeto(usuario);
 			return usuarios(request);
@@ -114,43 +110,41 @@ public class UsuariosController {
 			// TODO Auto-generated catch block
 			return new ModelAndView("error");
 		}
-
-	}
-
-	// Validar
+	
+	} 
+	
+	//Validar
 	@RequestMapping("validacion.html")
-	public ModelAndView validacion(Usuario usuario, HttpServletRequest request, HttpServletResponse response,
-			String destino) {
+	public ModelAndView validacion(Usuario usuario, HttpServletRequest request){
 		try {
-
-			String claveIntroducida = usuario.getClave();
-
-			Usuario usuarioRecuperado = getUsuarioDelegate()
-					.getUsuarioByUsuario(usuario);
-
+			usuarioDelegate = new UsuarioDelegate();
+			String claveIntroducida = usuario.getClave();			
+			
+			Usuario usuarioRecuperado = getUsuarioDelegate().getUsuarioByUsuario(usuario);
+			
 			String claveRecuperada = usuarioRecuperado.getClave();
-
+			
 			if (claveIntroducida.equals(claveRecuperada)) {
-
+				
 				request.getSession(true).setAttribute("logado", true);
-				getServletContext().getRequestDispatcher("/"+destino).forward(request, response);
-				return null;
-
-			} else {
+				return new ModelAndView("principal");
+			}
+			else
+			{
 				System.out.println("fallo en logacion");
 				return new ModelAndView("validacion");
-
+				
 			}
-
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("validacion");
 		}
-
+		
 	}
-
-	// GETTERS AND SETTERS
+	
+	//GETTERS AND SETTERS
 	public GestorDelegate getGestorDelegate() {
 		return gestorDelegate;
 	}
@@ -165,14 +159,6 @@ public class UsuariosController {
 
 	public void setUsuarioDelegate(UsuarioDelegate usuarioDelegate) {
 		this.usuarioDelegate = usuarioDelegate;
-	}
-
-	public ServletContext getServletContext() {
-		return servletContext;
-	}
-
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
 	}
 
 }
