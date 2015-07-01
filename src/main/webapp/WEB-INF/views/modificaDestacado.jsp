@@ -29,15 +29,15 @@
 	<td>TEXTO</td>
 	<td><sp:input path="texto"/></td>
   </tr>
-		<tr>
-			<td>CONTENIDO</td>
-			<td>
-				<sp:select path="contenido" id="selectContenido">
-					<sp:option value="0">Selecciona Contenido...</sp:option>
-					<sp:options items="${contenidos }" itemLabel="descripcion" itemValue="id"/>
-				</sp:select>
-			</td>
-		</tr>
+	<tr>
+		<td>CONTENIDO</td>
+		<td>
+			<sp:select path="contenido" id="selectContenido">
+				<sp:option value="0">Selecciona Contenido...</sp:option>
+				<sp:options items="${contenidos }" itemLabel="descripcion" itemValue="id"/>
+			</sp:select>
+		</td>
+	</tr>
   <tr>
 	<td colspan="2"><input type="submit" value="Grabar"></td>
   </tr>

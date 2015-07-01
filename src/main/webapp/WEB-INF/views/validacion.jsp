@@ -20,7 +20,7 @@
 	</header>
 	<div class="container">
 		<div class="row">
-			<sp:form action="validacion.html" modelAttribute="usuario">
+			<sp:form action="validacion.html?destino=${destino }" modelAttribute="usuario">
 				<table border="1" id="miTabla" class="table table-striped">
 					<tr>
 						<td>Usuario:</td>

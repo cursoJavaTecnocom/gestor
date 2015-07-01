@@ -22,7 +22,7 @@
 </script>
 </head>
 <body>
- <jsp:include page="navegador.jsp"></jsp:include>
+<jsp:include page="navegador.jsp"></jsp:include>
 <header>
 	<div class="jumbotron">
 		<div class="container">
