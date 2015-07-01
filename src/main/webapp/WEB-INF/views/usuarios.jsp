@@ -25,7 +25,7 @@
 	</header>
 	<div class="container">
 		<div class="row">
-			<a href="modificaUsuario.html?id=0">Alta Nuevo Usuario</a>
+			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
 			<table border="1" id="miTabla" class="table table-striped">
 
 				<tr>
