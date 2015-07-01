@@ -16,11 +16,6 @@ import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
 import curso.tecnocom.gestor.datos.Imagene;
-import curso.tecnocom.gestor.datos.ImagenesProperty;
-import curso.tecnocom.gestor.datos.Menu;
-import curso.tecnocom.gestor.datos.MenuProperty;
-import curso.tecnocom.gestor.datos.TipoMenu;
-import curso.tecnocom.gestor.datos.TipoMenuProperty;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
