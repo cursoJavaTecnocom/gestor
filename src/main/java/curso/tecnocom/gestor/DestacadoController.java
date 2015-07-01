@@ -16,18 +16,19 @@ import curso.tecnocom.gestor.delegates.GestorDelegate;
 @Controller
 public class DestacadoController {
 
-	
 	private static final Logger logger = LoggerFactory
 			.getLogger(DestacadoController.class);
 
 	@Autowired
 	private GestorDelegate gestorDelegate;
 
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "home";
-	}  
-  
+
+	}
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados() {
