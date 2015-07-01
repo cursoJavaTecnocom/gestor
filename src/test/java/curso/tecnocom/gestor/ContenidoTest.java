@@ -49,7 +49,7 @@ public class ContenidoTest {
 	
 	
 	@Test
-	public void altaContenido(){ 
+	public void altaContenido(){  
 		setContenido(new Contenido());
 		try{
 			// Contenido cont=(Contenido) getContenidoController().getContenidoDelegate().dameObjeto(19, Contenido.class);
