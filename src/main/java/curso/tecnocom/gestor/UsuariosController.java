@@ -113,7 +113,9 @@ public class UsuariosController {
 			}
 			else
 			{
+				System.out.println("fallo en logacion");
 				return new ModelAndView("validacion");
+				
 			}
 			
 		} catch (Exception e) {
