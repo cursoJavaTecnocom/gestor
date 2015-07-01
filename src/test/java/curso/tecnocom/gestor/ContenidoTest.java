@@ -49,7 +49,7 @@ public class ContenidoTest {
 	
 	
 	@Test
-	public void alta(){
+	public void altaContenido(){ 
 		setContenido(new Contenido());
 		try{
 			// Contenido cont=(Contenido) getContenidoController().getContenidoDelegate().dameObjeto(19, Contenido.class);
@@ -59,7 +59,9 @@ public class ContenidoTest {
 			getContenido().setDescripcion("rebajas");
 			getGestorDelegate().grabaObjeto(getContenido());
 			
-			
+			//modificacion
+			getContenido().setDescripcion("modificado");
+			getGestorDelegate().grabaObjeto(getContenido());
 			
 		}catch (Exception e) {
 			//Assert.fail();
@@ -70,20 +72,20 @@ public class ContenidoTest {
 		
 	}
 	
-/*	@Test
-	public void listado(){
+	@Test
+	public void listadoContenidos(){
 		try {
-			assertNotNull(getContenidoController().getContenidoDelegate().dameDatos(Contenido.class));
+			assertNotNull(getGestorDelegate().dameDatos(Contenido.class));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.fail();
 		}
 	}
-	*/
+	
 	  
 	@Test
-	public void listado1(){
+	public void listadoContenidos1(){
 		try {
 			getGestorDelegate().dameDatos(Contenido.class);
 		} catch (Exception e) {
