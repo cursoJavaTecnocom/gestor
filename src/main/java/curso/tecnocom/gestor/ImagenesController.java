@@ -29,29 +29,22 @@ public class ImagenesController {
 	@Autowired
 	private ServletContext servletContext;
 
+	@Autowired
 	private GestorDelegate gestorDelegate;
 
 	@RequestMapping(value = "/altaImagen.html")
 	public ModelAndView altaImagen(
 			@RequestParam("fichero") MultipartFile fichero,
-			HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("titulo") String titulo,
-			@RequestParam("texto") String texto) throws Exception {
+			HttpServletRequest request) throws Exception {
 		String salida = null;
 		try {
 
+			if (!getGestorDelegate().validar(request))
+				return new ModelAndView("noLogado");
 			if (ServletFileUpload.isMultipartContent(request)) {
-				// System.out.println("paso1");
 
-				// System.out.println("paso2");
-				// Iterator it = fileItemsList.iterator();
-				// while (it.hasNext()) {
-				// System.out.println("paso3");
-				// FileItem archivoActual = (FileItem) it.next();
 				String nombre = fichero.getOriginalFilename();
-				File archivoADisco = new File(nombre);
 
-				archivoADisco = new File(archivoADisco.getName());
 				try (FileOutputStream fo = new FileOutputStream(
 						getServletContext().getRealPath("/") + "/images/"
 								+ nombre);) {
@@ -75,9 +68,11 @@ public class ImagenesController {
 
 	}
 
-	@RequestMapping(value = "/altaImagen.html")
+	@RequestMapping(value = "/imagenes.html")
 	public ModelAndView imagenes(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		if (!getGestorDelegate().validar(request))
+			return new ModelAndView("noLogado");
+		
 		return null;
 	}
 

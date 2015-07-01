@@ -21,7 +21,7 @@
   <div class="col-md-3"></div>
   <div class="col-md-6">
 	<ul class="list-group">
-		<li class="list-group-item"><a href="contenido.html">Contenidos</a></li>
+		<li class="list-group-item"><a href="contenidos.html">Contenidos</a></li>
 		<li class="list-group-item"><a href="destacados.html">Destacados</a></li>
 		<li class="list-group-item"><a href="menu.html">Menús</a></li>
 		<li class="list-group-item"><a href="noticias.html">Noticias</a></li>
