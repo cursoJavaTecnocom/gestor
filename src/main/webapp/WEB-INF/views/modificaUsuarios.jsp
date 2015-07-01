@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:when test="${usuarios.id != 0}">
+	<c:if test="${usuarios.id != 0}">
 		<header>
 		<div class="jumbotron">
 			<div class="container">
@@ -26,8 +26,8 @@
 			</div>
 		</div>
 		</header>
-	</c:when>
-	<c:otherwise>
+	</c:if>
+	<c:if test="${usuarios.id == 0}">
 		<header>
 		<div class="jumbotron">
 			<div class="container">
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		</header>
-	</c:otherwise>
+	</c:if>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
