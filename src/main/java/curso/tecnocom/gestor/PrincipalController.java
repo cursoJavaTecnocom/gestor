@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -89,8 +90,8 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-	@RequestMapping("modificaPrincipal.html")
-	public ModelAndView modificaPrincipal(int id)
+	@RequestMapping("modificaPrincipal{id}.html")
+	public ModelAndView modificaPrincipal(@PathVariable("id")int id)
 	{
 		Principale principal=null;
 		if(id==0)

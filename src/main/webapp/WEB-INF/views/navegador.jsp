@@ -12,7 +12,7 @@
           <ul class="dropdown-menu">
             <li><a href="destacados.html">Destacados</a></li>
             <li><a href="noticias.html">Noticias</a></li>
-            <li><a href="principales.html">Principales</a></li>
+            <li><a href="principal.html">Principales</a></li>
           </ul>
         </li>
       </ul>
