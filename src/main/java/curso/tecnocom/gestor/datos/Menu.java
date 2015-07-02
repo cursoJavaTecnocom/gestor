@@ -58,7 +58,7 @@ public class Menu implements Serializable {
 		this.id = id;
 	}
 
-	public int getIdMenuPadre() {
+	public Integer getIdMenuPadre() {
 		return this.idMenuPadre;
 	}
 
