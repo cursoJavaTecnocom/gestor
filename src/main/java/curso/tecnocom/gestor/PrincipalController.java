@@ -25,6 +25,7 @@ import curso.tecnocom.gestor.datos.Noticia;
 import curso.tecnocom.gestor.datos.NoticiaProperty;
 import curso.tecnocom.gestor.datos.PrincipalProperty;
 import curso.tecnocom.gestor.datos.Principale;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 
@@ -53,9 +54,15 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	@RequestMapping("principal.html")	
-	public ModelAndView principales(/*HttpServletRequest request) {
+	public ModelAndView principales(HttpServletRequest request) {
 		if (!getPrincipalDelegate().validar(request))
-			return new ModelAndView("noLogado"*/)/*;*/
+		{
+			
+			ModelAndView modelAndView= new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino","principal.html");
+			return modelAndView;
+		}
 	{
 		List<Principale> principales;
 		try {
@@ -78,7 +85,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		
 		
-//	}
+	}
 
 
 
@@ -129,7 +136,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
-			return principales()/*(request)*/;
+			return principales(null)/*(request)*/;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -148,7 +155,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		;
 		try {
 			getPrincipalDelegate().borraDato(id, Principale.class);
-			return principales()/*(request)*/;
+			return principales(null)/*(request)*/;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
