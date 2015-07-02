@@ -62,7 +62,7 @@ public class Menu implements Serializable {
 		return this.idMenuPadre;
 	}
 
-	public void setIdMenuPadre(int idMenuPadre) {
+	public void setIdMenuPadre(Integer idMenuPadre) {
 		this.idMenuPadre = idMenuPadre;
 	}
 

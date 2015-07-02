@@ -32,7 +32,7 @@ public class DestacadoController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home() {
+	public ModelAndView index() {
 		try {
 			List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
 					Menu.class);
@@ -43,6 +43,11 @@ public class DestacadoController {
 			e.printStackTrace();
 			return  new ModelAndView("error");
 		}
+	}
+	
+	@RequestMapping("home.html")
+	public String home(){
+		return "home";
 	}
 
 	@InitBinder
