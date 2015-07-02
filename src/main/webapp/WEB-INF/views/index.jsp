@@ -24,9 +24,11 @@
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}<span class="caret"></span></a>
 							          <ul class="dropdown-menu">
 								<c:forEach items="${menus}" var="menuHijo">
+								<c:choose>
 								<c:when test="${menu.id== menuHijo.idMenuPadre}">							
 							       <li><a href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}</a></li>
 								</c:when>
+								</c:choose>
 								</c:forEach>
 								</ul>
  </li>
