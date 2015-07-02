@@ -33,7 +33,7 @@
 			<div class="col-md-offset-4 col-md-4">
 				<div class="alert alert-danger" role="alert">
 					<span class="glyphicon glyphicon-exclamation-sign"
-						aria-hidden="true"></span><span> EL ZAMORANO NO DEJA BORRAR ESTE CONTENIDO</span>
+						aria-hidden="true"></span><span> EL ZAMORANO NO DEJA BORRAR ESTE CONTENIDO!!!</span>
 									
 				</div>
 			</div>

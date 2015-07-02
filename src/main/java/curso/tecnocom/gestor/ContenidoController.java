@@ -124,7 +124,7 @@ public class ContenidoController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ModelAndView ("error");
+			return new ModelAndView ("errorBorrar");
 		}
 		
 	}
