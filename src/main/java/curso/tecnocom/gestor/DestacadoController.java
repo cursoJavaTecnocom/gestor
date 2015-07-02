@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
+import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -29,9 +30,19 @@ public class DestacadoController {
 	@Autowired
 	private GestorDelegate gestorDelegate;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "home";
+		try {
+			List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
+					Menu.class);
+			ModelAndView modelAndView = new ModelAndView("menus");
+			modelAndView.addObject("menus", menus);
+			return "index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return  "error";
+		}
 	}
 
 	@InitBinder
