@@ -14,11 +14,11 @@ body {
 }
 
 #vueltas:HOVER{
--moz-transform: scale(2) rotate(360deg);
--webkit-transform: scale(2) rotate(360deg);
--o-transform: scale(2) rotate(360deg);
--ms-transform: scale(2) rotate(360deg);
-transform: scale(2) rotate(360deg);
+-moz-transform: scale(1.5) rotate(360deg);
+-webkit-transform: scale(1.5) rotate(360deg);
+-o-transform: scale(1.5) rotate(360deg);
+-ms-transform: scale(1.5) rotate(360deg);
+transform: scale(1.5) rotate(360deg);
 -webkit-transition: all 500ms ease-in;
 -moz-transition: all 500ms ease-in;
 -ms-transition: all 500ms ease-in;
