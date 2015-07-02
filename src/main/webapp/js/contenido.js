@@ -1,6 +1,9 @@
-function borraContenido(id,cantidad)
+function borraContenido(id)
 {	
-	document.location="borraContenido.html?id="+id;
+	if(confirm("¿Estas segurro de borrar el contenido?"))
+	{
+		document.location="borraContenido.html?id="+id;
+	}	
 }
 
 function modificaContenido(id)
