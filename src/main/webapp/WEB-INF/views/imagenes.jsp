@@ -43,7 +43,7 @@
 						<td>${imagen.nombre }
 						
 						</td>
-						<td><img src="images/${imagen.nombre }" width="100" height="100"></td>
+						<td><a href="images/${imagen.nombre }" target="new"><img src="images/${imagen.nombre }" width="100" height="100"></a></td>
 						<td><input type="button" value="Borrar"
 							class="btn btn-warning" onclick="borraImagen(${imagen.id })">
 						<input type="button" value="Modificar"
