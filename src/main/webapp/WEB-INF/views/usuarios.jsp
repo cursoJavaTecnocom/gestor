@@ -14,24 +14,26 @@
 </head>
 
 <body>
+<%@include file="navegador.jsp"%>
 	<header>
 	<div class="jumbotron">
 		<div class="container">
 			<h1>
-				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Usuarios
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuarios
 			</h1>
 		</div>
 	</div>  
 	</header>
 	<div class="container">
 		<div class="row">
+			
 			<table id="miTabla" class="table table-striped">
 
 				<tr>
-					<th>ID</th>
-					<th>CLAVE</th>
-					<th>USUARIO</th>
-					<th>ACCIONES</th>
+					<th>id</th>
+					<th>clave</th>
+					<th>usuario</th>
+					<th>Acciones</th>
 					
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">

@@ -20,7 +20,7 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>
-				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Contenidos<small>JSP</small>
+				<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small>
 			</h1>
 		</div>
 	</div>
@@ -28,20 +28,35 @@
 
 	
 					<sp:form action="grabaContenido.html" modelAttribute="contenido">
+<<<<<<< HEAD
 					
 							<label>DESCRIPCION:</label>
 							<sp:input type="text" path="descripcion"></sp:input>
 						
+=======
+						<div class="">
+							<label class="label label-warning" style="">DESCRIPCIÓN:</label><br>
+							<sp:input type="text" path="descripcion"></sp:input><br><br><br>
+						</div>
+>>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 						<sp:hidden path="id" />
 
 						
 
 						
+<<<<<<< HEAD
 							<label for="editor1">Editor 1:</label>
+=======
+							<label for="editor1" class="label label-danger">CONTENIDO:</label>
+>>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 							<sp:textarea cols="80" id="editor1" name="editor1" rows="10" path="contenido"></sp:textarea>
 						
 
+<<<<<<< HEAD
 						<input type="submit" value="Grabar">
+=======
+						<input class="btn btn-success" type="submit" value="Grabar">
+>>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 					</sp:form>
 	
 	<ckeditor:replace replace="editor1" basePath="ckeditor/"/>
