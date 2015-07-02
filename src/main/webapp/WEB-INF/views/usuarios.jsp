@@ -27,14 +27,14 @@
 		<div class="row">
 			<table id="miTabla" class="table table-striped">
 				<tr>
-					<th>id</th>
+					
 					<th>Clave</th>
 					<th>Usuario</th>
 					<th>Acciones</th>
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">
 					<tr>
-						<td>${usuario.id }</td>
+						
 						<td>${usuario.clave }</td>
 						<td>${usuario.usuario}</td>
 						<td><input  id="vueltas" type="button" value="Borrar"							class="btn btn-warning" onclick="borraUsuario(${usuario.id})">
