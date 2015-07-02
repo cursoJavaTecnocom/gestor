@@ -11,7 +11,7 @@
 <header>
 Esto es el header
 </header>
-<jsp:include page="nav.jsp" />
+<%@include file="nav.jsp"%>
 <jsp:include page="Slider.jsp" />
 <div>
 ${contenido.contenido }
