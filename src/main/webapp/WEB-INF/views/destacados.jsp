@@ -55,17 +55,18 @@
 				<td>
 					<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
 					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
-					<input type="button" class="btn btn-success" value="Ver" onclick="">
+					<!-- <input type="button" class="btn btn-success" value="Ver" onclick=""> -->
 				</td>
 			</tr>
 		</c:forEach>
-		<tr>
+		<!-- <tr>
 			<td colspan="5">
 				<input type="button" class="btn btn-success" value="Nuevo Destacado"  onclick="modificaDestacado(0)">
 			</td>
-		</tr>	
+		</tr>	 -->
 				
 	</table>
+	<input type="button" class="btn btn-success" value=" + Añadir"  onclick="modificaDestacado(0)">
 </div>
 </body>
 </html>

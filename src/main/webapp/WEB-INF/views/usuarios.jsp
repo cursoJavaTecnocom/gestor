@@ -25,14 +25,13 @@
 	</header>
 	<div class="container">
 		<div class="row">
-			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
-			<table border="1" id="miTabla" class="table table-striped">
+			<table id="miTabla" class="table table-striped">
 
 				<tr>
-					<td>id</td>
-					<td>clave</td>
-					<td>usuario</td>
-					<td>Acciones</td>
+					<th>ID</th>
+					<th>CLAVE</th>
+					<th>USUARIO</th>
+					<th>ACCIONES</th>
 					
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">
@@ -47,6 +46,7 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
 		</div> 
 </body>
 </html>
