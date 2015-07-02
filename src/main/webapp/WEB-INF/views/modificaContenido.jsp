@@ -31,23 +31,32 @@
 			<div class="col-md-offset-4 col-md-4">
 				<sp:form action="grabaContenido.html" modelAttribute="contenido">
 					<div class="">
-						<h3><label class="label label-warning" >Descripció:</label><br></h3>
+						<h3>
+							<label class="label label-warning">Descripción:</label>
+						</h3>
 						<sp:input type="text" path="descripcion"></sp:input>
-						<br>
-						<br>
-						<br>
+
 					</div>
 					<sp:hidden path="id" />
-					<label class="label label-danger">Contenido:</label>
+					<h3>
+						<label class="label label-danger">Contenido</label>
+					</h3>
 			</div>
 		</div>
 	</div>
-	<label for="editor1"></label>
-	<sp:textarea cols="80" id="editor1" name="editor1" rows="10"
-		path="contenido"></sp:textarea>
-	<input class="btn btn-success" type="submit" value="Grabar">
-	</sp:form>
+	<div class="container">
 
-	<ckeditor:replace replace="editor1" basePath="ckeditor/" />
+		<div class="row">
+			<div class="col-md-offset-45 col-md-45">
+				<label for="editor1"></label>
+				<sp:textarea cols="80" id="editor1" name="editor1" rows="10"
+					path="contenido"></sp:textarea>
+				<input class="btn btn-success" type="submit" value="Grabar">
+				</sp:form>
+
+				<ckeditor:replace replace="editor1" basePath="ckeditor/" />
+			</div>
+		</div>
+	</div>
 </body>
 </html>
