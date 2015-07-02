@@ -8,7 +8,7 @@
         <li class="active"><a href="usuarios.html">USUARIOS</a></li>
         <li><a href="menu.html">MENUS</a></li> 
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contenidos<span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="contenidos.html">Contenidos<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="destacados.html">Destacados</a></li>
             <li><a href="noticias.html">Noticias</a></li>
