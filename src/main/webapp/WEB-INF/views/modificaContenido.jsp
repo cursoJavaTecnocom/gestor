@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<%@taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,40 +25,29 @@
 		</div>
 	</div>
 	</header>
+	<div class="container">
 
-	
-					<sp:form action="grabaContenido.html" modelAttribute="contenido">
-<<<<<<< HEAD
-					
-							<label>DESCRIPCION:</label>
-							<sp:input type="text" path="descripcion"></sp:input>
-						
-=======
-						<div class="">
-							<label class="label label-warning" style="">DESCRIPCIÓN:</label><br>
-							<sp:input type="text" path="descripcion"></sp:input><br><br><br>
-						</div>
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
-						<sp:hidden path="id" />
+		<div class="row">
+			<div class="col-md-offset-4 col-md-4">
+				<sp:form action="grabaContenido.html" modelAttribute="contenido">
+					<div class="">
+						<label class="label label-warning" >Descripció:</label><br>
+						<sp:input type="text" path="descripcion"></sp:input>
+						<br>
+						<br>
+						<br>
+					</div>
+					<sp:hidden path="id" />
+					<label class="label label-danger">Contenido:</label>
+			</div>
+		</div>
+	</div>
+	<label for="editor1"></label>
+	<sp:textarea cols="80" id="editor1" name="editor1" rows="10"
+		path="contenido"></sp:textarea>
+	<input class="btn btn-success" type="submit" value="Grabar">
+	</sp:form>
 
-						
-
-						
-<<<<<<< HEAD
-							<label for="editor1">Editor 1:</label>
-=======
-							<label for="editor1" class="label label-danger">CONTENIDO:</label>
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
-							<sp:textarea cols="80" id="editor1" name="editor1" rows="10" path="contenido"></sp:textarea>
-						
-
-<<<<<<< HEAD
-						<input type="submit" value="Grabar">
-=======
-						<input class="btn btn-success" type="submit" value="Grabar">
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
-					</sp:form>
-	
-	<ckeditor:replace replace="editor1" basePath="ckeditor/"/>
+	<ckeditor:replace replace="editor1" basePath="ckeditor/" />
 </body>
 </html>

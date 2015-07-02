@@ -114,7 +114,7 @@ public class ContenidoController {
 		try{
 		Contenido contenido=null;
 		contenido = (Contenido) getContenidoDelegate().dameObjeto(id, Contenido.class);
-		ModelAndView salida = new ModelAndView("verContenidoContenido");
+		ModelAndView salida = new ModelAndView("verContenido");
 		salida.addObject("contenido", contenido);
 		return salida;
 		} catch (Exception e) {
