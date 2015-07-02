@@ -38,6 +38,8 @@ public class DestacadoController {
 					Menu.class);
 			ModelAndView modelAndView = new ModelAndView("index");
 			modelAndView.addObject("menus", menus);
+			List<Destacado> destacados = (List<Destacado>) getGestorDelegate().dameDatos(Destacado.class);
+			modelAndView.addObject("destacados", destacados);
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();
