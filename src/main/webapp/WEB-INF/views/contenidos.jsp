@@ -45,7 +45,7 @@
 		</c:forEach>
 	
 		<tr>
-			<a href="modificaContenido.html?id=0"><input type="button" value="+ Añadir nuevo contenido" class="btn btn-success"></a>
+			<h3><a href="modificaContenido.html?id=0"><input type="button" value="+ Añadir nuevo contenido" class="btn btn-success"></a></h3>
 		</tr>
 </table>
 </div>
