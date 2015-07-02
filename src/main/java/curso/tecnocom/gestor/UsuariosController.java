@@ -156,8 +156,7 @@ public class UsuariosController {
 			String destino){
 		try {
 			request.getSession(true).setAttribute("logado", false);
-			getServletContext().getRequestDispatcher("/"+destino).forward(request, response);
-			return null;
+			return new ModelAndView("index");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
