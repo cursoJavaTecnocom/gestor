@@ -55,7 +55,7 @@
 								<td><sp:input path="clave" /></td>
 							</tr>
 						</table>
-						<tr>
+						<tr>  
 							<td><input type="submit" value="grabar" class="btn btn-primary"></td>
 						</tr>
 					</sp:form>

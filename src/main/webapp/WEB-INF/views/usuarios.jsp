@@ -21,7 +21,7 @@
 				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Usuarios
 			</h1>
 		</div>
-	</div>
+	</div>  
 	</header>
 	<div class="container">
 		<div class="row">

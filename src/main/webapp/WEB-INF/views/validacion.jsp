@@ -31,7 +31,7 @@
 						<td><sp:input path="clave" /></td>
 					</tr>
 
-
+  
 				</table>
 				<input type="submit" value="validar">
 			</sp:form>

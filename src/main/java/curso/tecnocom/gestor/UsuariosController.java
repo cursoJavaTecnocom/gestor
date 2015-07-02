@@ -44,7 +44,7 @@ public class UsuariosController {
 			modelAndView.addObject("destino", "usuarios.html");
 			return modelAndView;
 		}
-
+ 
 		try {
 			@SuppressWarnings("unchecked")
 			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate()
