@@ -25,7 +25,7 @@
 	</header>
 	<div class="container">
 		<div class="row">
-			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
+			<input type="button" value=" Nueva Imagen" class="btn btn-success" onclick="modificaImagen(0)">
 			<table border="1" id="miTabla" class="table table-striped">
 
 				<tr>
@@ -41,9 +41,9 @@
 						<td>${imagen.nombre }</td>
 						<td><img src="images/${imagen.nombre }" width="100" height="100"></td>
 						<td><input type="button" value="Borrar"
-							class="btn btn-warning" onclick="borraUsuario(${usuario.id})">
+							class="btn btn-warning" onclick="borraImagen(${imagen.id})">
 						<input type="button" value="Modificar"
-							class="btn btn-primary" onclick="modificaUsuario(${usuario.id})"></td>
+							class="btn btn-primary" onclick="modificaImagen(${imagen.id})"></td>
 					</tr>
 				</c:forEach>
 			</table>

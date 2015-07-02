@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+	 http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<sec:authentication-manager>
+		<sec:authentication-provider 
+			user-service-ref="servicio">
+			</sec:authentication-provider>
+	</sec:authentication-manager>
+
+ 
+
+	<bean name="servicio"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"
+		p:dataSource-ref="dataSource"
+		p:usersByUsernameQuery="select username,password, enabled from users where username=?"
+		p:authoritiesByUsernameQuery="select u.username, r.rolename from users u, oles ur where u.user_id = r.idUser and u.username =?" />
+	
+
+<sec:global-method-security secured-annotations="enabled"></sec:global-method-security>
+
+	<sec:http auto-config="true">
+		<sec:intercept-url pattern="/contenidos.html" access="ROLE_USER" />
+		
+
+		
+		<sec:form-login login-page="/validacion.html"
+			default-target-url="/" authentication-failure-url="/error.html"
+			login-processing-url="/j_spring_security_check" />
+	</sec:http>
+
+
+</beans>

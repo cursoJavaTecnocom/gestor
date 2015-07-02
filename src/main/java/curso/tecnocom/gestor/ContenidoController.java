@@ -1,4 +1,6 @@
+
 package curso.tecnocom.gestor;
+
 
 
 import java.util.List;
@@ -10,19 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
-import curso.tecnocom.gestor.datos.ContenidoProperty;
-import curso.tecnocom.gestor.datos.Imagene;
-import curso.tecnocom.gestor.datos.ImagenesProperty;
-import curso.tecnocom.gestor.datos.Menu;
-import curso.tecnocom.gestor.datos.MenuProperty;
-import curso.tecnocom.gestor.datos.TipoMenu;
-import curso.tecnocom.gestor.datos.TipoMenuProperty;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 

@@ -46,7 +46,9 @@ public class ImagenesController {
 
 				String nombre = fichero.getOriginalFilename();
 
-				try (FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + "/images/"+ nombre);) {
+				try (FileOutputStream fo = new FileOutputStream(
+						getServletContext().getRealPath("/") + "/images/"
+								+ nombre);) {
 					byte[] b = fichero.getBytes();
 					fo.write(b);
 					fo.flush();
@@ -67,6 +69,24 @@ public class ImagenesController {
 
 	}
 
+	@RequestMapping("modificaImagen.html/{id}")
+	public ModelAndView modificaImagen(int id) {
+		ModelAndView salida = new ModelAndView("modificaImagen");
+		Imagene imagen = new Imagene();
+		try {
+			if (id > 0) {
+				imagen = (Imagene) getGestorDelegate()
+						.dameObjeto(id, Imagene.class);
+			}
+			salida.addObject("imagen", new Imagene());
+			return salida;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("home");
+		}
+	}
+
 	@RequestMapping(value = "/imagenes.html")
 	public ModelAndView imagenes(HttpServletRequest request) {
 		if (!gestorDelegate.validar(request)) {
@@ -77,14 +97,14 @@ public class ImagenesController {
 			return modelAndView;
 		}
 		try {
-			List<?> imagenes= getGestorDelegate().dameDatos(Imagene.class);
-			ModelAndView modelAndView= new ModelAndView("imagenes");
-			modelAndView.addObject("imagenes",imagenes);
+			List<?> imagenes = getGestorDelegate().dameDatos(Imagene.class);
+			ModelAndView modelAndView = new ModelAndView("imagenes");
+			modelAndView.addObject("imagenes", imagenes);
 			return modelAndView;
 		} catch (Exception e) {
 			return new ModelAndView("home");
 		}
-		
+
 	}
 
 	public ServletFileUpload getServletFileUpload() {
