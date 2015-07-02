@@ -5,7 +5,6 @@
 <html>
 <head>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/usuariosjs.js"></script>
@@ -18,37 +17,33 @@
 	<header>
 	<div class="jumbotron">
 		<div class="container">
-			<h1>
-				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuarios
+			<h1 >
+				<span class="glyphicon glyphicon-user" aria-hidden="true" id="tituloh1"></span>Usuarios
 			</h1>
 		</div>
 	</div>  
 	</header>
 	<div class="container">
 		<div class="row">
-			
 			<table id="miTabla" class="table table-striped">
-
 				<tr>
 					<th>id</th>
-					<th>clave</th>
-					<th>usuario</th>
+					<th>Clave</th>
+					<th>Usuario</th>
 					<th>Acciones</th>
-					
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">
 					<tr>
 						<td>${usuario.id }</td>
 						<td>${usuario.clave }</td>
 						<td>${usuario.usuario}</td>
-						<td><input type="button" value="Borrar"
-							class="btn btn-warning" onclick="borraUsuario(${usuario.id})">
-						<input type="button" value="Modificar"
-							class="btn btn-primary" onclick="modificaUsuario(${usuario.id})"></td>
+						<td><input  id="vueltas" type="button" value="Borrar"							class="btn btn-warning" onclick="borraUsuario(${usuario.id})">
+							<input  id="vueltas" type="button" value="Modificar"							class="btn btn-primary" onclick="modificaUsuario(${usuario.id})">
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
+			<input id="vueltas" type="button" value="+ Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
 		</div> 
 </body>
 </html>
