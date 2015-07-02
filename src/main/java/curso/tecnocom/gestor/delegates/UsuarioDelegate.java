@@ -8,7 +8,7 @@ import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.services.UsuarioService;
 
 @Component
-public class UsuarioDelegate extends GestorDelegate {
+public class UsuarioDelegate {
 
 	@Autowired
 	private UsuarioService usuarioService;

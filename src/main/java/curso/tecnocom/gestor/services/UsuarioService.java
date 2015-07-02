@@ -7,7 +7,7 @@ import curso.tecnocom.gestor.daos.UsuarioDao;
 import curso.tecnocom.gestor.datos.Usuario;
 
 @Service
-public class UsuarioService extends GestorService {
+public class UsuarioService  {
 
 	@Autowired
 	private UsuarioDao usuarioDao;
