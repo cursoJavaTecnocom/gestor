@@ -35,7 +35,7 @@
 		<sp:hidden path="id"/>
 		<table class="table table-striped">
 			<tr>
-				<td>Título</td>
+				<td>Título</td> 
 				<td>
 					<sp:input path="titulo" required="true"/>
 				</td>
