@@ -133,7 +133,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
 			return principales(request);
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		
