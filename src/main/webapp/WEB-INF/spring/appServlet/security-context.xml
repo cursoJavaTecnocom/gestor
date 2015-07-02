@@ -28,7 +28,7 @@
 <sec:global-method-security secured-annotations="enabled"></sec:global-method-security>
 
 	<sec:http auto-config="true">
-		<sec:intercept-url pattern="/contenidos.html" access="ROLE_USER" />
+	
 		
   
 		
