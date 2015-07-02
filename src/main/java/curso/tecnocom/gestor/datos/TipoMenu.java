@@ -36,7 +36,7 @@ public class TipoMenu implements Serializable {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

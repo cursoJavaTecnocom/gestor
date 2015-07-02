@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.services.UsuarioService;
 
-@Component
-public class UsuarioDelegate  {
 
-	@Autowired
+public class UsuarioDelegate extends GestorDelegate {
+
+	
 	private UsuarioService usuarioService;
 
 	public Usuario getUsuarioByUsuario(Usuario usuario) throws Exception

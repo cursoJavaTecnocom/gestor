@@ -2,13 +2,11 @@ package curso.tecnocom.gestor.daos;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
 
 import curso.tecnocom.gestor.anotaciones.SessionManager;
 import curso.tecnocom.gestor.datos.Usuario;
 
-@Repository
-public class UsuarioDao extends GestorDaoPadre {
+public class UsuarioDao extends GestorDao {
 	
 	//@SessionManager
 	public Usuario getUsuarioByUsuario(Usuario usuario) throws Exception

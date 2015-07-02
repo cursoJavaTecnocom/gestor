@@ -54,7 +54,7 @@ public class Contenido implements Serializable {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -166,7 +166,7 @@ public class Contenido implements Serializable {
 	public boolean equals(Object obj) {
 		try {
 			Contenido i = (Contenido) obj;
-			return this.getId()==i.getId();
+			return this.getId().equals(i.getId());
 		} catch (Exception e) {
 			return false;
 		}
