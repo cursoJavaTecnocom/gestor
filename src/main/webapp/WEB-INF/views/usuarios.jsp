@@ -14,25 +14,26 @@
 </head>
 
 <body>
+<%@include file="navegador.jsp"%>
 	<header>
 	<div class="jumbotron">
 		<div class="container">
 			<h1>
-				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Usuarios
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuarios
 			</h1>
 		</div>
 	</div>  
 	</header>
 	<div class="container">
 		<div class="row">
-			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
-			<table border="1" id="miTabla" class="table table-striped">
+			
+			<table id="miTabla" class="table table-striped">
 
 				<tr>
-					<td>id</td>
-					<td>clave</td>
-					<td>usuario</td>
-					<td>Acciones</td>
+					<th>id</th>
+					<th>clave</th>
+					<th>usuario</th>
+					<th>Acciones</th>
 					
 				</tr>
 				<c:forEach items="${usuarios}" var="usuario">
@@ -47,6 +48,7 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<input type="button" value=" Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
 		</div> 
 </body>
 </html>
