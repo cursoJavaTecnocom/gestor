@@ -1,9 +1,5 @@
-function borraContenido(id,contenido)
+function borraContenido(id,cantidad)
 {	
-	if (contenido > 0){
-		alert("NO SE PUEDE BORRAR");
-		return;
-	}
 	document.location="borraContenido.html?id="+id;
 }
 
@@ -15,4 +11,8 @@ function modificaContenido(id)
 function verContenido(id)
 {
 	document.location="verContenido.html?id="+id;
+}
+function contenido(id)
+{
+	document.location="contenido.html?.id=" + id;
 }
