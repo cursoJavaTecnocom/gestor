@@ -18,18 +18,18 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-      <c:forEach items="${menus}" var="menu">
+     <c:forEach items="${menus}" var="menu">
 							<c:choose>
 								<c:when test="${menu.nivel==0}">
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="verContenido.html?id=${menu.contenido.id}">{menu.titulo}<span class="caret"></span></a>
-<!-- 							          <ul class="dropdown-menu"> -->
-<%-- 								<c:forEach items="${menus}" var="menuHijo"> --%>
-<%-- 								<c:when test="${menu.id == menuHijo.idMenuPadre}">							 --%>
-<%-- 							       <li><a href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}</a></li> --%>
-<%-- 								</c:when> --%>
-<%-- 								</c:forEach> --%>
-<!-- 								</ul> -->
-<!--  </li> -->
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}<span class="caret"></span></a>
+							          <ul class="dropdown-menu">
+								<c:forEach items="${menus}" var="menuHijo">
+								<c:when test="${menu.id== menuHijo.idMenuPadre}">							
+							       <li><a href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}</a></li>
+								</c:when>
+								</c:forEach>
+								</ul>
+ </li>
 								</c:when>
 							</c:choose>
 		</c:forEach>		
