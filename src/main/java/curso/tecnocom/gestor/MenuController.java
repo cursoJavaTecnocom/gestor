@@ -19,6 +19,7 @@ import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.MenuProperty;
 import curso.tecnocom.gestor.datos.TipoMenu;
 import curso.tecnocom.gestor.datos.TipoMenuProperty;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -40,6 +41,13 @@ public class MenuController {
 	public ModelAndView menu(HttpServletRequest request) {
 //		if (!getDelegate().validar(request))
 //			return new ModelAndView("noLogado");
+		if (!getDelegate().validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "menu.html");
+			return modelAndView;
+		}
 		try {
 			List<Menu> menus = (List<Menu>) getDelegate().dameDatos(
 					Menu.class);
