@@ -24,7 +24,7 @@ public class Menu implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private int idMenuPadre;
+	private Integer idMenuPadre;
 
 	private String link;
 
