@@ -51,7 +51,7 @@
 				<label for="editor1"></label>
 				<sp:textarea cols="80" id="editor1" name="editor1" rows="10"
 					path="contenido"></sp:textarea>
-				<input class="btn btn-success" type="submit" value="Grabar">
+				<h3><br><input class="btn btn-success" type="submit" value="Grabar" id="vueltas"></h3>
 				</sp:form>
 
 				<ckeditor:replace replace="editor1" basePath="ckeditor/" />
