@@ -12,7 +12,7 @@ function verContenido(id)
 {
 	document.location="verContenido.html?id="+id;
 }
-function contenido(id)
+function contenidos(id)
 {
-	document.location="contenido.html?.id=" + id;
+	document.location="contenidos.html?.id=" + id;
 }

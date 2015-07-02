@@ -14,7 +14,7 @@
 
 	<div>${contenido.contenido }</div>
 	<h3 align="center">
-		<a href="contenido.html?id=0"><input type="button" value=" Volver"
+		<a href="contenidos.html?id=0"><input type="button" value=" Volver"
 			class="btn btn-success" id="vueltas"></a>
 	</h3>
 	<footer> <jsp:include page="footer.jsp" /> </footer>
