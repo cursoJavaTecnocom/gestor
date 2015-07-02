@@ -31,7 +31,7 @@
 			<div class="col-md-offset-4 col-md-4">
 				<sp:form action="grabaContenido.html" modelAttribute="contenido">
 					<div class="">
-						<label class="label label-warning" >Descripció:</label><br>
+						<h3><label class="label label-warning" >Descripció:</label><br></h3>
 						<sp:input type="text" path="descripcion"></sp:input>
 						<br>
 						<br>
