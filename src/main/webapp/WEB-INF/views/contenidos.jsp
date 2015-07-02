@@ -15,7 +15,7 @@
 <body>
 <header>
 		<div class="jumbotron">
-			<div class="container"><h1><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
+			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
 		</div>
 </header>
 
@@ -36,13 +36,13 @@
 				<td>
 				<input type="button" value="Modificar"  class="btn btn-primary" onclick="modificaContenido(${contenido.id},'modificaContenido.html')"> 
 				<input type="button" value="Borrar"	class="btn btn-warning" onclick="borraContenido(${contenido.id})">
-				<!-- <input type="button" value="Previsualización" onclick="verContenido"> -->
+				<input type="button" value="Previsualización" class="btn btn-success" onclick="verContenido(${contenido.id})">
 				</td>
 			</tr>
 		</c:forEach>
 	
 		<tr>
-			<a href="modificaContenido.html?id=0"><input type="button" value=" + Añadir" class="btn btn-success"></a>
+			<a href="modificaContenido.html?id=0"><input type="button" value="+ Añadir nuevo contenido" class="btn btn-success"></a>
 		</tr>
 </table>
 </body>
