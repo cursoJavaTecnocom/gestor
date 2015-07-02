@@ -9,6 +9,9 @@
 
 <script type="text/javascript" src="js/jquery.js"></script>
 
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 
 function borraPrincipal(id,cantidad)
@@ -35,7 +38,19 @@ function modificaPrincipal(id)
 </head>
 <body>
 
-<table border="2" id="miTabla" class="table table-hover">
+<header>
+		<div class="jumbotron">
+			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
+		</div>
+</header>
+
+<div class="container">
+
+		<div class="row">
+			<div class="col-md-offset-30 col-md-30">
+
+
+<table border="2" class="table table-striped">
 
 	<tr>
 		<td>ID</td>
@@ -55,8 +70,8 @@ function modificaPrincipal(id)
 		<td>${principale.imagene.id}</td>
 		<td>${principale.contenido.descripcion}</td>
 		<td>
-			<input type="button" value="Modificar" onclick="modificaPrincipal(${principale.id})" >			
-			<input type="button" value="Borrar" onclick="borraPrincipal(${principale.id})">
+			<input type="button" value="Modificar" class="btn btn-primary" onclick="modificaPrincipal(${principale.id},'modificaPrincipal.html')" >			
+			<input type="button" value="Borrar" class="btn btn-warning" onclick="borraPrincipal(${principale.id})">
 		</td>
 	</tr>
 	
@@ -65,7 +80,10 @@ function modificaPrincipal(id)
 
 	</c:forEach>     
 </table>
-<a href="modificaPrincipal.html?id=0">Nuevo Principal</a>
+<a href="modificaPrincipal.html?id=0"><input type="button" value=" Añadir nuevo principal" class="btn btn-success"></a>
+</div>
+		</div>
+	</div>
 
 
 

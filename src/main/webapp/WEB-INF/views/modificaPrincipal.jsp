@@ -6,18 +6,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Principal</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+
 </head>
 <body>
+<%@include file="navegador.jsp"%>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>
+					<c:if test="${principale.id eq 0}">
+						<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Nuevo Destacado
+					</c:if>
+					<c:if test="${principale.id gt 0}">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Modificación de Destacado
+					</c:if>
+				</h1>
+			</div>
+		</div>
+	</header>
 
-<c:if test="${principale.id == 0}">
-	<h1>NUEVO PRINCIPAL</h1>
-</c:if>
-<c:if test="${principale.id != 0}">
-	<h1>MODIFICAR PRINCIPAL</h1>
-</c:if>
 
-
+<div class="container">
 <sp:form action="grabaPrincipal.html" modelAttribute="principal"> 
 		<sp:hidden path="id"/>
 		<table>
@@ -61,5 +73,6 @@
 			</tr>
 		</table>
 	</sp:form>
+	</div>
 </body>
 </html>
