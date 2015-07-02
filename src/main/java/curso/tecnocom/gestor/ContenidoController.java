@@ -1,4 +1,6 @@
+
 package curso.tecnocom.gestor;
+
 
 import java.util.List;
 
@@ -8,10 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
+import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
 @Controller
@@ -22,11 +26,20 @@ public class ContenidoController {
 
 	@Autowired
 	private GestorDelegate contenidoDelegate;
-
+	
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("contenidos.html")
 	public ModelAndView contenido(HttpServletRequest request) {
-		 
+		if (!getContenidoDelegate().validar(request))
+		{
+			
+			ModelAndView modelAndView= new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino","contenidos.html");
+			return modelAndView;
+		}
+	
 
 		try {
 			List<Contenido> contenidos = (List<Contenido>) getContenidoDelegate()
@@ -46,40 +59,56 @@ public class ContenidoController {
 
 	@RequestMapping("modificaContenido.html")
 	public ModelAndView modificaContenido(int id,HttpServletRequest request) {
-		if (getContenidoDelegate().validar(request))
-			return new ModelAndView("noLogado");
+		//if (getContenidoDelegate().validar(request))
+			//return new ModelAndView("noLogado");
 		try {
-			if (id == 0) {
-				Contenido contenido = new Contenido();
-			} else {
-				Contenido contenido = (Contenido) getContenidoDelegate()
-						.dameDatos(Contenido.class);
-			}
+			Contenido contenido=null;
+			if (id == 0) 
+				contenido = new Contenido();
+			 else 
+				contenido = (Contenido) getContenidoDelegate().dameObjeto(id, Contenido.class);
+			
+			ModelAndView salida = new ModelAndView("modificaContenido");
+			salida.addObject("contenido", contenido);
+			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new ModelAndView ("error");
 		}
 
-		ModelAndView salida = new ModelAndView("modificaContenido");
-		return salida;
+		
 
 	}
 
 	@RequestMapping("grabaContenido.html")
-	public ModelAndView grabaContenido(Contenido contenido,HttpServletRequest request) {
-		if (getContenidoDelegate().validar(request))
-			return new ModelAndView("noLogado");
+	public ModelAndView grabaContenido(Contenido contenido,HttpServletRequest request, BindingResult result) {
+		//if (getContenidoDelegate().validar(request))
+			//return new ModelAndView("noLogado");
 		try {
 			getContenidoDelegate().grabaObjeto(contenido);
 			return contenido(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-
 			return new ModelAndView("error");
 		}
 	}
-
+	
+	@RequestMapping("borraContenido.html")
+	public ModelAndView borraContenido(int id, HttpServletRequest request){
+		try {
+			getContenidoDelegate().borraDato(id, Contenido.class);
+			return contenido(request);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	
 	public GestorDelegate getContenidoDelegate() {
 		return contenidoDelegate;
 	}
@@ -88,3 +117,4 @@ public class ContenidoController {
 		this.contenidoDelegate = contenidoDelegate;
 	}
 }
+
