@@ -104,7 +104,7 @@ public class ContenidoController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			return new ModelAndView ("error");
 		}
 		
 	}

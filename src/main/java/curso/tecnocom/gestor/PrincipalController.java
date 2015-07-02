@@ -90,8 +90,8 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 
-	@RequestMapping("modificaPrincipal{id}.html")
-	public ModelAndView modificaPrincipal(@PathVariable("id")int id)
+	@RequestMapping("modificaPrincipal.html")
+	public ModelAndView modificaPrincipal(int id)
 	{
 		Principale principal=null;
 		if(id==0)

@@ -55,6 +55,7 @@ public class DestacadoController {
 			modelAndView= new ModelAndView("validacion");
 			modelAndView.addObject("usuario", new Usuario());
 			modelAndView.addObject("destino","home.html");
+			return modelAndView;
 		}
 		return new ModelAndView("home");
 	}

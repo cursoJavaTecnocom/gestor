@@ -11,6 +11,8 @@
 </head>
 <body>
 <%@include file="nav.jsp"%>
-
+<%@include file="header.jsp" %>
+<%@include file="Slider.jsp" %>
+<%@include file="footer.jsp" %>
 </body>
 </html>

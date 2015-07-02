@@ -35,6 +35,9 @@
 					<span class="glyphicon glyphicon-exclamation-sign"
 						aria-hidden="true"></span><span> An error has occurred in
 						Zamora</span>
+						<span class="glyphicon glyphicon-exclamation-sign"
+						aria-hidden="true"></span><span> NO SE PUEDE BORRAR</span>
+					
 				</div>
 			</div>
 		</div>
