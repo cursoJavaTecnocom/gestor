@@ -126,13 +126,13 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 	
 	@RequestMapping("grabaPrincipal.html")
-	public ModelAndView grabaPrincipal(Principale principal)
+	public ModelAndView grabaPrincipal(Principale principal,HttpServletRequest request)
 	{
 		
 		
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
-			return principales(null);
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,12 +144,12 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 	
 	
 	@RequestMapping("borraPrincipal.html")
-	public ModelAndView borraPrincipal(int id)
+	public ModelAndView borraPrincipal(int id,HttpServletRequest request)
 	{
 		;
 		try {
 			getPrincipalDelegate().borraDato(id, Principale.class);
-			return principales(null);
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
