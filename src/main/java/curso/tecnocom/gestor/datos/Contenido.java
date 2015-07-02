@@ -24,7 +24,7 @@ public class Contenido implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Lob
 	private String contenido;
@@ -50,7 +50,7 @@ public class Contenido implements Serializable {
 	public Contenido() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
@@ -166,7 +166,7 @@ public class Contenido implements Serializable {
 	public boolean equals(Object obj) {
 		try {
 			Contenido i = (Contenido) obj;
-			return this.getId().equals(i.getId());
+			return this.getId()==i.getId();
 		} catch (Exception e) {
 			return false;
 		}

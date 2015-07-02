@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>
-   
+    <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -22,7 +20,7 @@
 </script>
 </head>
 <body>
- <jsp:include page="navegador.jsp"></jsp:include>
+<%@include file="navegador.jsp"%>
 <header>
 	<div class="jumbotron">
 		<div class="container">

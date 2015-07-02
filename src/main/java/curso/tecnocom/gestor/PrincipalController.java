@@ -90,9 +90,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 
 
 	@RequestMapping("modificaPrincipal.html")
-	public ModelAndView modificaPrincipal(int id/*, HttpServletRequest request) {
-		if (!getPrincipalDelegate().validar(request))
-			return new ModelAndView("noLogado"*/)/*;*/
+	public ModelAndView modificaPrincipal(int id)
 	{
 		Principale principal=null;
 		if(id==0)
@@ -123,46 +121,42 @@ private static final Logger logger = LoggerFactory.getLogger(PrincipalController
 			return new ModelAndView("error");
 		}
 	}
-//	}
+
 
 
 	
 	@RequestMapping("grabaPrincipal.html")
-	public ModelAndView grabaPrincipal(Principale principal/*, HttpServletRequest request) {
-		if (!getPrincipalDelegate().validar(request))
-			return new ModelAndView("noLogado"*/)/*;*/
+	public ModelAndView grabaPrincipal(Principale principal,HttpServletRequest request)
 	{
 		
 		
 		try {
 			getPrincipalDelegate().grabaObjeto(principal);
-			return principales(null)/*(request)*/;
-		} catch (Exception e) {
+			return principales(request);
+		} catch (Exception e) { 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		
 		return new ModelAndView("error");
 		}
 	}
-//	}
+
 	
 	
 	@RequestMapping("borraPrincipal.html")
-	public ModelAndView borraPrincipal(int id/*, HttpServletRequest request) {
-		if (!getPrincipalDelegate().validar(request))
-			return new ModelAndView("noLogado"*/)/*;*/
+	public ModelAndView borraPrincipal(int id,HttpServletRequest request)
 	{
 		;
 		try {
 			getPrincipalDelegate().borraDato(id, Principale.class);
-			return principales(null)/*(request)*/;
+			return principales(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("error");
 		}
 	}
-//	}
+
 	
 	
 	

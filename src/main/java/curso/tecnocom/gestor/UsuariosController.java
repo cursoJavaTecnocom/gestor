@@ -1,10 +1,12 @@
 package curso.tecnocom.gestor;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -149,6 +151,20 @@ public class UsuariosController {
 		}
 
 	}
+	@RequestMapping("cerrarSesion.html")
+	public ModelAndView cerrarSesion(HttpServletRequest request, HttpServletResponse response,
+			String destino){
+		try {
+			request.getSession(true).setAttribute("logado", false);
+			return new ModelAndView("index");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("error");
+		} 
+	
+	}
+	
 
 	// GETTERS AND SETTERS
 	public GestorDelegate getGestorDelegate() {
