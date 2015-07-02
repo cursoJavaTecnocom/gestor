@@ -34,17 +34,28 @@
     </div>
 
     <div class="item">
-      <img src="http://img4.wikia.nocookie.net/__cb20120509112257/adventuretimewithfinnandjake/images/7/7a/S2e15_finn_excited.png" alt="Chania">
+      <img src="http://i.emezeta.com/weblog/meme-la-cosa/cosa-bajo-control.jpg" alt="Chania">
     </div>
 
     <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Oso_pardo_madrid.jpg" alt="Flower">
+      <img src="http://i.emezeta.com/weblog/meme-la-cosa/cada-cosa-en-su-momento.jpg" alt="Flower">
     </div>
 
     <div class="item">
       <img src="http://26.media.tumblr.com/tumblr_lvdhn1YfwQ1qc8755o1_r1_500.jpg" alt="Flower">
     </div>
+    
+    <div class="item">
+      <img src=" http://i.emezeta.com/weblog/meme-la-cosa/cosa-bollos.jpg" alt="Flower">
+    </div>
+    
+    <div class="item">
+      <img src="http://i.emezeta.com/weblog/meme-la-cosa/cosa-container.jpg" alt="Flower">
+    </div>
+    
   </div>
+  
+ 
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
