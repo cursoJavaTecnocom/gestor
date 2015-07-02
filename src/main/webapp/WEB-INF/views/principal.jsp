@@ -37,7 +37,7 @@ function modificaPrincipal(id)
 
 </head>
 <body>
-
+<%@include file="navegador.jsp"%>
 <header>
 		<div class="jumbotron">
 			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
