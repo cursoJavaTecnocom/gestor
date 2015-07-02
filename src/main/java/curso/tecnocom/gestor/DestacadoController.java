@@ -56,7 +56,7 @@ public class DestacadoController {
 			modelAndView.addObject("usuario", new Usuario());
 			modelAndView.addObject("destino","home.html");
 		}
-		return modelAndView;
+		return new ModelAndView("home");
 	}
 
 	@InitBinder
