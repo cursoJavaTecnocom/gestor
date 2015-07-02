@@ -14,6 +14,7 @@
 </head>
 <body>
 <header>
+<%@include file="navegador.jsp"%>
 		<div class="jumbotron">
 			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
 		</div>
