@@ -66,6 +66,13 @@ public class MenuController {
 	public ModelAndView modificaMenu(int id,HttpServletRequest request) {
 //		if (!getDelegate().validar(request))
 //			return new ModelAndView("noLogado");
+		if (!getDelegate().validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "menu.html");
+			return modelAndView;
+		}
 		Menu menu = null;
 		if (id == 0)
 			menu = new Menu();
@@ -97,6 +104,13 @@ public class MenuController {
 	public ModelAndView grabaMenu(Menu menu,HttpServletRequest request) {
 //		if (!getDelegate().validar(request))
 //			return new ModelAndView("noLogado");
+		if (!getDelegate().validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "menu.html");
+			return modelAndView;
+		}
 		try {
 			getDelegate().grabaObjeto(menu);
 			return menu(request);
@@ -110,6 +124,13 @@ public class MenuController {
 	public ModelAndView borraMenu(int id,HttpServletRequest request) {
 //		if (!getDelegate().validar(request))
 //			return new ModelAndView("noLogado");
+		if (!getDelegate().validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "menu.html");
+			return modelAndView;
+		}
 		try {
 			getDelegate().borraDato(id, Menu.class);
 			return menu(request);
