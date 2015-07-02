@@ -17,8 +17,8 @@
 	<header>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 >
-				<span class="glyphicon glyphicon-user" aria-hidden="true" id="tituloh1"></span>Usuarios
+			<h1 style= "text-shadow: 5px 5px 20px #6F8C84";>
+				<span class="glyphicon glyphicon-user" aria-hidden="true" id="tituloh1"  ></span>Usuarios
 			</h1>
 		</div>
 	</div>  
