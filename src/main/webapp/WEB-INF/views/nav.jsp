@@ -23,6 +23,9 @@
 							</c:choose>
 		</c:forEach>		
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="home.html"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
+      </ul>
     </div>
   </div>
 </nav>
