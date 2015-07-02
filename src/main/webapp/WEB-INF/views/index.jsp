@@ -13,6 +13,39 @@
 <%@include file="nav.jsp"%>
 <%@include file="header.jsp" %>
 <%@include file="Slider.jsp" %>
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">
+  <h2>Destacados</h2>
+  <div class="list-group">
+  <c:forEach items="${destacados}" var="destacado">
+    <a href="verContenido.html?id=${destacado.contenido.id}" class="list-group-item active">
+      <h4 class="list-group-item-heading">${destacado.titulo}</h4>
+      <p class="list-group-item-text">${destacado.texto}</p>
+    </a>
+  </c:forEach>
+    </div>
+  </div>
+  <div class="col-sm-4"><h2>Noticias</h2>
+  <div class="list-group">
+  <c:forEach items="${noticias}" var="noticia">
+    <a href="verContenido.html?id=${noticia.contenido.id}" class="list-group-item active">
+      <h4 class="list-group-item-heading">${noticia.titulo}</h4>
+      <p class="list-group-item-text">${noticia.texto}</p>
+    </a>
+  </c:forEach>
+    </div></div>
+  <div class="col-sm-4"><h2>Principales</h2>
+  <div class="list-group">
+  <c:forEach items="${principales}" var="principal">
+    <a href="verContenido.html?id=${principal.contenido.id}" class="list-group-item active">
+      <h4 class="list-group-item-heading">${principal.titulo}</h4>
+      <p class="list-group-item-text">${principal.texto}</p>
+    </a>
+  </c:forEach>
+    </div></div>
+</div>
+</div>
 <%@include file="footer.jsp" %>
 </body>
 </html>

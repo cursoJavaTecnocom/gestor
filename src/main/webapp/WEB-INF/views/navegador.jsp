@@ -17,7 +17,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>${usuario.usuario}</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span><%=session.getAttribute("usuLogado") %></a></li>
         <li><a href="cerrarSesion.html"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
       </ul>
     </div>

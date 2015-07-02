@@ -18,6 +18,8 @@ import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
 import curso.tecnocom.gestor.datos.Menu;
+import curso.tecnocom.gestor.datos.Noticia;
+import curso.tecnocom.gestor.datos.Principale;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -38,6 +40,12 @@ public class DestacadoController {
 					Menu.class);
 			ModelAndView modelAndView = new ModelAndView("index");
 			modelAndView.addObject("menus", menus);
+			List<Destacado> destacados = (List<Destacado>) getGestorDelegate().dameDatos(Destacado.class);
+			modelAndView.addObject("destacados", destacados);
+			List<Noticia> noticias = (List<Noticia>) getGestorDelegate().dameDatos(Noticia.class);
+			modelAndView.addObject("noticias", noticias);
+			List<Principale> principales = (List<Principale>) getGestorDelegate().dameDatos(Principale.class);
+			modelAndView.addObject("principales", principales);
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();

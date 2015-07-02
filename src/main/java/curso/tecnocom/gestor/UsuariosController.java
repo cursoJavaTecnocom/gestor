@@ -142,6 +142,7 @@ public class UsuariosController {
 			if (claveIntroducida.equals(claveRecuperada)) {
 
 				request.getSession(true).setAttribute("logado", true);
+				request.getSession(true).setAttribute("usuLogado", usuario.getUsuario());
 				List<Imagene> imagenes = (List<Imagene>) getGestorDelegate()
 						.dameDatos(Imagene.class);
 				for (Imagene imagen : imagenes) {
@@ -207,7 +208,7 @@ public class UsuariosController {
 
 	public void setGestorDelegate(GestorDelegate gestorDelegate) {
 		this.gestorDelegate = gestorDelegate;
-	}
+	}  
 
 	public UsuarioDelegate getUsuarioDelegate() {
 		return usuarioDelegate;
