@@ -7,6 +7,7 @@ function validar(){
 		var tipoMenuText=tiposMenus.options[tiposMenus.selectedIndex].text;
 		
 		
+		
 		if(tipoMenu==0 || !(tipoMenuText=='superior')){
 			alert("Tipo de menu no valido");
 			return false;
