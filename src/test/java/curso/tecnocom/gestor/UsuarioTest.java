@@ -2,6 +2,8 @@ package curso.tecnocom.gestor;
 
 import static org.junit.Assert.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,11 @@ public class UsuarioTest {
 	
 	
 	@Test
-	public void listaUsuario() {
+	public void listaUsuario(HttpServletRequest request) {
 		
-		ModelAndView model = controler.usuarios();
+		request.getSession(true).setAttribute("logado", true);
+		
+		ModelAndView model = controler.usuarios(request);
 		if (model.getViewName().equals("error"))
 			fail();
 		

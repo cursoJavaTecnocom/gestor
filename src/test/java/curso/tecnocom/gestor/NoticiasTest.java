@@ -2,6 +2,8 @@ package curso.tecnocom.gestor;
 
 import static org.junit.Assert.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,11 @@ public class NoticiasTest {
 	
 	
 	@Test
-	public void listaNoticias() {
-		ModelAndView model = controler.noticias();
+	public void listaNoticias(HttpServletRequest request) {
+		
+		request.getSession(true).setAttribute("logado", true);
+		
+		ModelAndView model = controler.noticias(request);
 		if (model.getViewName().equals("error"))
 			fail();
 	}
