@@ -208,7 +208,7 @@ public class UsuariosController {
 
 	public void setGestorDelegate(GestorDelegate gestorDelegate) {
 		this.gestorDelegate = gestorDelegate;
-	}
+	}  
 
 	public UsuarioDelegate getUsuarioDelegate() {
 		return usuarioDelegate;
