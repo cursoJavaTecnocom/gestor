@@ -31,7 +31,7 @@
 				<li id="limenu" class="list-group-item"><a
 					href="principal.html">Principales</a></li>
 				<li id="limenu" class="list-group-item"><a href="usuarios.html">Usuarios</a></li>
-				<li id="limenu" class="list-group-item"><a href="imagenes.html">Imagenes</a></li>
+				<li id="limenu" class="list-group-item"><a href="${pageContext.request.contextPath}/imagenes.html">Imagenes</a></li>
 
 			</ul>
 		</div>

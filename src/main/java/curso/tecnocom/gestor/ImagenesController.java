@@ -6,12 +6,14 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,8 +42,14 @@ public class ImagenesController {
 		String salida = null;
 		try {
 
-			if (!getGestorDelegate().validar(request))
-				return new ModelAndView("noLogado");
+			if (!gestorDelegate.validar(request)) {
+
+				ModelAndView modelAndView = new ModelAndView("validacion");
+				modelAndView.addObject("usuario", new Usuario());
+				modelAndView.addObject("destino", "imagenes.html");
+				return modelAndView;
+			}
+			
 			if (ServletFileUpload.isMultipartContent(request)) {
 
 				String nombre = fichero.getOriginalFilename();
@@ -69,22 +77,54 @@ public class ImagenesController {
 
 	}
 
-	@RequestMapping("modificaImagen.html/{id}")
-	public ModelAndView modificaImagen(int id) {
+	@RequestMapping("modificaImagen{id}.html")
+	public ModelAndView modificaImagen(@PathVariable("id") int id) {
 		ModelAndView salida = new ModelAndView("modificaImagen");
 		Imagene imagen = new Imagene();
 		try {
 			if (id > 0) {
-				imagen = (Imagene) getGestorDelegate()
-						.dameObjeto(id, Imagene.class);
+				imagen = (Imagene) getGestorDelegate().dameObjeto(id,
+						Imagene.class);
 			}
-			salida.addObject("imagen", new Imagene());
+			salida.addObject("imagen", imagen);
 			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ModelAndView("home");
 		}
+	}
+
+	@RequestMapping("borraImagen{id}.html")
+	
+	public  ModelAndView borraImagen(@PathVariable("id") int id, HttpServletRequest request) {
+		
+		if (!gestorDelegate.validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "imagenes.html");
+			return modelAndView;
+		}
+		
+		
+		try {
+			Imagene imagen= (Imagene) getGestorDelegate().dameObjeto(id, Imagene.class);
+			
+			getGestorDelegate().borraDato(imagen);
+			File file= new File(getServletContext().getRealPath("/") + "/images/"
+								+ imagen.getNombre());
+			file.delete();
+		
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//salida.addObject("error","");
+			//result.addError(new ObjectError("error", "La imagen no ha podido borrarse"));
+			
+		}
+		return imagenes(request);
 	}
 
 	@RequestMapping(value = "/imagenes.html")

@@ -8,10 +8,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component 
-public class GestorDaoPadre implements DaoInterface { 
+@Component
+public class GestorDaoPadre implements DaoInterface {
 
-	private Session sesion; 
+	private Session sesion;
 
 	@Autowired
 	private SessionFactory factoria;
@@ -70,8 +70,8 @@ public class GestorDaoPadre implements DaoInterface {
 	@Override
 	public void borraDato(Object objeto) throws Exception {
 		// TODO Auto-generated method stub
-
-		setSesion(getFactoria().openSession());
+		if (getSesion() == null || !getSesion().isOpen())
+			setSesion(getFactoria().openSession());
 		getSesion().beginTransaction();
 		getSesion().delete(objeto);
 		getSesion().getTransaction().commit();

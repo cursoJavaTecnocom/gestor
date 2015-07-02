@@ -1,5 +1,8 @@
 package curso.tecnocom.gestor;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import curso.tecnocom.gestor.datos.Imagene;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 import curso.tecnocom.gestor.delegates.UsuarioDelegate;
@@ -44,7 +48,7 @@ public class UsuariosController {
 			modelAndView.addObject("destino", "usuarios.html");
 			return modelAndView;
 		}
- 
+
 		try {
 			@SuppressWarnings("unchecked")
 			List<Usuario> usuarios = (List<Usuario>) getGestorDelegate()
@@ -119,8 +123,8 @@ public class UsuariosController {
 
 	// Validar
 	@RequestMapping("validacion.html")
-	public ModelAndView validacion(Usuario usuario, HttpServletRequest request, HttpServletResponse response,
-			String destino) {
+	public ModelAndView validacion(Usuario usuario, HttpServletRequest request,
+			HttpServletResponse response, String destino) {
 		try {
 
 			String claveIntroducida = usuario.getClave();
@@ -133,7 +137,34 @@ public class UsuariosController {
 			if (claveIntroducida.equals(claveRecuperada)) {
 
 				request.getSession(true).setAttribute("logado", true);
-				getServletContext().getRequestDispatcher("/"+destino).forward(request, response);
+				List<Imagene> imagenes = (List<Imagene>) getGestorDelegate()
+						.dameDatos(Imagene.class);
+				for (Imagene imagen : imagenes) {
+
+					try {
+						try {
+							FileInputStream fileInputStream = new FileInputStream(
+									getServletContext().getRealPath("/")
+											+ "/images/" + imagen.getNombre());
+						} catch (FileNotFoundException e) {
+							
+						
+						FileOutputStream fileOutputStream = new FileOutputStream(
+								getServletContext().getRealPath("/")
+										+ "/images/" + imagen.getNombre());
+						fileOutputStream.write(imagen.getImagen());
+						fileOutputStream.flush();
+						fileOutputStream.close();
+						}
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+				}
+
+				getServletContext().getRequestDispatcher("/" + destino)
+						.forward(request, response);
 				return null;
 
 			} else {

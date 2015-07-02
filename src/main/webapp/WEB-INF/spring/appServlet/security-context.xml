@@ -10,6 +10,19 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
+
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <property name="maxUploadSize" value="104857600"/>
+
+    </bean>
+    <bean id="miDiskFileItemFactory" class="org.apache.commons.fileupload.disk.DiskFileItemFactory" />
+    <bean name="miServletFileUpload" class="org.apache.commons.fileupload.servlet.ServletFileUpload">
+        <constructor-arg index="0">
+            <ref bean="miDiskFileItemFactory" />
+        </constructor-arg>
+        <property name="sizeMax" value="104857600" />
+    </bean>
 	<sec:authentication-manager>
 		<sec:authentication-provider 
 			user-service-ref="servicio">

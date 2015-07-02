@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                         <td class="indenth2">Selecciona fichero:</td>
-                        <td><input type="file" name="fichero"></td>
+                        <td><input type="file" name="fichero" ></td>
                     </tr>
                           
                     <tr>
