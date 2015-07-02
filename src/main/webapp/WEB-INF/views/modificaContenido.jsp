@@ -39,11 +39,11 @@
 						</div>
 
 						<div class="form-group">
-							<sp:textarea rows="7" cols="120" path="contenido"></sp:textarea>
+							<sp:textarea rows="7" cols="40" path="contenido"></sp:textarea>
 							<br>
 						</div>
 
-						<button value="grabar" type="submit" value="Grabar" class="btn btn-default"></button>
+						<input type="submit" value="Grabar" class="btn btn-default">
 					</sp:form>
 				</div>
 			</div>
