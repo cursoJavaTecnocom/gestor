@@ -46,8 +46,17 @@ public class DestacadoController {
 	}
 	
 	@RequestMapping("home.html")
-	public String home(){
-		return "home";
+	public ModelAndView home(HttpServletRequest request){
+
+		ModelAndView modelAndView= null;
+		if (!getGestorDelegate().validar(request))
+		{
+			
+			modelAndView= new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino","home.html");
+		}
+		return modelAndView;
 	}
 
 	@InitBinder
