@@ -9,12 +9,11 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
-<% int hijos=0; %>
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">GESTOR</a>
+      <a class="navbar-brand" href="/">GESTOR</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
@@ -24,18 +23,17 @@
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}<span class="caret"></span></a>
 							          <ul class="dropdown-menu">
 								<c:forEach items="${menus}" var="menuHijo">
+								<c:choose>
 								<c:when test="${menu.id== menuHijo.idMenuPadre}">							
-							       <li><a href="verContenido.html?id=${menu.contenido.id}">${menu.titulo}</a></li>
+							       <li><a href="verContenido.html?id=${menuHijo.contenido.id}">${menuHijo.titulo}</a></li>
 								</c:when>
+								</c:choose>
 								</c:forEach>
 								</ul>
- </li>
+ 								</li>
 								</c:when>
 							</c:choose>
 		</c:forEach>		
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="validacion.html"><span class="glyphicon glyphicon-user"></span>Login</a></li>
       </ul>
     </div>
   </div>

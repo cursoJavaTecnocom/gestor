@@ -15,7 +15,7 @@
 	<script src="js/jsnoticias.js" type="text/javascript"></script>
 </head>
 <body>
-	
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container"><h1><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Noticias<small>JSP</small></h1></div>
@@ -41,8 +41,8 @@
 								<td>${noticia.titulo}</td>
 								<td>${noticia.texto}</td>
 								<td>${noticia.contenido.contenido}</td>
-								<td><input type="button" value="Modificar" class="btn btn-primary" onclick="modificaNoticia(${noticia.id})">
-									<input type="button" value="Borrar" class="btn btn-warning" onclick="borraNoticia(${noticia.id})">
+								<td><input id="vueltas" type="button" value="Modificar" class="btn btn-primary" onclick="modificaNoticia(${noticia.id})">
+									<input id="vueltas" type="button" value="Borrar" class="btn btn-warning" onclick="borraNoticia(${noticia.id})">
 								</td>
 							</tr>
 						</c:forEach>

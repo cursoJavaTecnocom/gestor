@@ -152,10 +152,10 @@ public class UsuariosController {
 
 	}
 	@RequestMapping("cerrarSesion.html")
-	public ModelAndView cerrarSesion(HttpServletRequest request, HttpServletResponse response,
-			String destino){
+	public ModelAndView cerrarSesion(HttpServletRequest request){
 		try {
-			request.getSession(true).setAttribute("logado", false);
+			//request.getSession(true).setAttribute("logado", false);
+			request.getSession().invalidate();
 			return new ModelAndView("index");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

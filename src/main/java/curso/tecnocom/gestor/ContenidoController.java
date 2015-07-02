@@ -109,6 +109,22 @@ public class ContenidoController {
 		
 	}
 	
+	@RequestMapping("verContenido.html")
+	public ModelAndView verContenido(int id, HttpServletRequest request){
+		try{
+		Contenido contenido=null;
+		contenido = (Contenido) getContenidoDelegate().dameObjeto(id, Contenido.class);
+		ModelAndView salida = new ModelAndView("verContenido");
+		salida.addObject("contenido", contenido);
+		return salida;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView ("error");
+		}
+		
+	}
+	
 	
 	public GestorDelegate getContenidoDelegate() {
 		return contenidoDelegate;

@@ -58,11 +58,11 @@ public class Menu implements Serializable {
 		this.id = id;
 	}
 
-	public int getIdMenuPadre() {
+	public Integer getIdMenuPadre() {
 		return this.idMenuPadre;
 	}
 
-	public void setIdMenuPadre(int idMenuPadre) {
+	public void setIdMenuPadre(Integer idMenuPadre) {
 		this.idMenuPadre = idMenuPadre;
 	}
 
