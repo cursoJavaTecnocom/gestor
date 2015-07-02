@@ -34,16 +34,10 @@
 				<div class="alert alert-danger" role="alert">
 					<span class="glyphicon glyphicon-exclamation-sign"
 						aria-hidden="true"></span><span> An error has occurred in
-						Zamora</span>
-						<span class="glyphicon glyphicon-exclamation-sign"
-						aria-hidden="true"></span><span> NO SE PUEDE BORRAR</span>
-					
+						Zamora</span>					
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import curso.tecnocom.gestor.datos.Contenido;
+import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 
@@ -115,6 +116,9 @@ public class ContenidoController {
 		Contenido contenido=null;
 		contenido = (Contenido) getContenidoDelegate().dameObjeto(id, Contenido.class);
 		ModelAndView salida = new ModelAndView("verContenido");
+		List<Menu> menus = (List<Menu>) getContenidoDelegate().dameDatos(
+				Menu.class);
+		salida.addObject("menus", menus);
 		salida.addObject("contenido", contenido);
 		return salida;
 		} catch (Exception e) {
