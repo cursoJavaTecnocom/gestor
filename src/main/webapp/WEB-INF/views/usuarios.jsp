@@ -42,7 +42,7 @@
 				</c:forEach>
 			</table>
 			<input id="vueltas" type="button" value="+ Nuevo Usuario" class="btn btn-success" onclick="modificaUsuario(0)">
-			<a href=http://localhost:8080/empresa/ >k</a>
+
 		</div> 
 		
 </body>
