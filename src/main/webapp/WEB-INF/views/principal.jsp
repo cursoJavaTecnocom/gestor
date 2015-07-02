@@ -40,7 +40,7 @@ function modificaPrincipal(id)
 <%@include file="navegador.jsp"%>
 <header>
 		<div class="jumbotron">
-			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
+			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Principales<small>JSP</small></h1></div>
 		</div>
 </header>
 
@@ -50,15 +50,15 @@ function modificaPrincipal(id)
 			<div class="col-md-offset-30 col-md-30">
 
 
-<table border="2" class="table table-striped">
+<table class="table table-striped">
 
 	<tr>
-		<td>ID</td>
-		<td>TITULO</td>
-		<td>TEXTO</td>
-		<td>IMAGEN</td>
-		<td>CONTENIDO</td>
-		<td>ACCIONES</td>
+		<th>ID</th>
+		<th>TITULO</th>
+		<th>TEXTO</th>
+		<th>IMAGEN</th>
+		<th>CONTENIDO</th>
+		<th>ACCIONES</th>
 	</tr>
 	
  	<c:forEach items="${principales}" var="principale">
