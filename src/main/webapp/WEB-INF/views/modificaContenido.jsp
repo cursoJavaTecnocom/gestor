@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,33 +20,41 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>
-				<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Contenidos<small>JSP</small>
+				<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small>
 			</h1>
 		</div>
 	</div>
 	</header>
-
 	<div class="container">
+
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
-				<div class="well well-lg">
-					<sp:form action="grabaContenido.html" modelAttribute="contenido">
-						<sp:hidden path="id" />
+				<sp:form action="grabaContenido.html" modelAttribute="contenido">
+					<div class="">
+						<h3>
+							<label class="label label-warning">Descripción:</label>
+						</h3>
+						<sp:input type="text" path="descripcion"></sp:input>
 
-						<div class="form-group">
-							<label>descripcion:</label>
-							<sp:input type="text" path="descripcion"></sp:input>
-							<br>
-						</div>
+					</div>
+					<sp:hidden path="id" />
+					<h3>
+						<label class="label label-danger">Contenido</label>
+					</h3>
+			</div>
+		</div>
+	</div>
+	<div class="container">
 
-						<div class="form-group">
-							<sp:textarea rows="7" cols="120" path="contenido"></sp:textarea>
-							<br>
-						</div>
+		<div class="row">
+			<div class="col-md-offset-45 col-md-45">
+				<label for="editor1"></label>
+				<sp:textarea cols="80" id="editor1" name="editor1" rows="10"
+					path="contenido"></sp:textarea>
+				<h3><br><input class="btn btn-success" type="submit" value="Grabar" id="vueltas"></h3>
+				</sp:form>
 
-						<button value="grabar" type="submit" value="Grabar" class="btn btn-default"></button>
-					</sp:form>
-				</div>
+				<ckeditor:replace replace="editor1" basePath="ckeditor/" />
 			</div>
 		</div>
 	</div>

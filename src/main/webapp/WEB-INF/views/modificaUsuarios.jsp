@@ -15,53 +15,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${usuarios.id != 0}">
-		<header>
+	<%@include file="navegador.jsp"%>
+	<header>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>
-					<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Modificar
-					"${usuario.usuario}"
-				</h1>
+				<c:if test="${usuario.id != 0}">
+					<h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Modificar "${usuario.usuario}"</h1>
+				</c:if>
+				<c:if test="${usuario.id == 0}">
+					<h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Nuevo Usuario</h1>
+				</c:if>
 			</div>
 		</div>
-		</header>
-	</c:if>
-	<c:if test="${usuarios.id == 0}">
-		<header>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>
-					<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Nuevo
-					Usuario
-				</h1>
-			</div>
-		</div>
-		</header>
-	</c:if>
+	</header>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
 					<sp:form action="grabaUsuario.html" modelAttribute="usuario">
 						<sp:hidden path="id" />
-						<table id="miTabla" class="table table-striped">
-							<tr>
-								<td>Usuario</td>
-								<td><sp:input path="usuario" /></td>
-							</tr>
-							<tr>
-								<td>Contraseña</td>
-								<td><sp:input path="clave" /></td>
-							</tr>
-						</table>
-						<tr>  
-							<td><input type="submit" value="grabar" class="btn btn-primary"></td>
-						</tr>
+							<div class="form-group">
+								<label>Usuario</label>
+								<sp:input path="usuario" cssClass="form-control" />
+							</div>
+		
+							<div class="form-group">
+								<label>Contraseña</label>
+								<sp:input path="clave" cssClass="form-control"/>
+							</div>
+						
+							<input type="submit" value="grabar" class="btn btn-default">
 					</sp:form>
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
+</body> 
 </html> 

@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="row">
 					  <h1>Noticias</h1>
-						<table id="miTabla" class="table table-striped">
+						<table id="miTabla" class="table table-striped" >
 						<tr>
 							<th>id</th>
 							<th>Fecha</th>
@@ -41,8 +41,8 @@
 								<td>${noticia.titulo}</td>
 								<td>${noticia.texto}</td>
 								<td>${noticia.contenido.contenido}</td>
-								<td><input type="button" value="Modificar" class="btn btn-primary" onclick="modificaNoticia(${noticia.id})">
-									<input type="button" value="Borrar" class="btn btn-warning" onclick="borraNoticia(${noticia.id})">
+								<td><input id="vueltas" type="button" value="Modificar" class="btn btn-primary" onclick="modificaNoticia(${noticia.id})">
+									<input id="vueltas" type="button" value="Borrar" class="btn btn-warning" onclick="borraNoticia(${noticia.id})">
 								</td>
 							</tr>
 						</c:forEach>

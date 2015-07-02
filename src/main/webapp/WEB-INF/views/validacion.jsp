@@ -13,28 +13,31 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>
-					<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Loggin
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>Loggin
 				</h1>
 			</div>
 		</div>
 	</header>
 	<div class="container">
 		<div class="row">
-			<sp:form action="validacion.html?destino=${destino }" modelAttribute="usuario">
-				<table border="1" id="miTabla" class="table table-striped">
-					<tr>
-						<td>Usuario:</td>
-						<td><sp:input path="usuario" /></td>
-					</tr>
-					<tr>
-						<td>Clave</td>
-						<td><sp:input path="clave" /></td>
-					</tr>
-
-  
-				</table>
-				<input type="submit" value="validar">
-			</sp:form>
+			<div class="col-md-offset-4 col-md-4">
+				<div class="well well-lg">
+					<sp:form action="validacion.html?destino=${destino }" modelAttribute="usuario">
+	
+							<div class="form-group">
+								<label>Usuario:</label>
+								<sp:input path="usuario" cssClass="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Clave:  </label>
+								<sp:input path="clave" cssClass="form-control" />
+							</div>
+		
+		  
+						<input type="submit" value="validar"  class="btn btn-default">
+					</sp:form>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

@@ -24,7 +24,7 @@ public class Menu implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private int idMenuPadre;
+	private Integer idMenuPadre;
 
 	private String link;
 
@@ -54,15 +54,15 @@ public class Menu implements Serializable {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getIdMenuPadre() {
+	public Integer getIdMenuPadre() {
 		return this.idMenuPadre;
 	}
 
-	public void setIdMenuPadre(int idMenuPadre) {
+	public void setIdMenuPadre(Integer idMenuPadre) {
 		this.idMenuPadre = idMenuPadre;
 	}
 

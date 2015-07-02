@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTACADOS</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function borraDestacado(id){
@@ -24,7 +24,7 @@
 
 </head>
 <body>
-	<jsp:include page="navegador.jsp"></jsp:include>
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container">
@@ -46,19 +46,28 @@
 			<th>ACCIÓN</th>
 		</tr>
 		
-		<c:forEach items="${destacados}" var="destacado">
+		<c:if test="${empty destacados}">
 			<tr>
-				<td>${destacado.id}</td>
-				<td>${destacado.titulo}</td>
-				<td>${destacado.texto}</td>
-				<td>${destacado.contenido.descripcion}</td>
-				<td>
-					<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
-					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
-					<input type="button" class="btn btn-success" value="Ver" onclick="">
+				<td colspan="5">
+					La tabla está vacía en éstos momentos. Añada un destacado.
 				</td>
 			</tr>
-		</c:forEach>
+		</c:if>
+		<c:if test="${not empty destacados }">
+			<c:forEach items="${destacados}" var="destacado">
+				<tr>
+					<td>${destacado.id}</td>
+					<td>${destacado.titulo}</td>
+					<td>${destacado.texto}</td>
+					<td>${destacado.contenido.descripcion}</td>
+					<td>
+						<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
+						<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
+						<input type="button" class="btn btn-success" value="Ver" onclick="">
+					</td>
+				</tr>
+			</c:forEach>
+		</c:if>
 		<tr>
 			<td colspan="5">
 				<input type="button" class="btn btn-success" value="Nuevo Destacado"  onclick="modificaDestacado(0)">
@@ -69,3 +78,4 @@
 </div>
 </body>
 </html>
+

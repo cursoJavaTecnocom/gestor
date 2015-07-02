@@ -15,35 +15,41 @@
 <body>
 <header>
 		<div class="jumbotron">
-			<div class="container"><h1><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
+			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Contenidos<small>JSP</small></h1></div>
 		</div>
 </header>
 
+<div class="container">
 
+		<div class="row">
+			<div class="col-md-offset-30 col-md-30">
 	<table border="2" class="table table-striped">
 		
 		<tr>
 			<td>ID</td>
-			<td>CONTENIDO</td> 
 			<td>DESCRIPCION</td>
+			<td>CONTENIDO</td> 			
 			<td>ACCIONES</td>
 		</tr>
 		<c:forEach items="${contenidos}" var="contenido">
 			<tr>
-				<td>${contenido.id }</td>
-				<td>${contenido.contenido }</td>
+				<td>${contenido.id }</td>				
 				<td>${contenido.descripcion }</td>
+				<td>${contenido.contenido }</td>
 				<td>
 				<input type="button" value="Modificar"  class="btn btn-primary" onclick="modificaContenido(${contenido.id},'modificaContenido.html')"> 
 				<input type="button" value="Borrar"	class="btn btn-warning" onclick="borraContenido(${contenido.id})">
-				<!-- <input type="button" value="Previsualización" onclick="verContenido"> -->
+				<input type="button" value="Previsualización" class="btn btn-success" onclick="verContenido(${contenido.id})">
 				</td>
 			</tr>
 		</c:forEach>
 	
 		<tr>
-			<a href="modificaContenido.html?id=0"><input type="button" value=" + Añadir" class="btn btn-success"></a>
+			<h3><a href="modificaContenido.html?id=0"><input type="button" value="+ Añadir nuevo contenido" class="btn btn-success"></a></h3>
 		</tr>
 </table>
+</div>
+		</div>
+	</div>
 </body>
 </html>
