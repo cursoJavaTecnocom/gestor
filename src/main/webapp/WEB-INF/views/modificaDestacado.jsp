@@ -8,12 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>GESTION DESTACADOS</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
-
-	<jsp:include page="navegador.jsp"></jsp:include>
+	<%@include file="navegador.jsp"%>
 	<header>
 		<div class="jumbotron">
 			<div class="container">
