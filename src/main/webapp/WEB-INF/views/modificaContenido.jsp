@@ -16,7 +16,7 @@
 <script src="js/contenido.js" type="text/javascript"></script>
 </head>
 <body>
-<%@include file="navegador.jsp"%>
+<%@include file="navegador.jsp"%> 
 	<header>
 	<div class="jumbotron">
 		<div class="container">
