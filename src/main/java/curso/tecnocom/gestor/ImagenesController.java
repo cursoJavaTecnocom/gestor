@@ -115,7 +115,7 @@ public class ImagenesController {
 			File file= new File(getServletContext().getRealPath("/") + "/images/"
 								+ imagen.getNombre());
 			file.delete();
-		
+		 
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
