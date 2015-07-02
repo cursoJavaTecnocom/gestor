@@ -10,24 +10,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
-<script type="text/javascript">
-	function validar(){
-		var nivel=document.forms[0].nivel.value;
-		var idMenuPadre=document.forms[0].idMenuPadre.value;
-		var tipoMenu=document.forms[0].tipoMenu.value;
-		var tiposMenus=document.forms[0].tipoMenu;
-		var tipoMenuText=tiposMenus.options[tiposMenus.selectedIndex].text;
-		
-		if(tipoMenu==0 || !(tipoMenuText=='superior'))
-			alert("Tipo de menú no válido");
-		
-		if((nivel>0 && idMenuPadre==0))
-			alert("Debe seleccionar un menú padre");
-		
-		else
-			document.forms[0].submit();
-	}
-</script>
+	<script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
 <jsp:include page="navegador.jsp"></jsp:include>
@@ -48,13 +31,13 @@
 	</div>
 </header>
 <div class="container">
-	<sp:form action="grabaMenu.html" modelAttribute="menu"> 
+	<sp:form action="grabaMenu.html" modelAttribute="menu" onsubmit="return validar();"> 
 		<sp:hidden path="id"/>
 		<table class="table table-striped">
 			<tr>
-				<td>Título</td>
+				<td>Título</td> 
 				<td>
-					<sp:input path="titulo"/>
+					<sp:input path="titulo" required="true"/>
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +58,7 @@
 			<tr>
 				<td>Nivel</td>
 				<td>
-					<sp:input  path="nivel"/>
+					<sp:input path="nivel" disabled="true"/>
 				</td>
 			</tr>
 			<tr>
@@ -99,7 +82,7 @@
 			<tr>
 				<td>Menu padre</td>
 				<td>
-					<sp:select path="idMenuPadre">
+					<sp:select path="idMenuPadre" onchange="comprobarNivel();">
 						<sp:option value="0" >Ninguno</sp:option>
 						<c:forEach items="${menus}" var="menu">
 							<c:choose>
@@ -112,7 +95,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="9"><input type="button" value="Grabar" onclick="validar()"/></td>
+				<td colspan="9"><input type="submit" value="Grabar" /></td>
 			</tr>
 		</table>
 	</sp:form>
