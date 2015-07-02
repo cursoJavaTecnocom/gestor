@@ -48,25 +48,10 @@
 		
 		<c:if test="${empty destacados}">
 			<tr>
-<<<<<<< HEAD
-				<td>${destacado.id}</td>
-				<td>${destacado.titulo}</td>
-				<td>${destacado.texto}</td>
-				<td>${destacado.contenido.descripcion}</td>
-				<td>
-					<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
-					<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
-					<!-- <input type="button" class="btn btn-success" value="Ver" onclick=""> -->
-=======
 				<td colspan="5">
 					La tabla está vacía en éstos momentos. Añada un destacado.
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 				</td>
 			</tr>
-<<<<<<< HEAD
-		</c:forEach>
-		<!-- <tr>
-=======
 		</c:if>
 		<c:if test="${not empty destacados }">
 			<c:forEach items="${destacados}" var="destacado">
@@ -84,14 +69,13 @@
 			</c:forEach>
 		</c:if>
 		<tr>
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
 			<td colspan="5">
 				<input type="button" class="btn btn-success" value="Nuevo Destacado"  onclick="modificaDestacado(0)">
 			</td>
-		</tr>	 -->
+		</tr>	
 				
 	</table>
-	<input type="button" class="btn btn-success" value=" + Añadir"  onclick="modificaDestacado(0)">
 </div>
 </body>
 </html>
+
