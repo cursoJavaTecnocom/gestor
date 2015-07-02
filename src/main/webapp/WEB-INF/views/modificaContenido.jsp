@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,29 +26,24 @@
 	</div>
 	</header>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-4 col-md-4">
-				<div class="well well-lg">
+	
 					<sp:form action="grabaContenido.html" modelAttribute="contenido">
+					
+							<label>DESCRIPCION:</label>
+							<sp:input type="text" path="descripcion"></sp:input>
+						
 						<sp:hidden path="id" />
 
-						<div class="form-group">
-							<label>descripcion:</label>
-							<sp:input type="text" path="descripcion"></sp:input>
-							<br>
-						</div>
+						
 
-						<div class="form-group">
-							<sp:textarea rows="7" cols="40" path="contenido"></sp:textarea>
-							<br>
-						</div>
+						
+							<label for="editor1">Editor 1:</label>
+							<sp:textarea cols="80" id="editor1" name="editor1" rows="10" path="contenido"></sp:textarea>
+						
 
-						<input type="submit" value="Grabar" class="btn btn-default">
+						<input type="submit" value="Grabar">
 					</sp:form>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	<ckeditor:replace replace="editor1" basePath="ckeditor/"/>
 </body>
 </html>
