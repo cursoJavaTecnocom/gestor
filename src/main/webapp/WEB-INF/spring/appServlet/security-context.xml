@@ -15,7 +15,9 @@
 			user-service-ref="servicio">
 			</sec:authentication-provider>
 	</sec:authentication-manager>
+
  
+
 	<bean name="servicio"
 		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"
 		p:dataSource-ref="dataSource"
@@ -26,6 +28,9 @@
 <sec:global-method-security secured-annotations="enabled"></sec:global-method-security>
 
 	<sec:http auto-config="true">
+		<sec:intercept-url pattern="/contenidos.html" access="ROLE_USER" />
+		
+
 		
 		<sec:form-login login-page="/validacion.html"
 			default-target-url="/" authentication-failure-url="/error.html"

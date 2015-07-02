@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/contenido.js" type="text/javascript"></script>
 </head>
