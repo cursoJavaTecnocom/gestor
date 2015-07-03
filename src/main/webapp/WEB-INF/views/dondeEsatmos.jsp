@@ -19,7 +19,9 @@
 
 <p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.7976325187174!2d-3.6225528925903325!3d40.43547973555934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422f754bc8b525%3A0x8317862a294052da!2sCalle+Miguel+Yuste%2C+45%2C+28037+Madrid%2C+Espa%C3%B1a!5e0!3m2!1ses!2sus!4v1435916244748" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe><p>
 
-<p><h1>email: Javanianos@javanianosZamoranos.com </h1></p>
+<p><h1>email:</h1><h2> Javanianos@javanianosZamoranos.com</h2> </p>
+
+
 
 
 <%@include file="footer.jsp" %>
