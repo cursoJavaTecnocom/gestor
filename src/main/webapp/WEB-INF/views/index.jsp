@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Javanianos</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
@@ -13,9 +13,10 @@
 <%@include file="nav.jsp"%>
 <%@include file="header.jsp" %>
 <%@include file="Slider.jsp" %>
-<div class="container">
 <div class="row">
-  <div class="col-sm-4">
+<div class="col-md-2"><%@include file="bannerizquierdo.jsp" %></div>
+<div class="col-md-1"></div>
+  <div class="col-md-2">
   <h2>Destacados</h2>
   <div class="list-group">
   <c:forEach items="${destacados}" var="destacado">
@@ -26,7 +27,7 @@
   </c:forEach>
     </div>
   </div>
-  <div class="col-sm-4"><h2>Noticias</h2>
+  <div class="col-md-2"><h2>Noticias</h2>
   <div class="list-group">
   <c:forEach items="${noticias}" var="noticia">
     <a href="verContenido.html?id=${noticia.contenido.id}" class="list-group-item active">
@@ -35,7 +36,7 @@
     </a>
   </c:forEach>
     </div></div>
-  <div class="col-sm-4"><h2>Principales</h2>
+  <div class="col-md-2"><h2>Principales</h2>
   <div class="list-group">
   <c:forEach items="${principales}" var="principal">
     <a href="verContenido.html?id=${principal.contenido.id}" class="list-group-item active">
@@ -44,7 +45,7 @@
     </a>
   </c:forEach>
     </div></div>
-</div>
+    <div class="col-md-3"><%@include file="bannerderecho.jsp" %></div>
 </div>
 <%@include file="footer.jsp" %>
 </body>
