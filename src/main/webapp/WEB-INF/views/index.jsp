@@ -33,7 +33,7 @@ ${header.contenido }
 
 
 
-<%@include file="slider.jsp" %>
+<%@include file="slider.jsp"%>
 
 <div class="row">
 <div class="col-md-2"><%@include file="bannerizquierdo.jsp" %></div>
