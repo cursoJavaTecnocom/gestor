@@ -8,6 +8,20 @@
 <title>Javanianos</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
+	  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 300px;
+      heigth: 200px;
+      margin: auto;
+  }
+  .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  display: block;
+  max-width: 100%;
+  height: 400px;
+  width: 600px;
+}
+  </style>
 </head>
 <body>
 <header>
