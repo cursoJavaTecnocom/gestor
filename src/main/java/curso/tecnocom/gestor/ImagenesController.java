@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -65,8 +62,7 @@ public class ImagenesController {
 					imagen.setImagen(b);
 					imagen.setBanner(0);
 					imagen.setCarrusel(false);
-					if (banner.equals("on"))
-					{
+					if (banner.equals("on")) {
 						imagen.setBanner(1);
 						imagen.setCarrusel(true);
 					}
@@ -84,9 +80,11 @@ public class ImagenesController {
 		return new ModelAndView(salida);
 
 	}
+
 	@RequestMapping("grabaModificaImagen{id}.html")
-	public ModelAndView grabaModificaImagen(@PathVariable("id") int id,HttpServletRequest request,Imagene imagen) {
-		
+	public ModelAndView grabaModificaImagen(@PathVariable("id") int id,
+			HttpServletRequest request, Imagene imagen) {
+
 		if (!gestorDelegate.validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");
@@ -96,13 +94,13 @@ public class ImagenesController {
 		}
 
 		try {
-			Imagene im=(Imagene) getGestorDelegate().dameObjeto(id, Imagene.class);
-			if(imagen.isCarrusel())
-			{
+			Imagene im = (Imagene) getGestorDelegate().dameObjeto(id,
+					Imagene.class);
+			if (imagen.isCarrusel()) {
 				im.setBanner(1);
 				im.setCarrusel(imagen.isCarrusel());
 			}
-			
+
 			getGestorDelegate().grabaObjeto(im);
 			return imagenes(request);
 		} catch (Exception e) {
@@ -110,7 +108,7 @@ public class ImagenesController {
 			e.printStackTrace();
 			return new ModelAndView("home");
 		}
-	
+
 	}
 
 	@RequestMapping("modificaImagen{id}.html")
