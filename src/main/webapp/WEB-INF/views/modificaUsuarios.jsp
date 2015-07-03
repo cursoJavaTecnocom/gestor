@@ -33,16 +33,16 @@
 		<div class="row">
 			<div class="col-md-offset-4 col-md-4">
 				<div class="well well-lg">
-					<sp:form action="grabaUsuario.html" modelAttribute="usuario">
+					<sp:form action="grabaUsuario.html" modelAttribute="usuario" name="miFormulario" onsubmit="return validateForm()">
 						<sp:hidden path="id" />
 							<div class="form-group">
 								<label>Usuario</label>
-								<sp:input path="usuario" cssClass="form-control" />
+								<sp:input path="usuario" cssClass="form-control" id="usu" />
 							</div>
 		
 							<div class="form-group">
 								<label>Contraseña</label>
-								<sp:input path="clave" cssClass="form-control"/>
+								<sp:input path="clave" cssClass="form-control" id="cla" />
 							</div>
 						
 							<input type="submit" value="grabar" class="btn btn-default">

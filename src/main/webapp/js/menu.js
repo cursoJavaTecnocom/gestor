@@ -1,3 +1,18 @@
+function comprobarNivel(){
+	var nivel=document.forms[0].nivel;
+	var padre=document.forms[0].idMenuPadre.value;
+	
+	if(padre!=0){
+//		alert("Nivel=1");
+		nivel.value=1;
+	}
+	
+	if(padre==0){
+//		alert("Nivel=0");
+		nivel.value=0;
+	}
+}
+
 function validar(){
 		var nivel=document.forms[0].nivel.value;
 		var contenido=document.forms[0].contenido.value;
@@ -24,15 +39,5 @@ function validar(){
 		}
 }
 
-function comprobarNivel(){
-	var nivel=document.forms[0].nivel;
-	var idMenuPadre=document.forms[0].idMenuPadre.value;
-	
-	if(idMenuPadre==0){
-		nivel.value=0;
-	}else{
-		nivel.value=1;
-	}
-}
 
 
