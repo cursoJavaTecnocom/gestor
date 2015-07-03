@@ -177,7 +177,7 @@ public class UsuariosController {
 				System.out.println("fallo en logacion");
 				return new ModelAndView("validacion");
 
-			}
+			} 
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -191,7 +191,10 @@ public class UsuariosController {
 		try {
 			//request.getSession(true).setAttribute("logado", false);
 			request.getSession().invalidate();
-			return new ModelAndView("index");
+			ModelAndView salida = new ModelAndView("validacion");
+			Usuario usuario = null;
+			salida.addObject("usuario", usuario);
+			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
