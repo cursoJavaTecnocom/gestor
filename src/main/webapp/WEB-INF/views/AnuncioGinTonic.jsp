@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<<img src="ruta/imagen.gif" width="XXpx" height="YYpx">
+<img src="http://fotos.subefotos.com/3ce07178bd990124bf32af129925b9edo.jpg" width="XXpx" height="YYpx">
 
 </body>
 </html>
