@@ -30,7 +30,7 @@
 							</div>
 							<div class="form-group">
 								<label>Clave:  </label>
-								<sp:input path="clave" cssClass="form-control" />
+								<sp:password path="clave" cssClass="form-control" />
 							</div>
 		
 		  
