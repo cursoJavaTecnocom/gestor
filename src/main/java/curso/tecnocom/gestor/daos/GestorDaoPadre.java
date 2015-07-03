@@ -36,7 +36,8 @@ public class GestorDaoPadre implements DaoInterface {
 	// @SessionManager
 	@Override
 	public List<?> dameDatos(Class<?> clase) throws Exception {
-		setSesion(getFactoria().openSession());
+		if (getSesion() == null || !getSesion().isOpen())
+			setSesion(getFactoria().openSession());
 
 		Criteria criteria = getSesion().createCriteria(clase);
 		List<?> lista = criteria.list();
@@ -48,7 +49,8 @@ public class GestorDaoPadre implements DaoInterface {
 	// @SessionManager
 	@Override
 	public Object dameObjeto(int id, Class<?> clase) throws Exception {
-		setSesion(getFactoria().openSession());
+		if (getSesion() == null || !getSesion().isOpen())
+			setSesion(getFactoria().openSession());
 
 		return getSesion().load(clase, id);
 
@@ -83,7 +85,8 @@ public class GestorDaoPadre implements DaoInterface {
 	@Override
 	public void borraDato(int id, Class<?> clase) throws Exception {
 		// TODO Auto-generated method stub
-		setSesion(getFactoria().openSession());
+		if (getSesion() == null || !getSesion().isOpen())
+			setSesion(getFactoria().openSession());
 		Object objeto = dameObjeto(id, clase);
 		getSesion().beginTransaction();
 		getSesion().delete(objeto);

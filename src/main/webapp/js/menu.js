@@ -1,17 +1,3 @@
-function comprobarNivel(){
-	var nivel=document.forms[0].nivel;
-	var padre=document.forms[0].idMenuPadre.value;
-	
-	if(padre!=0){
-//		alert("Nivel=1");
-		nivel.value=1;
-	}
-	
-	if(padre==0){
-//		alert("Nivel=0");
-		nivel.value=0;
-	}
-}
 
 function validar(){
 		var nivel=document.forms[0].nivel.value;
@@ -21,7 +7,15 @@ function validar(){
 		var tiposMenus=document.forms[0].tipoMenu;
 		var tipoMenuText=tiposMenus.options[tiposMenus.selectedIndex].text;
 		
+		if(idMenuPadre!=0 && nivel==0){
+			alert("El nivel tiene que ser 1");
+			return false;
+		}
 		
+		if(idMenuPadre==0 && nivel==1){
+			alert("El nivel tiene que ser 0");
+			return false;
+		}
 		
 		if(tipoMenu==0 || !(tipoMenuText=='superior')){
 			alert("Tipo de menu no valido");
@@ -35,6 +29,7 @@ function validar(){
 		
 		if(contenido==0){
 			alert("Debe seleccionar un contenido");
+			document.getElementById("btnGrabar").disabled=true;
 			return false;
 		}
 }

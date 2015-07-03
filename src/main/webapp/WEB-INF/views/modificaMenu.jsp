@@ -58,7 +58,7 @@
 			<tr>
 				<td>Nivel</td>
 				<td>
-					<sp:input path="nivel" disabled="true"/>
+					<sp:input path="nivel" />
 				</td>
 			</tr>
 			<tr>
@@ -82,7 +82,7 @@
 			<tr>
 				<td>Menu padre</td>
 				<td>
-					<sp:select path="idMenuPadre" onchange="comprobarNivel();">
+					<sp:select path="idMenuPadre">
 						<sp:option value="0" >Ninguno</sp:option>
 						<c:forEach items="${menus}" var="menu">
 							<c:choose>
@@ -95,7 +95,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="9"><input type="submit" value="Grabar" /></td>
+				<td colspan="9"><input type="submit" value="Grabar" id="btnGrabar"/></td>
 			</tr>
 		</table>
 	</sp:form>
