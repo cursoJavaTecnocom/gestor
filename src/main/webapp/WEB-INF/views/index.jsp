@@ -10,9 +10,15 @@
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
+<header>
+${header.contenido }
 <%@include file="nav.jsp"%>
-<%@include file="header.jsp" %>
-<%@include file="Slider.jsp" %>
+
+</header>
+
+
+
+<%@include file="slider.jsp" %>
 <div class="container">
 <div class="row">
   <div class="col-sm-4">

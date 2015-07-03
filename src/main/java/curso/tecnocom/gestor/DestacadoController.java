@@ -17,11 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 import curso.tecnocom.gestor.datos.Contenido;
 import curso.tecnocom.gestor.datos.ContenidoProperty;
 import curso.tecnocom.gestor.datos.Destacado;
+import curso.tecnocom.gestor.datos.Imagene;
 import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.Noticia;
 import curso.tecnocom.gestor.datos.Principale;
 import curso.tecnocom.gestor.datos.Usuario;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
+import curso.tecnocom.gestor.delegates.ImagenesDelegate;
 
 @Controller
 public class DestacadoController {
@@ -31,6 +33,18 @@ public class DestacadoController {
 
 	@Autowired
 	private GestorDelegate gestorDelegate;
+	@Autowired
+	private ImagenesDelegate imagenesDelegate;
+	
+	public ImagenesDelegate getImagenesDelegate() {
+		return imagenesDelegate;
+	}
+
+	public void setImagenesDelegate(ImagenesDelegate imagenesDelegate) {
+		this.imagenesDelegate = imagenesDelegate;
+	}
+
+	
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -46,6 +60,9 @@ public class DestacadoController {
 			modelAndView.addObject("noticias", noticias);
 			List<Principale> principales = (List<Principale>) getGestorDelegate().dameDatos(Principale.class);
 			modelAndView.addObject("principales", principales);
+			List<Imagene> imagenesCarrusel= getImagenesDelegate().getImagenesByCarrusel();
+			modelAndView.addObject("imagenesCarrusel", imagenesCarrusel);
+			
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();

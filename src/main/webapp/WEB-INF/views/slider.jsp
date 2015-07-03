@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,38 +29,21 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 1000px; margin: 0 auto">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
+  <c:set value="0"  var="posicion"></c:set>
+  <c:forEach items="${imagenesCarrusel }" var="imagen">
+    <li data-target="#myCarousel" data-slide-to="${posicion }" ></li>
+    <c:set   var="posicion" value="${posicion+1 }"></c:set>
+    </c:forEach>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img  src="http://i.emezeta.com/weblog/meme-la-cosa/cosa-no-pinta-nada-bien.jpg" >
-    </div>
-
-    <div class="item">
-      <img  src="http://i.emezeta.com/weblog/meme-la-cosa/cosa-bajo-control.jpg">
-    </div>
-
-    <div class="item">
-      <img  src="http://i.emezeta.com/weblog/meme-la-cosa/cada-cosa-en-su-momento.jpg">
-    </div>
-
-    <div class="item">
-      <img class="mediana" src="http://26.media.tumblr.com/tumblr_lvdhn1YfwQ1qc8755o1_r1_500.jpg">
-    </div>
     
+    <c:forEach items="${imagenesCarrusel }" var="imagen">
     <div class="item">
-      <img class="mediana" src=" http://i.emezeta.com/weblog/meme-la-cosa/cosa-bollos.jpg">
+      <img  src="images/${imagen.nombre }">
     </div>
-    
-    <div class="item">
-      <img  src="http://i.emezeta.com/weblog/meme-la-cosa/cosa-container.jpg">
-    </div>
-    
+    </c:forEach>
   </div>
   
  

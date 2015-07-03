@@ -20,11 +20,11 @@ public class GestorService {
 
 	
 	public List<?> dameDatos(Class<?> clase) throws Exception {
-		//List<?> salida=null;
-		/*Method metodo=getContenidoDao().getClass().getMethod("dameDatos", Class.class);
-		salida=(List<?>) metodo.invoke(getContenidoDao(), clase);*/
-		 return getContenidoDao().dameDatos(clase);
-		//return salida;
+		List<?> salida=null;
+		Method metodo=getContenidoDao().getClass().getMethod("dameDatos", Class.class);
+		salida=(List<?>) metodo.invoke(getContenidoDao(), clase);
+		// return getContenidoDao().dameDatos(clase);
+		return salida;
 	}
 	
 	public Object dameObjeto(int id, Class<?> clase) throws Exception {
