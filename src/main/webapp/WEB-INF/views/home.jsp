@@ -17,8 +17,9 @@
 </head>
 <body>
 	<%@include file="navegador.jsp"%>
+	
 	<div class="row">
-		<div class="col-md-3"></div>
+		<div class="col-md-3"><%@include file="bannerizquierdo.jsp" %></div>
 		<div class="col-md-6">
 			<ul id="ulmenu" class="list-group">
 				<li id="limenu" class="list-group-item"><a
@@ -34,8 +35,10 @@
 
 			</ul>
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-3"><%@include file="bannerderecho.jsp" %></div>
 	</div>
+
+
 
 </body>
 </html>
