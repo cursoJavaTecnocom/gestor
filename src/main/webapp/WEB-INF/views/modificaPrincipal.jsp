@@ -7,8 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Principal</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
 <script src="js/bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
 </head>
 <body>
@@ -16,14 +19,14 @@
 	<header>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>
-					<c:if test="${principale.id eq 0}">
-						<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Nuevo Destacado
+				
+					<c:if test="${principale.id == 0}">
+						<h1><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Nuevo principal</h1>
 					</c:if>
-					<c:if test="${principale.id gt 0}">
-						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Modificación de Destacado
+					<c:if test="${principale.id != 0}">
+						<h1><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Modificación de principal</h1>
 					</c:if>
-				</h1>
+				
 			</div>
 		</div>
 	</header>
@@ -32,24 +35,24 @@
 <div class="container">
 <sp:form action="grabaPrincipal.html" modelAttribute="principal"> 
 		<sp:hidden path="id"/>
-		<table>
+		<table class="table table-striped">
 			
-			<tr>
-				<td>Título</td>
+			<tr> 
+				<td><b>Título</b></td>
 				<td>
 					<sp:input path="titulo"/>
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Texto</td>
+				<td ><b>Texto</b></td>
 				<td>
 					<sp:input path="texto"/>
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Imagen</td>
+				<td><b>Imagen</b></td>
 				<td>
 					<sp:select path="imagene">
 						<sp:option value="0">Selecciona una imagen...</sp:option>
@@ -59,7 +62,7 @@
 			</tr>
 			
 			<tr>
-				<td>Contenido</td>
+				<td><b>Contenido</b></td>
 				<td>
 					<sp:select path="contenido">
 						<sp:option value="0">Selecciona un contenido...</sp:option>
@@ -68,10 +71,9 @@
 				</td>
 			</tr>
 			
-			<tr>
-				<td colspan="4"><input type="submit" value="Grabar"/></td>
-			</tr>
+
 		</table>
+		<h3><br><input class="btn btn-success" type="submit" value="Grabar" id="vueltas"></h3>
 	</sp:form>
 	</div>
 </body>

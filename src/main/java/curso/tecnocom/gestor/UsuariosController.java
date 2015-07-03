@@ -177,7 +177,7 @@ public class UsuariosController {
 				System.out.println("fallo en logacion");
 				return new ModelAndView("validacion");
 
-			}
+			} 
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -187,11 +187,15 @@ public class UsuariosController {
 
 	}
 	@RequestMapping("cerrarSesion.html")
-	public ModelAndView cerrarSesion(HttpServletRequest request){
+	public ModelAndView cerrarSesion(HttpServletRequest request, HttpServletResponse response){
 		try {
 			//request.getSession(true).setAttribute("logado", false);
 			request.getSession().invalidate();
-			return new ModelAndView("index");
+			ModelAndView salida = new ModelAndView("validacion");
+			Usuario usuario = new Usuario();
+			salida.addObject("usuario", usuario);
+			salida.addObject("destino", new String("home.html"));
+			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

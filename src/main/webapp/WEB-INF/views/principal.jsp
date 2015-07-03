@@ -15,7 +15,7 @@
 <script type="text/javascript">
 
 function borraPrincipal(id,cantidad)
-{
+{ 
 	if(cantidad>0){
 		alert("Existen datos asociados");
 		return;
@@ -40,7 +40,7 @@ function modificaPrincipal(id)
 <%@include file="navegador.jsp"%>
 <header>
 		<div class="jumbotron">
-			<div class="container"><h1><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Principales<small>JSP</small></h1></div>
+			<div class="container"><h1><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Principales<small>JSP</small></h1></div>
 		</div>
 </header>
 
@@ -70,8 +70,8 @@ function modificaPrincipal(id)
 		<td>${principale.imagene.id}</td>
 		<td>${principale.contenido.descripcion}</td>
 		<td>
-			<input type="button" value="Modificar" class="btn btn-primary" onclick="modificaPrincipal(${principale.id},'modificaPrincipal.html')" >			
-			<input type="button" value="Borrar" class="btn btn-warning" onclick="borraPrincipal(${principale.id})">
+			<input type="button" id="vueltas" value="Modificar" class="btn btn-primary" onclick="modificaPrincipal(${principale.id},'modificaPrincipal.html')" >			
+			<input type="button" id="vueltas" value="Borrar" class="btn btn-warning" onclick="borraPrincipal(${principale.id})">
 		</td>
 	</tr>
 	
@@ -80,7 +80,7 @@ function modificaPrincipal(id)
 
 	</c:forEach>     
 </table>
-<a href="modificaPrincipal.html?id=0"><input type="button" value=" Añadir nuevo principal" class="btn btn-success"></a>
+<a href="modificaPrincipal.html?id=0"><input type="button" value=" Añadir nuevo principal" class="btn btn-success" id="vueltas"></a>
 </div>
 		</div>
 	</div>

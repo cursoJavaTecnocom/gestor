@@ -39,8 +39,6 @@ public class MenuController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("menu.html")
 	public ModelAndView menu(HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
 		if (!getDelegate().validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");
@@ -64,8 +62,6 @@ public class MenuController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("modificaMenu.html")
 	public ModelAndView modificaMenu(int id,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
 		if (!getDelegate().validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");
@@ -102,8 +98,6 @@ public class MenuController {
 
 	@RequestMapping("grabaMenu.html")
 	public ModelAndView grabaMenu(Menu menu,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
 		if (!getDelegate().validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");
@@ -122,8 +116,6 @@ public class MenuController {
 
 	@RequestMapping("borraMenu.html")
 	public ModelAndView borraMenu(int id,HttpServletRequest request) {
-//		if (!getDelegate().validar(request))
-//			return new ModelAndView("noLogado");
 		if (!getDelegate().validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");

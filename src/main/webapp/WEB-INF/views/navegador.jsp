@@ -16,6 +16,10 @@
           </ul>
         </li>
       </ul>
+      <ul class="nav navbar-nav" style="float: left; list-style-type: none; padding: 0; position: absolute; left: 50%;">
+      	<li style="float: left;position: relative; right: 50%;">
+      	<a href="<%=request.getContextPath()%>"><span class="glyphicon glyphicon-home">Javanianos</span></a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span><%=session.getAttribute("usuLogado") %></a></li>
         <li><a href="cerrarSesion.html"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
