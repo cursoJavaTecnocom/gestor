@@ -33,8 +33,8 @@
 			<div class="col-md-offset-4 col-md-4">
 				<div class="alert alert-danger" role="alert">
 					<span class="glyphicon glyphicon-exclamation-sign"
-						aria-hidden="true"></span><span> EL ZAMORANO NO DEJA BORRAR ESTE CONTENIDO!!!</span>
-						<img src="http://stream1.gifsoup.com/view3/1158198/drinking-bird-o.gif" align="middle">
+						aria-hidden="true"></span><span> AH AH AH, NO PUEDES BORRAR ESTE CONTENIDO!!!</span>
+						<img src="http://i.imgur.com/Hm7Xj.gif" align="middle">
 						
 									
 				</div>
