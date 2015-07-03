@@ -10,28 +10,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-   
-        <sf:form  action="grabaModificaImagen${imagen.id }.html"  modelAttribute="imagen">
+    
+        <form method="post" action="altaImagen.html"  enctype="multipart/form-data">
             <div class="main">
                 <br> <br> <br> <br> <br>
                 <table align="center">
                     <tr>
-                        <td class="block" colspan="2" align="center">MODIFICACION DE IMAGENES</td>
+                        <td class="block" colspan="2" align="center">ALTA DE IMAGENES</td>
 
                     </tr>
                     <tr>
-                        <td class="indenth2">Imagen:</td>
-                        <td><sf:input path="nombre" disabled="true"/></td>
+                        <td class="indenth2">Selecciona fichero:</td>
+                        <td><input type="file" name="fichero" value="${imagen.nombre }"></td>
                     </tr>
                           <tr>
                         <td class="indenth2">Carrusel</td>
-                        <td><sf:checkbox path="carrusel"/> </td>
+                        <td><input type="checkbox" name="banner" ${banner}
+                        /> </td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center"><input type="submit" value="GRABAR"></td>
                     </tr>
                 </table> 
             </div>
-        </sf:form>
+        </form>
     </body>
 </html>

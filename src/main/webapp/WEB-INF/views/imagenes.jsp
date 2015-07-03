@@ -28,6 +28,7 @@
 	</header>
 	<div class="container">
 		<div class="row">
+		
 			<input type="button" value=" Nueva Imagen" class="btn btn-success" onclick="modificaImagen(0)">
 			<table border="1" id="miTabla" class="table table-striped">
 
@@ -35,6 +36,7 @@
 					<td>id</td>
 					<td>nombre</td>
 					<td>imagen</td>
+					<td>Carrusel</td>
 					<td>Acciones</td>
 					
 				</tr>
@@ -45,6 +47,9 @@
 						
 						</td>
 						<td><a href="images/${imagen.nombre }" target="new"><img src="images/${imagen.nombre }" width="100" height="100"></a></td>
+						<td>${imagen.banner }
+						
+						</td>
 						<td><input type="button" value="Borrar"
 							class="btn btn-warning" onclick="borraImagen(${imagen.id })">
 						<input type="button" value="Modificar"

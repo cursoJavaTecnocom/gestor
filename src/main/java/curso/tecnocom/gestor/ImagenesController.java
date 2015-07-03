@@ -38,7 +38,7 @@ public class ImagenesController {
 	@RequestMapping(value = "/altaImagen.html")
 	public ModelAndView altaImagen(
 			@RequestParam("fichero") MultipartFile fichero,
-			HttpServletRequest request) throws Exception {
+			HttpServletRequest request, String banner) throws Exception {
 		String salida = null;
 		try {
 
@@ -49,7 +49,7 @@ public class ImagenesController {
 				modelAndView.addObject("destino", "imagenes.html");
 				return modelAndView;
 			}
-			
+
 			if (ServletFileUpload.isMultipartContent(request)) {
 
 				String nombre = fichero.getOriginalFilename();
@@ -63,30 +63,75 @@ public class ImagenesController {
 					Imagene imagen = new Imagene();
 					imagen.setNombre(nombre);
 					imagen.setImagen(b);
+					imagen.setBanner(0);
+					imagen.setCarrusel(false);
+					if (banner.equals("on"))
+					{
+						imagen.setBanner(1);
+						imagen.setCarrusel(true);
+					}
+
 					getGestorDelegate().grabaObjeto(imagen);
 				}
 
 			}
 			return imagenes(request);
 		} catch (Exception ex) {
-			salida = "grabadoKo";
+			salida = "home";
 			ex.printStackTrace();
 		}
 
 		return new ModelAndView(salida);
 
 	}
+	@RequestMapping("grabaModificaImagen{id}.html")
+	public ModelAndView grabaModificaImagen(@PathVariable("id") int id,HttpServletRequest request,Imagene imagen) {
+		
+		if (!gestorDelegate.validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
+			modelAndView.addObject("usuario", new Usuario());
+			modelAndView.addObject("destino", "imagenes.html");
+			return modelAndView;
+		}
+
+		try {
+			Imagene im=(Imagene) getGestorDelegate().dameObjeto(id, Imagene.class);
+			if(imagen.isCarrusel())
+			{
+				im.setBanner(1);
+				im.setCarrusel(imagen.isCarrusel());
+			}
+			
+			getGestorDelegate().grabaObjeto(im);
+			return imagenes(request);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView("home");
+		}
+	
+	}
 
 	@RequestMapping("modificaImagen{id}.html")
 	public ModelAndView modificaImagen(@PathVariable("id") int id) {
-		ModelAndView salida = new ModelAndView("modificaImagen");
 		Imagene imagen = new Imagene();
+		ModelAndView salida = null;
 		try {
 			if (id > 0) {
 				imagen = (Imagene) getGestorDelegate().dameObjeto(id,
 						Imagene.class);
+				salida = new ModelAndView("modificaImagen");
+				imagen.setCarrusel(false);
+				if (imagen.getBanner() == 1)
+					imagen.setCarrusel(true);
+
+			} else {
+				salida = new ModelAndView("altaImagen");
+
 			}
 			salida.addObject("imagen", imagen);
+
 			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -96,9 +141,9 @@ public class ImagenesController {
 	}
 
 	@RequestMapping("borraImagen{id}.html")
-	
-	public  ModelAndView borraImagen(@PathVariable("id") int id, HttpServletRequest request) {
-		
+	public ModelAndView borraImagen(@PathVariable("id") int id,
+			HttpServletRequest request) {
+
 		if (!gestorDelegate.validar(request)) {
 
 			ModelAndView modelAndView = new ModelAndView("validacion");
@@ -106,23 +151,23 @@ public class ImagenesController {
 			modelAndView.addObject("destino", "imagenes.html");
 			return modelAndView;
 		}
-		
-		
+
 		try {
-			Imagene imagen= (Imagene) getGestorDelegate().dameObjeto(id, Imagene.class);
-			
+			Imagene imagen = (Imagene) getGestorDelegate().dameObjeto(id,
+					Imagene.class);
+
 			getGestorDelegate().borraDato(imagen);
-			File file= new File(getServletContext().getRealPath("/") + "/images/"
-								+ imagen.getNombre());
+			File file = new File(getServletContext().getRealPath("/")
+					+ "/images/" + imagen.getNombre());
 			file.delete();
-		 
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//salida.addObject("error","");
-			//result.addError(new ObjectError("error", "La imagen no ha podido borrarse"));
-			
+			// salida.addObject("error","");
+			// result.addError(new ObjectError("error",
+			// "La imagen no ha podido borrarse"));
+
 		}
 		return imagenes(request);
 	}

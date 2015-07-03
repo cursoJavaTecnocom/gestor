@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the imagenes database table.
@@ -32,6 +33,17 @@ public class Imagene implements Serializable {
 	private byte[] imagen;
 
 	private String nombre;
+	
+	public boolean isCarrusel() {
+		return carrusel;
+	}
+
+	public void setCarrusel(boolean carrusel) {
+		this.carrusel = carrusel;
+	}
+
+	@Transient
+	private boolean carrusel;
 
 	// bi-directional many-to-one association to Menu
 	@OneToMany(mappedBy = "imagene")

@@ -58,7 +58,8 @@ public class GestorDaoPadre implements DaoInterface {
 	// @TransactionManager
 	@Override
 	public void grabaDato(Object objeto) throws Exception {
-		setSesion(getFactoria().openSession());
+		if (getSesion() == null || !getSesion().isOpen())
+			setSesion(getFactoria().openSession());
 		getSesion().beginTransaction();
 		getSesion().saveOrUpdate(objeto);
 		getSesion().getTransaction().commit();
