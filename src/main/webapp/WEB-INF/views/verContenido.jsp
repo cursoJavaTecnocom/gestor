@@ -10,7 +10,7 @@
 <body>
 	<header> <jsp:include page="header.jsp" /> </header>
 	<%@include file="nav.jsp"%>
-	<jsp:include page="Slider.jsp" />
+	<jsp:include page="slider.jsp" />
 
 	<div>${contenido.contenido }</div>
 	<h3 align="center">

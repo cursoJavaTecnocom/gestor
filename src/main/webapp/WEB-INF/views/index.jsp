@@ -13,18 +13,10 @@
 <header>
 ${header.contenido }
 <%@include file="nav.jsp"%>
-<<<<<<< HEAD
-
 </header>
 
-
-
 <%@include file="slider.jsp" %>
-<div class="container">
-=======
-<%@include file="header.jsp" %>
-<%@include file="Slider.jsp" %>
->>>>>>> branch 'master' of https://github.com/cursoJavaTecnocom/gestor.git
+
 <div class="row">
 <div class="col-md-2"><%@include file="bannerizquierdo.jsp" %></div>
 <div class="col-md-1"></div>
