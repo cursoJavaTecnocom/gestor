@@ -13,10 +13,16 @@
 </head>
 <body>
 <%@include file="nav.jsp"%>
+<%@include file="header.jsp" %>
 
 
-<h1>QUIENES SOMOS</h1>
-<p>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania es una publicación de Cooperativa de Javanianos, SL para todos los apasionados de la tecnología. Se ocupa tanto de contar de manera rigurosa y con pasión la actualidad tecnológica, como de analizar en profundidad los principales lanzamientos y compararlos con otros modelos similares. Lanzada en 2004, Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania se ha convertido en la publicación líder en tecnología en español, creando una comunidad de usuarios muy informados, influyentes y altamente participativos, que supera el millón de usuarios únicos mensuales según datos de comScore. Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania es pasión por un futuro que ya se ha hecho realidad.</p>
+<p align="center"><h1><b>QUIENES SOMOS</b></h1></p>
+</br>
+</br>
+<img src="http://stream1.gifsoup.com/webroot/animatedgifs3/1158198_o.gif" align="center">
+</br>
+</br>
+<p align="center" ><b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es una publicación de <b>Cooperativa de Javanianos, SL</b> para todos los apasionados de la tecnología. Se ocupa tanto de contar de manera rigurosa y con pasión la actualidad tecnológica, como de analizar en profundidad los principales lanzamientos y compararlos con otros modelos similares. Lanzada en 1878, <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> se ha convertido en la publicación líder en tecnología en español, creando una comunidad de usuarios muy informados, influyentes y altamente participativos, que supera el millón de usuarios únicos mensuales según datos de comScore. <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es pasión por un futuro que ya se ha hecho realidad.</p>
 
 
 <%@include file="footer.jsp" %>
