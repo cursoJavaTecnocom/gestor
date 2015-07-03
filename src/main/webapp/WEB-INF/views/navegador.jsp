@@ -17,7 +17,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav text-center">
-      	<li><a href="<%=request.getContextPath()%>"><img class="img-rounded" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Wave.svg/170px-Wave.svg.png" width="30px" heigth="30px"/></a></li>
+      	<li><a href="<%=request.getContextPath()%>"><span class="glyphicon glyphicon-home">Javanianos</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span><%=session.getAttribute("usuLogado") %></a></li>
