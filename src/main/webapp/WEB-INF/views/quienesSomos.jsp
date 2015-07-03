@@ -15,13 +15,13 @@
 <%@include file="nav.jsp"%>
 <%@include file="header.jsp" %>
 
-<table border="0" width="600px">
-<th align="center"  width="600px" border="0"><h1>QUIENES SOMOS</h1></th>
+<table border="0" width="600">
+<th align="center"  width="600" border="0"><h1>QUIENES SOMOS</h1></th>
 
 <tr align="center" border="0"><img src="http://stream1.gifsoup.com/webroot/animatedgifs3/1158198_o.gif" ></tr>
 
 
-<tr align="center" border="0" width="600px"><b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es una publicación de <b>Cooperativa de Javanianos, SL</b> para todos los apasionados de la tecnología. Se ocupa tanto de contar de manera rigurosa y con pasión la actualidad tecnológica, como de analizar en profundidad los principales lanzamientos y compararlos con otros modelos similares. Lanzada en 1878, <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> se ha convertido en la publicación líder en tecnología en español, creando una comunidad de usuarios muy informados, influyentes y altamente participativos, que supera el millón de usuarios únicos mensuales según datos de comScore. <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es pasión por un futuro que ya se ha hecho realidad.</tr>
+<tr align="center" border="0" width="600"><b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es una publicación de <b>Cooperativa de Javanianos, SL</b> para todos los apasionados de la tecnología. Se ocupa tanto de contar de manera rigurosa y con pasión la actualidad tecnológica, como de analizar en profundidad los principales lanzamientos y compararlos con otros modelos similares. Lanzada en 1878, <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> se ha convertido en la publicación líder en tecnología en español, creando una comunidad de usuarios muy informados, influyentes y altamente participativos, que supera el millón de usuarios únicos mensuales según datos de comScore. <b>Javanianos Zamoranos de Sevilla y Toledo más Valencia, asociados con Málaga-Alemania</b> es pasión por un futuro que ya se ha hecho realidad.</tr>
 </table>
 
 <%@include file="footer.jsp" %>
