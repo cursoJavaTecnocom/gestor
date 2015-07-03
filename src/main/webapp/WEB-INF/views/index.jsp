@@ -13,7 +13,11 @@
 <header>
 ${header.contenido }
 <%@include file="nav.jsp"%>
+
+
 </header>
+
+
 
 <%@include file="slider.jsp" %>
 
