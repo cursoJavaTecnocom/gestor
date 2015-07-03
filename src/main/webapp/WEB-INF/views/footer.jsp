@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+</style>
 </head>
 <body>
-<img src="http://xeven.com.ar/footer.png" width="100%">
+<img src="http://xeven.com.ar/footer.png" width="100%" height="200">
 </body>
 </html>
