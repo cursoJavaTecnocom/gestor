@@ -33,14 +33,8 @@ background-color: black;
 <p class="text-muted credit">${header.contenido }</p>
 
 </c:forEach>
-</header>
-
 <%@include file="nav.jsp"%>
-
-
-
-
-
+</header>
 
 <%@include file="slider.jsp"%>
 
