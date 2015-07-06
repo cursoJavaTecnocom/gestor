@@ -166,6 +166,25 @@ public class DestacadoController {
 			return new ModelAndView("error");
 		}
 	}
+	
+	@RequestMapping("verDestacado.html")
+	public ModelAndView verContenido(int id, HttpServletRequest request){
+		try{
+		Destacado destacado = null;
+		destacado = (Destacado) getGestorDelegate().dameObjeto(id, Destacado.class);
+		ModelAndView salida = new ModelAndView("verContenido");
+		List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
+				Menu.class);
+		salida.addObject("menus", menus);
+		salida.addObject("destacado", destacado);
+		return salida;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ModelAndView ("error");
+		}
+		
+	}
 
 	public GestorDelegate getGestorDelegate() {
 		return gestorDelegate;
