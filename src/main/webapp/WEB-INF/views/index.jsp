@@ -21,13 +21,16 @@
   height: 400px;
   width: 600px;
 }
+footer{
+background-color: black;
+}
   </style>
 </head>
 <body>
 <header>
 <c:forEach items="${contenidoHeader }" var="header">
 
-${header.contenido }
+<p class="text-muted credit">${header.contenido }</p>
 
 </c:forEach>
 </header>
@@ -76,13 +79,17 @@ ${header.contenido }
     <div class="col-md-3"><%@include file="bannerderecho.jsp" %></div>
 </div>
 <footer>
-<c:forEach items="${contenidoFooter }" var="footer">
+
   <div id="footer">
+
       <div class="container">
-        <p class="text-muted credit"><a href="#">${footer.contenido }</a></p>
+        <c:forEach items="${contenidoFooter }" var="footer">
+        <a href="#">${footer.contenido }</a>
+          </c:forEach>
       </div>
+    
     </div>
-</c:forEach>
+
 </footer>
 </body>
 </html>
