@@ -13,10 +13,10 @@
 	<jsp:include page="slider.jsp" />
 
 	<c:if test="${not empty contenido.id }">
-	<div>${contenido.contenido }</div>
+	<h3 align="center"><div>${contenido.contenido }</div></h3>
 	</c:if>
 	<c:if test="${not empty destacado.id }">
-	<div>${destacado.texto }</div>
+	<h3 align="center"><div>${destacado.texto }</div></h3>
 	</c:if>
 	<h3 align="center">
 		<a href=".html?id=0"><input type="button" value=" Volver"
