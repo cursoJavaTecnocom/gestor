@@ -1,7 +1,11 @@
 package curso.tecnocom.gestor;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -35,7 +39,18 @@ public class DestacadoController {
 	private GestorDelegate gestorDelegate;
 	@Autowired
 	private ImagenesDelegate imagenesDelegate;
-	
+
+	@Autowired
+	private ServletContext servletContext;
+
+	public ServletContext getServletContext() {
+		return servletContext;
+	}
+
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
+
 	public ImagenesDelegate getImagenesDelegate() {
 		return imagenesDelegate;
 	}
@@ -44,12 +59,35 @@ public class DestacadoController {
 		this.imagenesDelegate = imagenesDelegate;
 	}
 
-	
-
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index() {
 		try {
+			List<Imagene> imagenes = (List<Imagene>) getGestorDelegate()
+					.dameDatos(Imagene.class);
+			for (Imagene imagen : imagenes) {
+
+				try {
+					try {
+						FileInputStream fileInputStream = new FileInputStream(
+								getServletContext().getRealPath("/")
+										+ "/images/" + imagen.getNombre());
+					} catch (FileNotFoundException e) {
+						
+					
+					FileOutputStream fileOutputStream = new FileOutputStream(
+							getServletContext().getRealPath("/")
+									+ "/images/" + imagen.getNombre());
+					fileOutputStream.write(imagen.getImagen());
+					fileOutputStream.flush();
+					fileOutputStream.close();
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
 			List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
 					Menu.class);
 			ModelAndView modelAndView = new ModelAndView("index");
@@ -64,42 +102,41 @@ public class DestacadoController {
 			modelAndView.addObject("imagenesCarrusel", imagenesCarrusel);
 			
 			return modelAndView;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return  new ModelAndView("error");
 		}
 	}
 	
-	@RequestMapping("home.html")
-	public ModelAndView home(HttpServletRequest request){
 
-		ModelAndView modelAndView= null;
-		if (!getGestorDelegate().validar(request))
-		{
-			
-			modelAndView= new ModelAndView("validacion");
+	@RequestMapping("home.html")
+	public ModelAndView home(HttpServletRequest request) {
+
+		ModelAndView modelAndView = null;
+		if (!getGestorDelegate().validar(request)) {
+
+			modelAndView = new ModelAndView("validacion");
 			modelAndView.addObject("usuario", new Usuario());
-			modelAndView.addObject("destino","home.html");
+			modelAndView.addObject("destino", "home.html");
 			return modelAndView;
 		}
 		return new ModelAndView("home");
 	}
 
 	@InitBinder
-	public void init(WebDataBinder binder) 
-	{
+	public void init(WebDataBinder binder) {
 		binder.registerCustomEditor(Contenido.class, new ContenidoProperty());
 	}
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("destacados.html")
 	public ModelAndView destacados(HttpServletRequest request) {
-		if (!getGestorDelegate().validar(request))
-		{
-			
-			ModelAndView modelAndView= new ModelAndView("validacion");
+		if (!getGestorDelegate().validar(request)) {
+
+			ModelAndView modelAndView = new ModelAndView("validacion");
 			modelAndView.addObject("usuario", new Usuario());
-			modelAndView.addObject("destino","destacados.html");
+			modelAndView.addObject("destino", "destacados.html");
 			return modelAndView;
 		}
 		try {
@@ -166,24 +203,25 @@ public class DestacadoController {
 			return new ModelAndView("error");
 		}
 	}
-	
+
 	@RequestMapping("verDestacado.html")
-	public ModelAndView verContenido(int id, HttpServletRequest request){
-		try{
-		Destacado destacado = null;
-		destacado = (Destacado) getGestorDelegate().dameObjeto(id, Destacado.class);
-		ModelAndView salida = new ModelAndView("verContenido");
-		List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
-				Menu.class);
-		salida.addObject("menus", menus);
-		salida.addObject("destacado", destacado);
-		return salida;
+	public ModelAndView verContenido(int id, HttpServletRequest request) {
+		try {
+			Destacado destacado = null;
+			destacado = (Destacado) getGestorDelegate().dameObjeto(id,
+					Destacado.class);
+			ModelAndView salida = new ModelAndView("verContenido");
+			List<Menu> menus = (List<Menu>) getGestorDelegate().dameDatos(
+					Menu.class);
+			salida.addObject("menus", menus);
+			salida.addObject("destacado", destacado);
+			return salida;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ModelAndView ("error");
+			return new ModelAndView("error");
 		}
-		
+
 	}
 
 	public GestorDelegate getGestorDelegate() {

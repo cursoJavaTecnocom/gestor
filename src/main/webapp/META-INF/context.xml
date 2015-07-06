@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context>
-    <Resource name="jdbc/ConexionMySQL" auth="Container" type="javax.sql.DataSource"
-        maxActive="20" maxIdle="10" maxWait="5000"
-        username="tecnocom" password="cursocurso" driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://192.168.120.20:3306/gestor"/>
- 
-</Context>
