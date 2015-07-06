@@ -11,7 +11,7 @@
 <body>
 
 <%@include file="nav.jsp"%>
-<%@include file="header.jsp" %>
+<%@include file="nav.jsp"%>
 
 <p align="center"><h3 >DONDE ESTAMOS</h3><p>
 
@@ -22,9 +22,6 @@
 <p><h1>email:</h1><h2> Javanianos@javanianosZamoranos.com</h2> </p>
 
 
-
-
-<%@include file="footer.jsp" %>
 
 </body>
 </html>
