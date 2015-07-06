@@ -116,6 +116,7 @@ public class ContenidoController {
 		Contenido contenido=null;
 		contenido = (Contenido) getContenidoDelegate().dameObjeto(id, Contenido.class);
 		ModelAndView salida = new ModelAndView("verContenido");
+		@SuppressWarnings("unchecked")
 		List<Menu> menus = (List<Menu>) getContenidoDelegate().dameDatos(
 				Menu.class);
 		salida.addObject("menus", menus);

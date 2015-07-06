@@ -15,7 +15,7 @@ public class ContenidoDao extends GestorDaoPadre{
 	{
 		setSesion(getFactoria().openSession());
 		Criteria criContenido= getSesion().createCriteria(Contenido.class);
-		// criContenido.add(Restrictions.eq("banner",1));
+		criContenido.add(Restrictions.like("descripcion", "footer"));
 		return criContenido.list();
 	}
 
