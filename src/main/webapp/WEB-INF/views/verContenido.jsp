@@ -12,7 +12,12 @@
 	<%@include file="nav.jsp"%>
 	<jsp:include page="slider.jsp" />
 
+	<c:if test="${not empty contenido.id }">
 	<div>${contenido.contenido }</div>
+	</c:if>
+	<c:if test="${not empty destacado.id }">
+	<div>${destacado.texto }</div>
+	</c:if>
 	<h3 align="center">
 		<a href=".html?id=0"><input type="button" value=" Volver"
 			class="btn btn-success" id="vueltas"></a>

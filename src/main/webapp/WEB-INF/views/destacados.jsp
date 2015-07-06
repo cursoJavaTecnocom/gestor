@@ -9,6 +9,7 @@
 <title>DESTACADOS</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="js/contenido.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function borraDestacado(id){
 		if(confirm("Está seguro de borar el destacado?"))
@@ -19,6 +20,11 @@
 	
 	function modificaDestacado(id){
 		document.location="modificaDestacado.html?id="+id;
+	}
+
+	function verDestacado(id)
+	{
+		document.location="verDestacado.html?id="+id;
 	}
 </script>
 
@@ -63,7 +69,7 @@
 					<td>
 						<input type="button" class="btn btn-warning" value="Borrar" onclick="borraDestacado(${destacado.id})">
 						<input type="button" class="btn btn-primary" value="Modificar" onclick="modificaDestacado(${destacado.id})">
-						<input type="button" class="btn btn-success" value="Ver" onclick="">
+						<input type="button" class="btn btn-success" value="Ver"  onclick="verDestacado(${destacado.id})">
 					</td>
 				</tr>
 			</c:forEach>
