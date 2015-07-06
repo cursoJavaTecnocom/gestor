@@ -131,6 +131,8 @@ public class ContenidoController {
 	}
 	
 	
+	
+	
 	public GestorDelegate getContenidoDelegate() {
 		return contenidoDelegate;
 	}

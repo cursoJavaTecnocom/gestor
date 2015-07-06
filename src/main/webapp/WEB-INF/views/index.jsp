@@ -25,11 +25,17 @@
 </head>
 <body>
 <header>
+<c:forEach items="${contenidoHeader }" var="header">
+
 ${header.contenido }
+
+</c:forEach>
+</header>
+
 <%@include file="nav.jsp"%>
 
 
-</header>
+
 
 
 
@@ -69,6 +75,14 @@ ${header.contenido }
     </div></div>
     <div class="col-md-3"><%@include file="bannerderecho.jsp" %></div>
 </div>
-<%@include file="footer.jsp" %>
+<footer>
+<c:forEach items="${contenidoFooter }" var="footer">
+  <div id="footer">
+      <div class="container">
+        <p class="text-muted credit"><a href="#">${footer.contenido }</a></p>
+      </div>
+    </div>
+</c:forEach>
+</footer>
 </body>
 </html>
