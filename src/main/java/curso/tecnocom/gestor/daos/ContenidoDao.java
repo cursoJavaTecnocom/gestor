@@ -11,12 +11,23 @@ import curso.tecnocom.gestor.datos.Contenido;
 @Repository
 public class ContenidoDao extends GestorDaoPadre{
 	
-	public List<Contenido> getContenidoByContenido() throws Exception 
+	public List<Contenido> getContenidoFooter() throws Exception 
 	{
 		setSesion(getFactoria().openSession());
-		Criteria criContenido= getSesion().createCriteria(Contenido.class);
-		criContenido.add(Restrictions.like("descripcion", "footer"));
-		return criContenido.list();
+		Criteria criContenidoFooter= getSesion().createCriteria(Contenido.class);
+		criContenidoFooter.add(Restrictions.like("descripcion", "footer"));
+		return criContenidoFooter.list();
 	}
+	
+	public List<Contenido> getContenidoHeader() throws Exception 
+	{
+		setSesion(getFactoria().openSession());
+		Criteria criContenidoHeader= getSesion().createCriteria(Contenido.class);
+		criContenidoHeader.add(Restrictions.like("descripcion", "header"));
+		return criContenidoHeader.list();
+	}
+
+	
+	
 
 }

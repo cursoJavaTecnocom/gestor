@@ -26,9 +26,18 @@ public class ContenidoService {
 	}
 
 
-	public List<Contenido> getContenidoByContenido() throws Exception {
+	public List<Contenido> getContenidoFooter() throws Exception {
 		List<Contenido> salida= null;
-		Method metodo=getContenidoDao().getClass().getMethod("getImagenesByCarrusel");
+		Method metodo=getContenidoDao().getClass().getMethod("getContenidoFooter");
+		salida=(List<Contenido>) metodo.invoke(getContenidoDao());
+		
+		return salida;
+		
+	}
+	
+	public List<Contenido> getContenidoHeader() throws Exception {
+		List<Contenido> salida= null;
+		Method metodo=getContenidoDao().getClass().getMethod("getContenidoHeader");
 		salida=(List<Contenido>) metodo.invoke(getContenidoDao());
 		
 		return salida;

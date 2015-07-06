@@ -22,6 +22,7 @@ import curso.tecnocom.gestor.datos.Menu;
 import curso.tecnocom.gestor.datos.Noticia;
 import curso.tecnocom.gestor.datos.Principale;
 import curso.tecnocom.gestor.datos.Usuario;
+import curso.tecnocom.gestor.delegates.ContenidoDelegate;
 import curso.tecnocom.gestor.delegates.GestorDelegate;
 import curso.tecnocom.gestor.delegates.ImagenesDelegate;
 
@@ -36,6 +37,17 @@ public class DestacadoController {
 	@Autowired
 	private ImagenesDelegate imagenesDelegate;
 	
+	@Autowired
+	private ContenidoDelegate contenidoDelegate;
+	
+	public ContenidoDelegate getContenidoDelegate() {
+		return contenidoDelegate;
+	}
+
+	public void setContenidoDelegate(ContenidoDelegate contenidoDelegate) {
+		this.contenidoDelegate = contenidoDelegate;
+	}
+
 	public ImagenesDelegate getImagenesDelegate() {
 		return imagenesDelegate;
 	}
@@ -62,6 +74,11 @@ public class DestacadoController {
 			modelAndView.addObject("principales", principales);
 			List<Imagene> imagenesCarrusel= getImagenesDelegate().getImagenesByCarrusel();
 			modelAndView.addObject("imagenesCarrusel", imagenesCarrusel);
+			List<Contenido> contenidoHeader= getContenidoDelegate().getContenidoHeader();
+			modelAndView.addObject("contenidoHeader", contenidoHeader);
+			List<Contenido> contenidoFooter= getContenidoDelegate().getContenidoFooter();
+			modelAndView.addObject("contenidoFooter", contenidoFooter);
+			
 			
 			return modelAndView;
 		} catch (Exception e) {

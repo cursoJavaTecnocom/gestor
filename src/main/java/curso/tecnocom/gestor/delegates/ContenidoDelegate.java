@@ -21,9 +21,13 @@ public class ContenidoDelegate {
 	public void setContenidoService(ContenidoService contenidoService) {
 		this.contenidoService = contenidoService;
 	}
-	public List<Contenido> getContenidoByContenido() throws Exception {
+	public List<Contenido> getContenidoFooter() throws Exception {
 		// TODO Auto-generated method stub
-		return getContenidoService().getContenidoByContenido();
+		return getContenidoService().getContenidoFooter();
+	}
+	public List<Contenido> getContenidoHeader() throws Exception {
+		// TODO Auto-generated method stub
+		return getContenidoService().getContenidoHeader();
 	}
 
 }
