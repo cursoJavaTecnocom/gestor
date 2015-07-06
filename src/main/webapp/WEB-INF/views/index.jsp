@@ -78,7 +78,7 @@ background-color: black;
 
       <div class="container">
         <c:forEach items="${contenidoFooter }" var="footer">
-        <a href="#">${footer.contenido }</a>
+       ${footer.contenido }
           </c:forEach>
       </div>
     
