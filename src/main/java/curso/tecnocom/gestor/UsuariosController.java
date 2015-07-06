@@ -120,7 +120,7 @@ public class UsuariosController {
 			getGestorDelegate().grabaObjeto(usuario);
 			return usuarios(request);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return new ModelAndView("error");
 		}
 
@@ -168,7 +168,12 @@ public class UsuariosController {
 					}
 
 				}
-
+				if(destino.isEmpty() || destino.equals(""))
+				{
+					destino = "home.html";
+					getServletContext().getRequestDispatcher("/" + destino)
+					.forward(request, response);
+				}
 				getServletContext().getRequestDispatcher("/" + destino)
 						.forward(request, response);
 				return null;
