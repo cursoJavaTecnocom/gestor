@@ -74,10 +74,12 @@ public class DestacadoController {
 			modelAndView.addObject("principales", principales);
 			List<Imagene> imagenesCarrusel= getImagenesDelegate().getImagenesByCarrusel();
 			modelAndView.addObject("imagenesCarrusel", imagenesCarrusel);
-			List<Contenido> contenidoHeader= getContenidoDelegate().getContenidoHeader();
+			List<Contenido> contenidoHeader= (List<Contenido>) getContenidoDelegate().getContenidoHeader();
 			modelAndView.addObject("contenidoHeader", contenidoHeader);
-			List<Contenido> contenidoFooter= getContenidoDelegate().getContenidoFooter();
+			List<Contenido> contenidoFooter= (List<Contenido>) getContenidoDelegate().getContenidoFooter();
 			modelAndView.addObject("contenidoFooter", contenidoFooter);
+			List<Contenido> contenidos = (List<Contenido>) getGestorDelegate().dameDatos(Contenido.class);
+			modelAndView.addObject("contenidos", contenidos);
 			
 			
 			return modelAndView;
